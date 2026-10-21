@@ -41,6 +41,21 @@ public class MainActivity extends AppCompatActivity implements IReporter {
 
     private static final String TAG = "dfroot";
 
+    /** Where the app links to: this fork's own repository. */
+    private static final String REPO = "SysopBP/FragX";
+    private static final String REPO_URL = "https://github.com/" + REPO;
+    /** Where the update check looks. Point this at whichever repo actually
+     *  publishes releases - the fork's own once it does, mitschud/DirtyFrag until
+     *  then. A repo with no releases answers 404 and the pill simply never
+     *  appears, which is why this is not the fork yet. The numeric compare below
+     *  is what makes watching an upstream safe: a build that is ahead of it is no
+     *  longer told to update back down to it. */
+    private static final String UPDATE_REPO = "mitschud/DirtyFrag";
+    private static final String RELEASES_URL =
+            "https://github.com/" + UPDATE_REPO + "/releases";
+    private static final String LATEST_API =
+            "https://api.github.com/repos/" + UPDATE_REPO + "/releases/latest";
+
     private ActivityMainBinding binding;
     private final Handler mMain = new Handler(Looper.getMainLooper());
     private final Executor mExec = Executors.newSingleThreadExecutor();
@@ -468,7 +483,7 @@ public class MainActivity extends AppCompatActivity implements IReporter {
         // releases page. No newer release, no pill - the header stays the plain word.
         binding.updatePill.setOnClickListener(v -> {
             v.performHapticFeedback(HapticFeedbackConstants.KEYBOARD_TAP);
-            openUrl("https://github.com/mitschud/DirtyFrag/releases");
+            openUrl(RELEASES_URL);
         });
         mExec.execute(this::checkForAppUpdate);
 
@@ -670,7 +685,7 @@ public class MainActivity extends AppCompatActivity implements IReporter {
             ghRow.setTextSize(android.util.TypedValue.COMPLEX_UNIT_SP, 15);
             ghRow.setOnClickListener(v2 -> {
                 v2.performHapticFeedback(HapticFeedbackConstants.KEYBOARD_TAP);
-                openUrl("https://github.com/mitschud/DirtyFrag");
+                openUrl(REPO_URL);
             });
             box.addView(ghRow, new android.widget.LinearLayout.LayoutParams(
                     android.view.ViewGroup.LayoutParams.MATCH_PARENT, (int) (46 * md)));
@@ -1435,7 +1450,7 @@ public class MainActivity extends AppCompatActivity implements IReporter {
     private void checkForAppUpdate() {
         try {
             java.net.HttpURLConnection conn = (java.net.HttpURLConnection)
-                    new java.net.URL("https://api.github.com/repos/mitschud/DirtyFrag/releases/latest")
+                    new java.net.URL(LATEST_API)
                             .openConnection();
             conn.setConnectTimeout(8000);
             conn.setReadTimeout(8000);
@@ -1460,12 +1475,40 @@ public class MainActivity extends AppCompatActivity implements IReporter {
             } catch (Exception e) {
                 return;
             }
-            if (latest.equalsIgnoreCase(mine)) return;
+            // Numeric compare, not string inequality: a fork that is ahead of the
+            // repo it checks was being told to "update" back down to it.
+            if (compareVersions(latest, mine) <= 0) {
+                Log.i(TAG, "update check: up to date (" + mine + " >= " + latest + ")");
+                return;
+            }
             Log.i(TAG, "update check: update available (latest=" + latest + ")");
             mMain.post(this::showUpdatePill);
         } catch (Exception e) {
             Log.i(TAG, "update check failed: " + e);
         }
+    }
+
+    /** -1, 0 or 1 over dotted numeric versions. A non-numeric tail is ignored, so
+     *  "1.16" against "1.16" and "1.16" against "1.16-debug" both come out 0 -
+     *  which is what lets the debug build type carry a suffix and still not be
+     *  told to update itself. */
+    private static int compareVersions(String a, String b) {
+        String[] pa = a.split("\\.");
+        String[] pb = b.split("\\.");
+        for (int i = 0; i < Math.max(pa.length, pb.length); i++) {
+            int na = numPart(i < pa.length ? pa[i] : "0");
+            int nb = numPart(i < pb.length ? pb[i] : "0");
+            if (na != nb) return na < nb ? -1 : 1;
+        }
+        return 0;
+    }
+
+    private static int numPart(String s) {
+        int n = 0;
+        for (int i = 0; i < s.length() && Character.isDigit(s.charAt(i)); i++) {
+            n = n * 10 + (s.charAt(i) - '0');
+        }
+        return n;
     }
 
     /**
