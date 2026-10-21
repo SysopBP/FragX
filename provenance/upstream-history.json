@@ -9,7 +9,9 @@
     "LSPosed/LSPromise": {
       "head": "0258165d91aa72451dcd8406934ba3fc34f52c14",
       "license_path_history": "",
-      "tracked_notice_paths": []
+      "tracked_notice_paths": [],
+      "full_history_commits": 12,
+      "shallow": false
     },
     "diabl0w/DFRoot": {
       "head": "c274137e8c02b4f94f64d1b132d991b80c747340",

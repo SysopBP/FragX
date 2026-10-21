@@ -74,3 +74,11 @@ See [path audit](provenance/PATH_AUDIT.md), [per-path evidence](provenance/files
 User confirmed all license text views on the S26 Ultra. The phone UI check is complete. Five grant requests have been delivered and remain pending; DFRoot remains collaborator-restricted. Earlier delivery/UI blockers above are historical.
 
 All eight container digests were recovered from successful Build #11 Docker-pull logs and recorded in provenance/ddk-images.json. CI now requests those exact digests and includes them in new build manifests. Independent reproducibility and full dependency notice review remain open.
+
+## Pre-import checkpoint — 2026-10-21
+
+LSPromise was previously a shallow one-commit checkout; it is now unshallowed to 12 commits. Repeating the license-path history scan still found no LICENSE/COPYING additions or deletions. Other five checkout histories were already non-shallow.
+
+provenance/pre-import.json records exact whole-file matches against reachable historical objects: DFRoot initial-import elf_parser.c matches historical LSPromise and DFReroot blobs; the initial dirtyfrag-lkm/dirtyfrag.c matches DFReroot. Other reviewed initial code files have no whole-file match, which does not rule out copied portions. Import ancestry is not fully resolved.
+
+Both Gradle wrapper scripts retain explicit Apache-2.0 headers. Added LICENSE-Apache-2.0.txt and included its full text in source and APK notices. This is a component-scoped compliance change; transitive Android dependency notices remain under review.

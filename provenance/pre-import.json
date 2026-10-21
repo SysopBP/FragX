@@ -1,0 +1,111 @@
+{
+  "date": "2026-10-21",
+  "method": "Whole-file Git blob equality against all objects reachable from fetched upstream refs. No match does not rule out partial copying. Path hints are object-list names, not a rename reconstruction.",
+  "LSPromise_full_history_commits": 12,
+  "entries": [
+    {
+      "DFRoot_path": "app/src/main/java/df/root/BootReceiver.java",
+      "DFRoot_import_commit": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+      "blob": "ff7b9bcda0cf2dd117da98dd43fefa7715be88be",
+      "historical_exact_matches": []
+    },
+    {
+      "DFRoot_path": "app/src/main/java/df/root/IReporter.java",
+      "DFRoot_import_commit": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+      "blob": "889d4fc488e0bb7a11d9af46c1485267d0404e40",
+      "historical_exact_matches": []
+    },
+    {
+      "DFRoot_path": "app/src/main/java/df/root/MainActivity.java",
+      "DFRoot_import_commit": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+      "blob": "1a8dd6eafa1c87515e31d011057e89b5958978c3",
+      "historical_exact_matches": []
+    },
+    {
+      "DFRoot_path": "app/src/main/jni/aes256.h",
+      "DFRoot_import_commit": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+      "blob": "d9a969628857c57e76f5320ac351f7740bf09ef6",
+      "historical_exact_matches": []
+    },
+    {
+      "DFRoot_path": "app/src/main/jni/elf_parser.c",
+      "DFRoot_import_commit": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+      "blob": "7a58630f218c669af63c0d926af7fac11c6fbbda",
+      "historical_exact_matches": [
+        {
+          "repository": "LSPosed/LSPromise",
+          "path_hint": "app/src/main/jni/elf_parser.c",
+          "matching_blob": "7a58630f218c669af63c0d926af7fac11c6fbbda",
+          "change_commits": [
+            "45a48033e37e371c163eb9bb5099892cd7a26188"
+          ]
+        },
+        {
+          "repository": "polygraphene/DFReroot",
+          "path_hint": "app/src/main/jni/elf_parser.c",
+          "matching_blob": "7a58630f218c669af63c0d926af7fac11c6fbbda",
+          "change_commits": [
+            "25ffda4b118de2da38ffeaa34aff0c7ef28ebf6a"
+          ]
+        }
+      ]
+    },
+    {
+      "DFRoot_path": "app/src/main/jni/exp.c",
+      "DFRoot_import_commit": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+      "blob": "5a8af10e42d32c1beacb41816b518ba04ecf70e6",
+      "historical_exact_matches": []
+    },
+    {
+      "DFRoot_path": "app/src/main/jni/hmac_sha256.h",
+      "DFRoot_import_commit": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+      "blob": "09ed6de13b94206a2fec8b4ef56f6c342778480b",
+      "historical_exact_matches": []
+    },
+    {
+      "DFRoot_path": "app/src/main/jni/include.inc",
+      "DFRoot_import_commit": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+      "blob": "75db4a521ff86ec316ea24b48f4e2f66165bf8e8",
+      "historical_exact_matches": []
+    },
+    {
+      "DFRoot_path": "app/src/main/jni/libc.S",
+      "DFRoot_import_commit": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+      "blob": "f70ffc1dfb11df059f3d5f6200498a807ffa9efa",
+      "historical_exact_matches": []
+    },
+    {
+      "DFRoot_path": "app/src/main/jni/libcxx.S",
+      "DFRoot_import_commit": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+      "blob": "441de64c5c49b7e3aa949dba9af1dd26ef9a2d3d",
+      "historical_exact_matches": []
+    },
+    {
+      "DFRoot_path": "app/src/main/jni/logging.h",
+      "DFRoot_import_commit": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+      "blob": "8af0db049581e59268026858215098c7a9ce0eba",
+      "historical_exact_matches": []
+    },
+    {
+      "DFRoot_path": "app/src/main/jni/splicehelper.c",
+      "DFRoot_import_commit": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+      "blob": "bc1ad7de3f06c4e3cb822ff3aa6b82648d38eb79",
+      "historical_exact_matches": []
+    },
+    {
+      "DFRoot_path": "dirtyfrag-lkm/dirtyfrag.c",
+      "DFRoot_import_commit": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+      "blob": "afe3f8522bfec7a62371eb0a43bb61ac8d1333bb",
+      "historical_exact_matches": [
+        {
+          "repository": "polygraphene/DFReroot",
+          "path_hint": "dirtyfrag-lkm/dirtyfrag.c",
+          "matching_blob": "afe3f8522bfec7a62371eb0a43bb61ac8d1333bb",
+          "change_commits": [
+            "d6e6f2d57e7438c3e732f475ca887fb98c331c6e"
+          ]
+        }
+      ]
+    }
+  ]
+}

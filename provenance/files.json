@@ -2208,6 +2208,16 @@
       "ORIGIN": "Docker pull digests recorded in eight successful Build #11 jobs on 2026-10-21",
       "bucket": "B",
       "status": "Factual build record; original-contribution license pending"
+    },
+    "LICENSE-Apache-2.0.txt": {
+      "ORIGIN": "Verbatim Apache License 2.0; referenced by retained Gradle wrapper headers",
+      "bucket": "A",
+      "status": "Full license text reproduced"
+    },
+    "provenance/pre-import.json": {
+      "ORIGIN": "2026-10-21 Git object audit of full fetched upstream histories",
+      "bucket": "B",
+      "status": "Factual evidence; original-contribution license pending"
     }
   },
   "audit_baseline": "46a64438341fee0f350a427789cac8dfe7028fc7",
