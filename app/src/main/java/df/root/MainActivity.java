@@ -739,6 +739,20 @@ public class MainActivity extends AppCompatActivity implements IReporter {
             box.addView(rlRow, new android.widget.LinearLayout.LayoutParams(
                     android.view.ViewGroup.LayoutParams.MATCH_PARENT, (int) (46 * md)));
 
+            TextView diagnosticRow = new TextView(this);
+            diagnosticRow.setText("Compatibility & diagnostics");
+            diagnosticRow.setTextColor(0xFFE8E8E8);
+            diagnosticRow.setTextSize(15);
+            diagnosticRow.setGravity(android.view.Gravity.CENTER_VERTICAL);
+            diagnosticRow.setPadding((int) (20 * md), 0, (int) (20 * md), 0);
+            diagnosticRow.setBackgroundResource(R.drawable.menu_row_highlight);
+            diagnosticRow.setOnClickListener(row -> {
+                if (pwRef[0] != null) pwRef[0].dismiss();
+                showDiagnostics();
+            });
+            box.addView(diagnosticRow, new android.widget.LinearLayout.LayoutParams(
+                    android.view.ViewGroup.LayoutParams.MATCH_PARENT, (int) (46 * md)));
+
             TextView colorRow = new TextView(this);
             colorRow.setText("Color theme");
             colorRow.setTextColor(0xFFE8E8E8);
@@ -1951,14 +1965,29 @@ public class MainActivity extends AppCompatActivity implements IReporter {
     }
 
     /** Saves the current log to Downloads and opens the Downloads screen. */
+    private void showDiagnostics() {
+        String log = logBuffer.length() > 0 ? logBuffer.toString() : readLastLog();
+        android.widget.TextView text = new android.widget.TextView(this);
+        int padding = Math.round(24 * getResources().getDisplayMetrics().density);
+        text.setPadding(padding, padding / 2, padding, padding / 2);
+        text.setTextSize(14);
+        text.setTextIsSelectable(true);
+        text.setText(Diagnostics.snapshot(mDeCtx) + "\n" + Diagnostics.recentOutput(log));
+        android.widget.ScrollView scroll = new android.widget.ScrollView(this);
+        scroll.addView(text);
+        GlassDialog.show(new androidx.appcompat.app.AlertDialog.Builder(this)
+                .setTitle("Compatibility & diagnostics").setView(scroll)
+                .setPositiveButton("Export report", (dialog, which) -> shareLog())
+                .setNegativeButton("Close", null).create());
+    }
+
     private void shareLog() {
         String log = logBuffer.length() > 0 ? logBuffer.toString() : readLastLog();
-        if (log.trim().isEmpty()) {
-            return;
-        }
+        log = Diagnostics.snapshot(mDeCtx) + "\n" + Diagnostics.recentOutput(log)
+                + "\nCOMPLETE RUN LOG\n" + log;
         try {
             ContentValues values = new ContentValues();
-            values.put(MediaStore.Downloads.DISPLAY_NAME, "dirtyfrag_log.txt");
+            values.put(MediaStore.Downloads.DISPLAY_NAME, "FragX_diagnostics.txt");
             values.put(MediaStore.Downloads.MIME_TYPE, "text/plain");
             Uri uri = getContentResolver().insert(
                     MediaStore.Downloads.EXTERNAL_CONTENT_URI, values);
