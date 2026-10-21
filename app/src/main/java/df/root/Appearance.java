@@ -39,13 +39,13 @@ final class Appearance {
             label.setSpan(new ForegroundColorSpan(COLORS[i]), 0, 1, 0);
             labels[i] = label;
         }
-        new AlertDialog.Builder(context).setTitle("Color theme")
+        GlassDialog.show(new AlertDialog.Builder(context).setTitle("Color theme")
                 .setSingleChoiceItems(labels, index(context), (dialog, selected) -> {
                     context.getSharedPreferences("fragx_appearance", Context.MODE_PRIVATE)
                             .edit().putInt("palette", selected).apply();
                     apply(context, binding);
                     dialog.dismiss();
-                }).setNegativeButton("Cancel", null).show();
+                }).setNegativeButton("Cancel", null).create());
     }
 
     private static GradientDrawable glass(Context context, float radius) {

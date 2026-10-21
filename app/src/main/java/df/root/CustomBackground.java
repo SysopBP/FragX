@@ -80,7 +80,7 @@ final class CustomBackground {
             @Override public void onStartTrackingTouch(android.widget.SeekBar bar) { }
             @Override public void onStopTrackingTouch(android.widget.SeekBar bar) { }
         });
-        new androidx.appcompat.app.AlertDialog.Builder(activity)
+        GlassDialog.show(new androidx.appcompat.app.AlertDialog.Builder(activity)
                 .setTitle("Background dimming").setView(content)
                 .setPositiveButton("Save", (dialog, which) -> {
                     activity.getSharedPreferences("fragx_appearance", android.content.Context.MODE_PRIVATE)
@@ -88,7 +88,7 @@ final class CustomBackground {
                 })
                 .setNegativeButton("Cancel", (dialog, which) -> applyDim(original))
                 .setOnCancelListener(dialog -> applyDim(original))
-                .show();
+                .create());
     }
 
     void choose() {
