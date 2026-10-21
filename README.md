@@ -13,6 +13,8 @@ hardening) and keeps upstream's SU-manager agnostic design.
 ## Install
 
 1. Install the DirtyFrag APK from [Releases](https://github.com/mitschud/DirtyFrag/releases/latest).
+   Releases are published on mitschud/DirtyFrag; this fork has none of its own
+   yet, and the update check watches upstream until it does.
 2. Install an SU manager that **ships `libksud.so`**:
    - Samsung - **required**:
      - [diabl0w's KernelSU](https://github.com/diabl0w/KernelSU/releases)
@@ -87,6 +89,13 @@ re-run a "slow" run, the daemon may still be working.
 A: Before unrooting, use file manager with root and delete /data/adb/KernelSU, KSUD residue (NOT ADB FOLDER ITSELF)
 
 ## Building
+
+Requirements: JDK 21, Android SDK platform 37 with build-tools, and an NDK. The
+eight kernel modules are committed under `app/src/main/jni/ko/`, so a plain clone
+builds without a DDK toolchain.
+
+`app/keystore.jks` is gitignored, so generate it once before the first build -
+both build types sign with it, debug included.
 
 ```sh
 JAVA_HOME="<Android Studio jbr>" ./gradlew assembleRelease
