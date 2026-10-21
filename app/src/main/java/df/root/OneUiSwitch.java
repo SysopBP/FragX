@@ -58,6 +58,8 @@ public class OneUiSwitch extends View {
 
     public boolean isChecked() { return checked; }
 
+    public void refreshPalette() { invalidate(); }
+
     @Override
     public void setEnabled(boolean enabled) {
         super.setEnabled(enabled);
@@ -105,7 +107,7 @@ public class OneUiSwitch extends View {
 
         // Track colors fade between states; disabled renders the OFF look.
         boolean on = checked;
-        int trackCol = on ? ON_TRACK : OFF_TRACK;
+        int trackCol = on ? Appearance.accent(getContext()) : OFF_TRACK;
         int thumbCol = on ? ON_THUMB : OFF_THUMB;
         trackPaint.setColor(trackCol);
         thumbPaint.setColor(thumbCol);

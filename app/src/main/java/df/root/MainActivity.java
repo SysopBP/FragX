@@ -472,6 +472,7 @@ public class MainActivity extends AppCompatActivity implements IReporter {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         customBackground = new CustomBackground(this, binding.customBackground);
+        Appearance.apply(this, binding);
 
         // The header is the app's name and nothing else. The version number that
         // used to ride next to it is still recorded, just not in the one line of
@@ -736,6 +737,20 @@ public class MainActivity extends AppCompatActivity implements IReporter {
                 resetCardLayout();
             });
             box.addView(rlRow, new android.widget.LinearLayout.LayoutParams(
+                    android.view.ViewGroup.LayoutParams.MATCH_PARENT, (int) (46 * md)));
+
+            TextView colorRow = new TextView(this);
+            colorRow.setText("Color theme");
+            colorRow.setTextColor(0xFFE8E8E8);
+            colorRow.setTextSize(15);
+            colorRow.setGravity(android.view.Gravity.CENTER_VERTICAL);
+            colorRow.setPadding((int) (20 * md), 0, (int) (20 * md), 0);
+            colorRow.setBackgroundResource(R.drawable.menu_row_highlight);
+            colorRow.setOnClickListener(row -> {
+                if (pwRef[0] != null) pwRef[0].dismiss();
+                Appearance.choose(this, binding);
+            });
+            box.addView(colorRow, new android.widget.LinearLayout.LayoutParams(
                     android.view.ViewGroup.LayoutParams.MATCH_PARENT, (int) (46 * md)));
 
             TextView backgroundRow = new TextView(this);
@@ -1430,8 +1445,8 @@ public class MainActivity extends AppCompatActivity implements IReporter {
         boolean ok = suManagerPkg != null;
         binding.btnRun.setEnabled(ok);
         binding.btnRun.setText("Run exploit");
-        binding.btnRun.setTextColor(ok ? 0xFFE0E0E0 : 0xFF6E6E6E);
-        binding.btnRun.setBackgroundTintList(ColorStateList.valueOf(ok ? 0xFF7A7A7A : 0xFF1F1F1F));
+        binding.btnRun.setTextColor(ok ? 0xFF111722 : 0xFF6E6E6E);
+        binding.btnRun.setBackgroundTintList(ColorStateList.valueOf(ok ? Appearance.accent(this) : 0xFF1F1F1F));
         ((com.google.android.material.button.MaterialButton) binding.btnRun)
                 .setStrokeColor(ColorStateList.valueOf(ok ? 0xFFA6A6A6 : 0xFF1F1F1F));
     }
@@ -1752,8 +1767,8 @@ public class MainActivity extends AppCompatActivity implements IReporter {
         // Not rooted does not mean runnable: the manager still has to be picked
         // and a failed run locks the pill until reboot.
         boolean ok = !rooted && canRun();
-        int fg = (rooted || !ok) ? 0xFF6E6E6E : 0xFFE0E0E0;
-        int bg = (rooted || !ok) ? 0xFF1F1F1F : 0xFF7A7A7A;
+        int fg = (rooted || !ok) ? 0xFF6E6E6E : 0xFF111722;
+        int bg = (rooted || !ok) ? 0xFF1F1F1F : Appearance.accent(this);
         int stroke = (rooted || !ok) ? 0xFF1F1F1F : 0xFFA6A6A6;
         binding.btnRun.setEnabled(ok);
         binding.btnRun.setText(rooted ? "Rooted" : "Run exploit");
@@ -1803,7 +1818,7 @@ public class MainActivity extends AppCompatActivity implements IReporter {
         boolean wasVisible = binding.btnKsu.getVisibility() == View.VISIBLE
                 && binding.btnKsu.getAlpha() > 0.99f;
         binding.btnKsu.setBackgroundTintList(ColorStateList.valueOf(
-                ksuLit ? 0xFFB0B0B0 : 0xFF1F1F1F));
+                ksuLit ? Appearance.accent(this) : 0xFF1F1F1F));
         // Dark ink on the lit pill, mid-grey on the unlit one - same grey as
         // the share glyph.
         binding.ksuChevron.setImageTintList(ColorStateList.valueOf(
@@ -1850,7 +1865,7 @@ public class MainActivity extends AppCompatActivity implements IReporter {
         g.setDuration(300);
         g.addUpdateListener(anim -> binding.btnKsu
                 .setBackgroundTintList(ColorStateList.valueOf(
-                        mixColor(0xFFB0B0B0, 0xFF9A9A9E,
+                        mixColor(Appearance.accent(this), Appearance.accent(this),
                                 (float) anim.getAnimatedValue()))));
         g.start();
     }

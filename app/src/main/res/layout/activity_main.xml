@@ -539,6 +539,34 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.26" />
 
+    <!-- Barriers follow the existing animated actions without changing their handlers. -->
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/actionStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="start"
+        app:barrierMargin="-8dp"
+        app:barrierAllowsGoneWidgets="false"
+        app:constraint_referenced_ids="btnRun,btnKsu" />
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/actionEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="end"
+        app:barrierMargin="8dp"
+        app:barrierAllowsGoneWidgets="false"
+        app:constraint_referenced_ids="btnRun,btnKsu" />
+    <View
+        android:id="@+id/floatingActions"
+        android:layout_width="0dp"
+        android:layout_height="74dp"
+        android:layout_marginBottom="18dp"
+        android:elevation="8dp"
+        android:importantForAccessibility="no"
+        app:layout_constraintStart_toStartOf="@id/actionStart"
+        app:layout_constraintEnd_toEndOf="@id/actionEnd"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
     <!-- OneUI search-bar style floating pill -->
     <Button
         android:id="@+id/btnRun"

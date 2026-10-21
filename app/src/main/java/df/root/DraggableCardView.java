@@ -56,18 +56,23 @@ public class DraggableCardView extends MaterialCardView {
         // Fine translucent outlines keep the glass panels visible at rest.
         setStrokeColor(ColorStateList.valueOf(REST_STROKE));
         setStrokeWidth(Math.max(1, Math.round(density)));
-        setCardBackgroundColor(REST_BG);
+        refreshPalette();
     }
 
     /** Held = lifted card: shaded white fill + thin white outline (VIS1.3). */
     public void setHeld(boolean held) {
         if (this.held == held) return;
         this.held = held;
-        setCardBackgroundColor(held ? HELD_BG : REST_BG);
-        setStrokeColor(ColorStateList.valueOf(held ? HELD_STROKE : REST_STROKE));
+        refreshPalette();
         setStrokeWidth(held ? maxStroke : Math.max(1, Math.round(density)));
         setTranslationZ(held ? liftZ : 0f);
         invalidate();
+    }
+
+    public void refreshPalette() {
+        setCardBackgroundColor(held ? HELD_BG : Appearance.surface(getContext()));
+        setStrokeColor(ColorStateList.valueOf(held ? HELD_STROKE :
+                ((Appearance.accent(getContext()) & 0x00FFFFFF) | 0x40000000)));
     }
 
     public boolean isHeld() {
