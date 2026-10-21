@@ -2243,6 +2243,16 @@
       "ORIGIN": "2026-10-21 artifact/source audit; exact Kotlin v2.2.10 licensing evidence recorded",
       "bucket": "B",
       "status": "Factual notice inventory; gaps recorded"
+    },
+    "LICENSE": {
+      "ORIGIN": "Added by SysopBP in f7235ecf22ead88b2538b3c922da364d39a5f0d1; standard MIT text with explicit scope limited to original SysopBP contributions.",
+      "bucket": "A",
+      "status": "Scoped MIT grant; excludes inherited and third-party code"
+    },
+    "UPSTREAM.md": {
+      "ORIGIN": "Original SysopBP upstream-request tracking document added in f7235ecf22ead88b2538b3c922da364d39a5f0d1.",
+      "bucket": "A",
+      "status": "Original documentation under scoped MIT; linked requests do not imply grants"
     }
   },
   "audit_baseline": "46a64438341fee0f350a427789cac8dfe7028fc7",
