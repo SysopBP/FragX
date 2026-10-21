@@ -14,6 +14,7 @@ args = parser.parse_args()
 manifest_path = ROOT / 'app/src/main/assets/build_provenance.json'
 if args.prepare:
     source = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip()
+    pins = json.loads((ROOT / "provenance/ddk-images.json").read_text())
     modules = []
     for path in sorted((ROOT / 'app/src/main/jni/ko').glob('*.ko')):
         kmi = path.stem.removeprefix('dfroot-')
@@ -21,11 +22,11 @@ if args.prepare:
                         'sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
                         'source_commit': source,
                         'ddk_image_tag': f'ghcr.io/ylarod/ddk-min:{kmi}-20260828',
-                        'container_digest': None})
+                        'container_digest': pins[kmi]['image'].split('@', 1)[1]})
     if len(modules) != 8:
         raise SystemExit('Expected eight modules')
     manifest = {'source_commit': source, 'modules': modules,
-                'limits': 'CI build record; container digest and independent reproducibility verification pending'}
+                'limits': 'CI build record with pinned image digest; independent reproducibility verification pending'}
     manifest_path.parent.mkdir(parents=True, exist_ok=True)
     manifest_path.write_text(json.dumps(manifest, indent=2) + '\n')
     (ROOT / 'MODULE_BUILD.json').write_bytes(manifest_path.read_bytes())

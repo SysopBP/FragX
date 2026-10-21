@@ -66,3 +66,11 @@ Tracking issue is open: https://github.com/SysopBP/FragX/issues/1 . The earlier 
 | diabl0w/DFRoot | No issue delivered | New issues restricted to collaborators; not classified unreachable |
 
 The overflow menu now provides Licenses & credits, with selectable full BSD/OFL notices and full GPL v2/v3 texts. Including GPL texts does not assign a source license to inherited code or resolve missing grants. Release validation checks the packaged notice bytes and module hashes against a build-generated manifest. This establishes integrity within that build, not an independent reproducibility result or legal clearance.
+
+## Current audit checkpoint — 2026-10-21
+
+See [path audit](provenance/PATH_AUDIT.md), [per-path evidence](provenance/files.json), and [six upstream history snapshots](provenance/upstream-history.json). The audit records every baseline tracked path, its first revision at the current path and exact blob matches at six pinned upstream HEADs. Import history and rename tracing remain incomplete; this is not a completed ownership audit. Gradle wrapper scripts have explicit Apache-2.0 headers. No path is classified C.
+
+User confirmed all license text views on the S26 Ultra. The phone UI check is complete. Five grant requests have been delivered and remain pending; DFRoot remains collaborator-restricted. Earlier delivery/UI blockers above are historical.
+
+All eight container digests were recovered from successful Build #11 Docker-pull logs and recorded in provenance/ddk-images.json. CI now requests those exact digests and includes them in new build manifests. Independent reproducibility and full dependency notice review remain open.

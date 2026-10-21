@@ -1,0 +1,35 @@
+{
+  "checked_on": "2026-10-21",
+  "repositories": {
+    "V4bel/dirtyfrag": {
+      "head": "aab16fcada27142dd8ce8704906cf6736cf213b8",
+      "license_path_history": "",
+      "tracked_notice_paths": []
+    },
+    "LSPosed/LSPromise": {
+      "head": "0258165d91aa72451dcd8406934ba3fc34f52c14",
+      "license_path_history": "",
+      "tracked_notice_paths": []
+    },
+    "diabl0w/DFRoot": {
+      "head": "c274137e8c02b4f94f64d1b132d991b80c747340",
+      "license_path_history": "",
+      "tracked_notice_paths": []
+    },
+    "mitschud/DirtyFrag": {
+      "head": "ccd61e7c516df1469d335e41638e881328136dbc",
+      "license_path_history": "",
+      "tracked_notice_paths": []
+    },
+    "polygraphene/DFReroot": {
+      "head": "9edc769518f721d4cd39ad16e638e322abd74c45",
+      "license_path_history": "",
+      "tracked_notice_paths": []
+    },
+    "combeng6th/DirtyInit": {
+      "head": "3409c35e723c73c527f395548a653966148e8f88",
+      "license_path_history": "",
+      "tracked_notice_paths": []
+    }
+  }
+}

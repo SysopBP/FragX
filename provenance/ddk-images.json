@@ -1,0 +1,50 @@
+{
+  "android15-6.6": {
+    "image": "ghcr.io/ylarod/ddk-min@sha256:51159bc935c75a282fc65bc87e02f16bd098d1cdf55dc558c4fdd0fcf7a132e2",
+    "observed_tag": "android15-6.6-20260828",
+    "evidence_job": 119208227996,
+    "evidence_run": 39595968644
+  },
+  "android13-5.10": {
+    "image": "ghcr.io/ylarod/ddk-min@sha256:e5ce038ba38408ad26aae1f2622cfb44dfbf6634b025bf197aa08beac0794f5b",
+    "observed_tag": "android13-5.10-20260828",
+    "evidence_job": 119208228235,
+    "evidence_run": 39595968644
+  },
+  "android13-5.15": {
+    "image": "ghcr.io/ylarod/ddk-min@sha256:9e68cd9fcab748584755d31ba88ef134efc938dbde17f258c2652315f6cd81cd",
+    "observed_tag": "android13-5.15-20260828",
+    "evidence_job": 119208228286,
+    "evidence_run": 39595968644
+  },
+  "android14-6.1": {
+    "image": "ghcr.io/ylarod/ddk-min@sha256:1dd6ac340b627a90a4031d6d0df6b129d8cc949b139fb56032c898f023d3d5d3",
+    "observed_tag": "android14-6.1-20260828",
+    "evidence_job": 119208228315,
+    "evidence_run": 39595968644
+  },
+  "android16-6.12": {
+    "image": "ghcr.io/ylarod/ddk-min@sha256:fd3ec5cc71d7f2716212e9df8d5674a9afe68fb769282fcac87b83f207f949ee",
+    "observed_tag": "android16-6.12-20260828",
+    "evidence_job": 119208228331,
+    "evidence_run": 39595968644
+  },
+  "android17-6.18": {
+    "image": "ghcr.io/ylarod/ddk-min@sha256:fb8b66200bf402cf65a751060fc1aa29524b9fa8840feef16c7b196a4f3f0e6e",
+    "observed_tag": "android17-6.18-20260828",
+    "evidence_job": 119208228476,
+    "evidence_run": 39595968644
+  },
+  "android14-5.15": {
+    "image": "ghcr.io/ylarod/ddk-min@sha256:bbf697a8fe995704268eef710921c9d2ea4f146954690d7ea97887f3a4014a6a",
+    "observed_tag": "android14-5.15-20260828",
+    "evidence_job": 119208228488,
+    "evidence_run": 39595968644
+  },
+  "android12-5.10": {
+    "image": "ghcr.io/ylarod/ddk-min@sha256:272ada1e61c525116032246df2a790d1ccec1804b7a9e0b09203c5e650dcb78e",
+    "observed_tag": "android12-5.10-20260828",
+    "evidence_job": 119208228521,
+    "evidence_run": 39595968644
+  }
+}

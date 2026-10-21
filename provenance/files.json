@@ -2,514 +2,2214 @@
   "baseline": "780a8ea624dbeaf82b91508db6bb82bfd58600d3",
   "files": {
     ".github/workflows/build.yml": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 1728222916d8fe9a2cdf18019ab44a23cb299cd9. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "1728222916d8fe9a2cdf18019ab44a23cb299cd9",
+        "last_change_commit": "59383bbfc5440ebe62e30e6533e2ad0edb1204ee",
+        "current_blob": "76654bef0235dd92ec01e70a0b07631dba2f8c76",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [],
+        "introduction_exact_matches": []
+      }
     },
     ".gitignore": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 247e9907cbd6d225cc06d6871b5657523ccd8554. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+        "last_change_commit": "59383bbfc5440ebe62e30e6533e2ad0edb1204ee",
+        "current_blob": "03e6060713ec75e9499a042ba8bb5daa3112cbee",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [],
+        "introduction_exact_matches": []
+      }
     },
     "CHANGELOG.md": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path a927bbde85d3198c1b8eb764607917dd0c51282d. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "a927bbde85d3198c1b8eb764607917dd0c51282d",
+        "last_change_commit": "205ceee98612908cc2d52e7529c91498e4fc7969",
+        "current_blob": "299474078bcef8a6fbfbdfd3ed7b4bd495dc53ea",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "CHANGELOG.md"
+          }
+        ],
+        "introduction_exact_matches": []
+      }
     },
     "Makefile": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 1728222916d8fe9a2cdf18019ab44a23cb299cd9. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "1728222916d8fe9a2cdf18019ab44a23cb299cd9",
+        "last_change_commit": "6d097a5ee25b8d71c3a78adb3afea06017a14b08",
+        "current_blob": "d01d8e6eaba1fe9462f12f815fb8d01558e0e633",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [],
+        "introduction_exact_matches": []
+      }
     },
     "README.md": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 247e9907cbd6d225cc06d6871b5657523ccd8554. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+        "last_change_commit": "58779928919ae67bd76b5da615f9a04e77433407",
+        "current_blob": "281258dad680249f9b28a46282909eb2be12488f",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [],
+        "introduction_exact_matches": []
+      }
     },
     "app/build.gradle.kts": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 247e9907cbd6d225cc06d6871b5657523ccd8554. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+        "last_change_commit": "62ee63408b1817d0f2f379b8314f9439346ae27d",
+        "current_blob": "afa4fc954cabe954f8bed06bc6ca9d2a2e8e8527",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [],
+        "introduction_exact_matches": []
+      }
     },
     "app/proguard-rules.pro": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path b6b7d4d5732ac549b6c1ed1111b01cb89b225f6f. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "b6b7d4d5732ac549b6c1ed1111b01cb89b225f6f",
+        "last_change_commit": "b6b7d4d5732ac549b6c1ed1111b01cb89b225f6f",
+        "current_blob": "d19f963f6dffbd3e3e2ac401ec20c924adfab954",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/proguard-rules.pro"
+          }
+        ],
+        "introduction_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/proguard-rules.pro"
+          }
+        ]
+      }
     },
     "app/src/main/AndroidManifest.xml": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 247e9907cbd6d225cc06d6871b5657523ccd8554. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+        "last_change_commit": "62ee63408b1817d0f2f379b8314f9439346ae27d",
+        "current_blob": "b12791e073bfabc0f307d681f84eb78fa731aff9",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [],
+        "introduction_exact_matches": []
+      }
     },
     "app/src/main/java/df/root/Appearance.java": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Added after DirtyFrag fork point; first tracked at current path 44f379d60d8a16438b68eb8a26e244f908770ca7. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "44f379d60d8a16438b68eb8a26e244f908770ca7",
+        "last_change_commit": "1ed3dbc9916f11ab58575931e995b831c8982cab",
+        "current_blob": "5ee2edf0411d97a43493910e90c87f999b02c064",
+        "present_at_DirtyFrag_fork_point": false,
+        "head_exact_matches": [],
+        "introduction_exact_matches": []
+      }
     },
     "app/src/main/java/df/root/BootReceiver.java": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 247e9907cbd6d225cc06d6871b5657523ccd8554. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+        "last_change_commit": "20756bdbe87f0ce4d9563a38d171f920e2afd629",
+        "current_blob": "4afa24f2a19c65cb21d262a2e26a9587b9a9c87b",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/java/df/root/BootReceiver.java"
+          }
+        ],
+        "introduction_exact_matches": []
+      }
     },
     "app/src/main/java/df/root/BottomFadeView.java": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path b6b7d4d5732ac549b6c1ed1111b01cb89b225f6f. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "b6b7d4d5732ac549b6c1ed1111b01cb89b225f6f",
+        "last_change_commit": "402422fa02564c031e700084bd82f6c248a3a659",
+        "current_blob": "04a9f3ef6a7bde603241dda36efe4526f724ac21",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/java/df/root/BottomFadeView.java"
+          }
+        ],
+        "introduction_exact_matches": []
+      }
     },
     "app/src/main/java/df/root/CardLayoutStore.java": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 402422fa02564c031e700084bd82f6c248a3a659. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "402422fa02564c031e700084bd82f6c248a3a659",
+        "last_change_commit": "402422fa02564c031e700084bd82f6c248a3a659",
+        "current_blob": "1e16c621a31f21e72b1336b2b129489d58094e29",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/java/df/root/CardLayoutStore.java"
+          }
+        ],
+        "introduction_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/java/df/root/CardLayoutStore.java"
+          }
+        ]
+      }
     },
     "app/src/main/java/df/root/CardStackLayout.java": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 402422fa02564c031e700084bd82f6c248a3a659. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "402422fa02564c031e700084bd82f6c248a3a659",
+        "last_change_commit": "402422fa02564c031e700084bd82f6c248a3a659",
+        "current_blob": "800b923ac7cb51fa9530a589840fcf7d673ad982",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/java/df/root/CardStackLayout.java"
+          }
+        ],
+        "introduction_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/java/df/root/CardStackLayout.java"
+          }
+        ]
+      }
     },
     "app/src/main/java/df/root/CustomBackground.java": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Added after DirtyFrag fork point; first tracked at current path 2c3f7a1475396dd45312efc0a565a118e1aca0f7. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "2c3f7a1475396dd45312efc0a565a118e1aca0f7",
+        "last_change_commit": "1ed3dbc9916f11ab58575931e995b831c8982cab",
+        "current_blob": "7480e9626287b2d506a804daf4257c7684a01bb8",
+        "present_at_DirtyFrag_fork_point": false,
+        "head_exact_matches": [],
+        "introduction_exact_matches": []
+      }
     },
     "app/src/main/java/df/root/D2Status.java": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path e42ca06f0c0233364efe36ba2a2862b88ac3d5ef. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "e42ca06f0c0233364efe36ba2a2862b88ac3d5ef",
+        "last_change_commit": "5e160e70a98de4e447322d1de84eb1598aebc973",
+        "current_blob": "175547349bdff84ea578294ae8150d9a35dd9ebc",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/java/df/root/D2Status.java"
+          }
+        ],
+        "introduction_exact_matches": []
+      }
     },
     "app/src/main/java/df/root/Diagnostics.java": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Added after DirtyFrag fork point; first tracked at current path 780a8ea624dbeaf82b91508db6bb82bfd58600d3. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "780a8ea624dbeaf82b91508db6bb82bfd58600d3",
+        "last_change_commit": "780a8ea624dbeaf82b91508db6bb82bfd58600d3",
+        "current_blob": "c8b2d2c6cb6bc02134868be9e91d0a7356fe57bf",
+        "present_at_DirtyFrag_fork_point": false,
+        "head_exact_matches": [],
+        "introduction_exact_matches": []
+      }
     },
     "app/src/main/java/df/root/DraggableCardView.java": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 402422fa02564c031e700084bd82f6c248a3a659. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "402422fa02564c031e700084bd82f6c248a3a659",
+        "last_change_commit": "44f379d60d8a16438b68eb8a26e244f908770ca7",
+        "current_blob": "1a78cfa0e50a3a6d252da9196ef2bafa1c8a6c13",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [],
+        "introduction_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/java/df/root/DraggableCardView.java"
+          }
+        ]
+      }
     },
     "app/src/main/java/df/root/ExploitRunner.java": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 90eaae34030a74c17db34bd2c12113fe9b44d12d. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "90eaae34030a74c17db34bd2c12113fe9b44d12d",
+        "last_change_commit": "780a8ea624dbeaf82b91508db6bb82bfd58600d3",
+        "current_blob": "32dfa19a9592ffbbc737b9cc70683b5c180f1a51",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [],
+        "introduction_exact_matches": []
+      }
     },
     "app/src/main/java/df/root/GlassDialog.java": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Added after DirtyFrag fork point; first tracked at current path 1ed3dbc9916f11ab58575931e995b831c8982cab. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "1ed3dbc9916f11ab58575931e995b831c8982cab",
+        "last_change_commit": "1ed3dbc9916f11ab58575931e995b831c8982cab",
+        "current_blob": "26cf63c42f21e9a956e29d403d5918c77c8b22aa",
+        "present_at_DirtyFrag_fork_point": false,
+        "head_exact_matches": [],
+        "introduction_exact_matches": []
+      }
     },
     "app/src/main/java/df/root/IReporter.java": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 247e9907cbd6d225cc06d6871b5657523ccd8554. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+        "last_change_commit": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+        "current_blob": "889d4fc488e0bb7a11d9af46c1485267d0404e40",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "diabl0w/DFRoot",
+            "commit": "c274137e8c02b4f94f64d1b132d991b80c747340",
+            "path": "app/src/main/java/df/root/IReporter.java"
+          },
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/java/df/root/IReporter.java"
+          }
+        ],
+        "introduction_exact_matches": [
+          {
+            "repository": "diabl0w/DFRoot",
+            "commit": "c274137e8c02b4f94f64d1b132d991b80c747340",
+            "path": "app/src/main/java/df/root/IReporter.java"
+          },
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/java/df/root/IReporter.java"
+          }
+        ]
+      }
     },
     "app/src/main/java/df/root/MainActivity.java": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 247e9907cbd6d225cc06d6871b5657523ccd8554. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+        "last_change_commit": "59383bbfc5440ebe62e30e6533e2ad0edb1204ee",
+        "current_blob": "ec3d667b3e8e11296a88c803dca8e0e18595d59d",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [],
+        "introduction_exact_matches": []
+      }
     },
     "app/src/main/java/df/root/OneUiSwitch.java": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path b6b7d4d5732ac549b6c1ed1111b01cb89b225f6f. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "b6b7d4d5732ac549b6c1ed1111b01cb89b225f6f",
+        "last_change_commit": "44f379d60d8a16438b68eb8a26e244f908770ca7",
+        "current_blob": "a20675a0711a4ce7d907ef74b1f3ba6ff79c31b5",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [],
+        "introduction_exact_matches": []
+      }
     },
     "app/src/main/java/df/root/RootTileService.java": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Added after DirtyFrag fork point; first tracked at current path 18b01126f58ca01adffa3c392cbee4a07c1b5684. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "18b01126f58ca01adffa3c392cbee4a07c1b5684",
+        "last_change_commit": "62ee63408b1817d0f2f379b8314f9439346ae27d",
+        "current_blob": "cf3f0db512b526369d3e43163663ca72c4903d22",
+        "present_at_DirtyFrag_fork_point": false,
+        "head_exact_matches": [],
+        "introduction_exact_matches": []
+      }
     },
     "app/src/main/java/df/root/ScaleFix.java": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 3b1ed20f9ad33608e2f341ca41b3e80ba1c66ece. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "3b1ed20f9ad33608e2f341ca41b3e80ba1c66ece",
+        "last_change_commit": "3b1ed20f9ad33608e2f341ca41b3e80ba1c66ece",
+        "current_blob": "7963823b29e10f80871898755a04338278341211",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/java/df/root/ScaleFix.java"
+          }
+        ],
+        "introduction_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/java/df/root/ScaleFix.java"
+          }
+        ]
+      }
     },
     "app/src/main/java/df/root/TwoStepProgressView.java": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path b3186e64190c0cde3368d586c6aeac42e9744dbe. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "b3186e64190c0cde3368d586c6aeac42e9744dbe",
+        "last_change_commit": "de94b4f1d5d8a6c32be4eddfbc8da65fea7429df",
+        "current_blob": "8538cf0960e8ebd84c56dc54093f7f74a13d1380",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/java/df/root/TwoStepProgressView.java"
+          }
+        ],
+        "introduction_exact_matches": []
+      }
     },
     "app/src/main/jni/CMakeLists.txt": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 247e9907cbd6d225cc06d6871b5657523ccd8554. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+        "last_change_commit": "1728222916d8fe9a2cdf18019ab44a23cb299cd9",
+        "current_blob": "a6a0bc79abbf92f81c174e2198b8ea5efa8c77ab",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "diabl0w/DFRoot",
+            "commit": "c274137e8c02b4f94f64d1b132d991b80c747340",
+            "path": "app/src/main/jni/CMakeLists.txt"
+          },
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/jni/CMakeLists.txt"
+          }
+        ],
+        "introduction_exact_matches": []
+      }
     },
     "app/src/main/jni/aes256.h": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 247e9907cbd6d225cc06d6871b5657523ccd8554. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+        "last_change_commit": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+        "current_blob": "d9a969628857c57e76f5320ac351f7740bf09ef6",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "diabl0w/DFRoot",
+            "commit": "c274137e8c02b4f94f64d1b132d991b80c747340",
+            "path": "app/src/main/jni/aes256.h"
+          },
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/jni/aes256.h"
+          }
+        ],
+        "introduction_exact_matches": [
+          {
+            "repository": "diabl0w/DFRoot",
+            "commit": "c274137e8c02b4f94f64d1b132d991b80c747340",
+            "path": "app/src/main/jni/aes256.h"
+          },
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/jni/aes256.h"
+          }
+        ]
+      }
     },
     "app/src/main/jni/bootstrap.c": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 1728222916d8fe9a2cdf18019ab44a23cb299cd9. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "1728222916d8fe9a2cdf18019ab44a23cb299cd9",
+        "last_change_commit": "d49c07bfa2b404506d8663100704ff4b57e8e602",
+        "current_blob": "9f379bc0163e9e81ccadea01a08749856619f5b6",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/jni/bootstrap.c"
+          }
+        ],
+        "introduction_exact_matches": []
+      }
     },
     "app/src/main/jni/elf_parser.c": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 247e9907cbd6d225cc06d6871b5657523ccd8554. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+        "last_change_commit": "59b0e621fe5899412495a04271e71198d394afa8",
+        "current_blob": "4cbff36d0a38da3d6c1c3dd1f256b44bc6ae854a",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "diabl0w/DFRoot",
+            "commit": "c274137e8c02b4f94f64d1b132d991b80c747340",
+            "path": "app/src/main/jni/elf_parser.c"
+          },
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/jni/elf_parser.c"
+          }
+        ],
+        "introduction_exact_matches": [
+          {
+            "repository": "LSPosed/LSPromise",
+            "commit": "0258165d91aa72451dcd8406934ba3fc34f52c14",
+            "path": "app/src/main/jni/elf_parser.c"
+          },
+          {
+            "repository": "polygraphene/DFReroot",
+            "commit": "9edc769518f721d4cd39ad16e638e322abd74c45",
+            "path": "app/src/main/jni/elf_parser.c"
+          }
+        ]
+      }
     },
     "app/src/main/jni/exp.c": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 247e9907cbd6d225cc06d6871b5657523ccd8554. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+        "last_change_commit": "32b254ab1f8201d0b04ce6f682a0c51f0522849d",
+        "current_blob": "9b56852e66a3aab2bb16f7b3703ee229a3393740",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/jni/exp.c"
+          }
+        ],
+        "introduction_exact_matches": []
+      }
     },
     "app/src/main/jni/include.inc": {
-      "ORIGIN": "Odzhan 2018; retained header",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 247e9907cbd6d225cc06d6871b5657523ccd8554. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "A",
-      "status": "BSD-style three-condition notice preserved"
+      "status": "Odzhan three-condition BSD header; exact matches documented; source and binary notices packaged",
+      "history": {
+        "first_commit_at_current_path": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+        "last_change_commit": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+        "current_blob": "75db4a521ff86ec316ea24b48f4e2f66165bf8e8",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "diabl0w/DFRoot",
+            "commit": "c274137e8c02b4f94f64d1b132d991b80c747340",
+            "path": "app/src/main/jni/include.inc"
+          },
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/jni/include.inc"
+          }
+        ],
+        "introduction_exact_matches": [
+          {
+            "repository": "diabl0w/DFRoot",
+            "commit": "c274137e8c02b4f94f64d1b132d991b80c747340",
+            "path": "app/src/main/jni/include.inc"
+          },
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/jni/include.inc"
+          }
+        ]
+      }
     },
     "app/src/main/jni/ko/dfroot-android12-5.10.ko": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 4d092b90a22138f2e2b3c0f03326b996ac8080ef. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "4d092b90a22138f2e2b3c0f03326b996ac8080ef",
+        "last_change_commit": "d9c8861234e43429734494cfc9a9a45d1fcc3b7a",
+        "current_blob": "ca77e32ddf1f93ce69b91c16375f900ee1611db4",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/jni/ko/dfroot-android12-5.10.ko"
+          }
+        ],
+        "introduction_exact_matches": []
+      }
     },
     "app/src/main/jni/ko/dfroot-android13-5.10.ko": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 4d092b90a22138f2e2b3c0f03326b996ac8080ef. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "4d092b90a22138f2e2b3c0f03326b996ac8080ef",
+        "last_change_commit": "d9c8861234e43429734494cfc9a9a45d1fcc3b7a",
+        "current_blob": "b5f4302073733539ffbeef0be8cc3cffa2b32dc9",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/jni/ko/dfroot-android13-5.10.ko"
+          }
+        ],
+        "introduction_exact_matches": []
+      }
     },
     "app/src/main/jni/ko/dfroot-android13-5.15.ko": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 4d092b90a22138f2e2b3c0f03326b996ac8080ef. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "4d092b90a22138f2e2b3c0f03326b996ac8080ef",
+        "last_change_commit": "d9c8861234e43429734494cfc9a9a45d1fcc3b7a",
+        "current_blob": "7c99a704ecee3eb17296d3e26ef45353ba1d5ac9",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/jni/ko/dfroot-android13-5.15.ko"
+          }
+        ],
+        "introduction_exact_matches": []
+      }
     },
     "app/src/main/jni/ko/dfroot-android14-5.15.ko": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 4d092b90a22138f2e2b3c0f03326b996ac8080ef. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "4d092b90a22138f2e2b3c0f03326b996ac8080ef",
+        "last_change_commit": "d9c8861234e43429734494cfc9a9a45d1fcc3b7a",
+        "current_blob": "d8cb890e801c22be414c37661ff0bcf0a23d215d",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/jni/ko/dfroot-android14-5.15.ko"
+          }
+        ],
+        "introduction_exact_matches": []
+      }
     },
     "app/src/main/jni/ko/dfroot-android14-6.1.ko": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 4d092b90a22138f2e2b3c0f03326b996ac8080ef. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "4d092b90a22138f2e2b3c0f03326b996ac8080ef",
+        "last_change_commit": "d9c8861234e43429734494cfc9a9a45d1fcc3b7a",
+        "current_blob": "29e4fa19eb329a21e82c7912a4e43824a1b36a47",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/jni/ko/dfroot-android14-6.1.ko"
+          }
+        ],
+        "introduction_exact_matches": []
+      }
     },
     "app/src/main/jni/ko/dfroot-android15-6.6.ko": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 4d092b90a22138f2e2b3c0f03326b996ac8080ef. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "4d092b90a22138f2e2b3c0f03326b996ac8080ef",
+        "last_change_commit": "d9c8861234e43429734494cfc9a9a45d1fcc3b7a",
+        "current_blob": "be06dde7e49ea68a8cf8126e88da7e18568028a5",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/jni/ko/dfroot-android15-6.6.ko"
+          }
+        ],
+        "introduction_exact_matches": []
+      }
     },
     "app/src/main/jni/ko/dfroot-android16-6.12.ko": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 4d092b90a22138f2e2b3c0f03326b996ac8080ef. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "4d092b90a22138f2e2b3c0f03326b996ac8080ef",
+        "last_change_commit": "d9c8861234e43429734494cfc9a9a45d1fcc3b7a",
+        "current_blob": "6d9b2b8a837155dcc96481d452c9cfe2dfe31bf2",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/jni/ko/dfroot-android16-6.12.ko"
+          }
+        ],
+        "introduction_exact_matches": []
+      }
     },
     "app/src/main/jni/ko/dfroot-android17-6.18.ko": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 4d092b90a22138f2e2b3c0f03326b996ac8080ef. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "4d092b90a22138f2e2b3c0f03326b996ac8080ef",
+        "last_change_commit": "d9c8861234e43429734494cfc9a9a45d1fcc3b7a",
+        "current_blob": "1005f9218e5d7bf4ebbbe99d018b690c82996d28",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/jni/ko/dfroot-android17-6.18.ko"
+          }
+        ],
+        "introduction_exact_matches": []
+      }
     },
     "app/src/main/jni/libcxx.S": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 247e9907cbd6d225cc06d6871b5657523ccd8554. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+        "last_change_commit": "d49c07bfa2b404506d8663100704ff4b57e8e602",
+        "current_blob": "b91e2fe956aaebace6f458a8d4757ffc0ec939f4",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "diabl0w/DFRoot",
+            "commit": "c274137e8c02b4f94f64d1b132d991b80c747340",
+            "path": "app/src/main/jni/libcxx.S"
+          },
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/jni/libcxx.S"
+          }
+        ],
+        "introduction_exact_matches": []
+      }
     },
     "app/src/main/jni/splicehelper.c": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 247e9907cbd6d225cc06d6871b5657523ccd8554. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+        "last_change_commit": "e7901cfa0f633ac06e5432507b589db8f23550a5",
+        "current_blob": "c99858643eb49fa2801e2c09362d5b3d9ada94f1",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "diabl0w/DFRoot",
+            "commit": "c274137e8c02b4f94f64d1b132d991b80c747340",
+            "path": "app/src/main/jni/splicehelper.c"
+          },
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/jni/splicehelper.c"
+          }
+        ],
+        "introduction_exact_matches": []
+      }
     },
     "app/src/main/res/drawable-nodpi/fragx_icon_color.webp": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Added after DirtyFrag fork point; first tracked at current path 9a52d7d5f0a45120d829cf16eef8bc03d4598b09. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "9a52d7d5f0a45120d829cf16eef8bc03d4598b09",
+        "last_change_commit": "9a52d7d5f0a45120d829cf16eef8bc03d4598b09",
+        "current_blob": "98de772ce6292f21909b1a963a86d2663956e0db",
+        "present_at_DirtyFrag_fork_point": false,
+        "head_exact_matches": [],
+        "introduction_exact_matches": []
+      }
     },
     "app/src/main/res/drawable/bg_card_hide_button.xml": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 402422fa02564c031e700084bd82f6c248a3a659. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "402422fa02564c031e700084bd82f6c248a3a659",
+        "last_change_commit": "402422fa02564c031e700084bd82f6c248a3a659",
+        "current_blob": "96e433280c6e248a9cd1ab242d2058b315f36914",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/res/drawable/bg_card_hide_button.xml"
+          }
+        ],
+        "introduction_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/res/drawable/bg_card_hide_button.xml"
+          }
+        ]
+      }
     },
     "app/src/main/res/drawable/bg_circle.xml": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path b3186e64190c0cde3368d586c6aeac42e9744dbe. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "b3186e64190c0cde3368d586c6aeac42e9744dbe",
+        "last_change_commit": "62ee63408b1817d0f2f379b8314f9439346ae27d",
+        "current_blob": "4d6c0bc38071189893f427daea957aeb75884051",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [],
+        "introduction_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/res/drawable/bg_circle.xml"
+          }
+        ]
+      }
     },
     "app/src/main/res/drawable/bg_circle_grey_ripple.xml": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 0dabdbfa74584c4039fbd5c8385443451dca5b66. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "0dabdbfa74584c4039fbd5c8385443451dca5b66",
+        "last_change_commit": "0dabdbfa74584c4039fbd5c8385443451dca5b66",
+        "current_blob": "73ec488f2d9d953a93fa1a609aae720f00b1a670",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/res/drawable/bg_circle_grey_ripple.xml"
+          }
+        ],
+        "introduction_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/res/drawable/bg_circle_grey_ripple.xml"
+          }
+        ]
+      }
     },
     "app/src/main/res/drawable/bg_glass_backdrop.xml": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Added after DirtyFrag fork point; first tracked at current path 62ee63408b1817d0f2f379b8314f9439346ae27d. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "62ee63408b1817d0f2f379b8314f9439346ae27d",
+        "last_change_commit": "62ee63408b1817d0f2f379b8314f9439346ae27d",
+        "current_blob": "6b67ba1175f9aa0e8933f1f2385513d0681e3f23",
+        "present_at_DirtyFrag_fork_point": false,
+        "head_exact_matches": [],
+        "introduction_exact_matches": []
+      }
     },
     "app/src/main/res/drawable/bg_odin_pill.xml": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 5e160e70a98de4e447322d1de84eb1598aebc973. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "5e160e70a98de4e447322d1de84eb1598aebc973",
+        "last_change_commit": "62ee63408b1817d0f2f379b8314f9439346ae27d",
+        "current_blob": "9799cad0642311a9b981fbba6b12fe2294295af5",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [],
+        "introduction_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/res/drawable/bg_odin_pill.xml"
+          }
+        ]
+      }
     },
     "app/src/main/res/drawable/bg_pill.xml": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 0dabdbfa74584c4039fbd5c8385443451dca5b66. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "0dabdbfa74584c4039fbd5c8385443451dca5b66",
+        "last_change_commit": "0dabdbfa74584c4039fbd5c8385443451dca5b66",
+        "current_blob": "f52ff3b9bed9a0b7126e9b5aefcd20abfaeafaeb",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/res/drawable/bg_pill.xml"
+          }
+        ],
+        "introduction_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/res/drawable/bg_pill.xml"
+          }
+        ]
+      }
     },
     "app/src/main/res/drawable/bg_update_pill.xml": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 5e160e70a98de4e447322d1de84eb1598aebc973. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "5e160e70a98de4e447322d1de84eb1598aebc973",
+        "last_change_commit": "5e160e70a98de4e447322d1de84eb1598aebc973",
+        "current_blob": "6d29ab2112ea95388e604fb9dfd72eee8a1dab36",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/res/drawable/bg_update_pill.xml"
+          }
+        ],
+        "introduction_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/res/drawable/bg_update_pill.xml"
+          }
+        ]
+      }
     },
     "app/src/main/res/drawable/dot_white.xml": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path b3186e64190c0cde3368d586c6aeac42e9744dbe. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "b3186e64190c0cde3368d586c6aeac42e9744dbe",
+        "last_change_commit": "b3186e64190c0cde3368d586c6aeac42e9744dbe",
+        "current_blob": "3cd90b3baf9150edffd1315961626358e5eaba02",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/res/drawable/dot_white.xml"
+          }
+        ],
+        "introduction_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/res/drawable/dot_white.xml"
+          }
+        ]
+      }
     },
     "app/src/main/res/drawable/ic_card_hide.xml": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 402422fa02564c031e700084bd82f6c248a3a659. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "402422fa02564c031e700084bd82f6c248a3a659",
+        "last_change_commit": "402422fa02564c031e700084bd82f6c248a3a659",
+        "current_blob": "80713979e8ae9156f3dd7ab5cc03e1f87a6ce3c3",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/res/drawable/ic_card_hide.xml"
+          }
+        ],
+        "introduction_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/res/drawable/ic_card_hide.xml"
+          }
+        ]
+      }
     },
     "app/src/main/res/drawable/ic_chevron.xml": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 20756bdbe87f0ce4d9563a38d171f920e2afd629. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "20756bdbe87f0ce4d9563a38d171f920e2afd629",
+        "last_change_commit": "20756bdbe87f0ce4d9563a38d171f920e2afd629",
+        "current_blob": "92bab787147c6f6ea1044315578e93a1b664e37a",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/res/drawable/ic_chevron.xml"
+          }
+        ],
+        "introduction_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/res/drawable/ic_chevron.xml"
+          }
+        ]
+      }
     },
     "app/src/main/res/drawable/ic_launcher_background.xml": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 923e5a42ce5add6ec13b67137f118b6d5e3c952f. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "923e5a42ce5add6ec13b67137f118b6d5e3c952f",
+        "last_change_commit": "9a52d7d5f0a45120d829cf16eef8bc03d4598b09",
+        "current_blob": "9457002e5c12a48ed9cd19cbd76368ed46011289",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [],
+        "introduction_exact_matches": [
+          {
+            "repository": "diabl0w/DFRoot",
+            "commit": "c274137e8c02b4f94f64d1b132d991b80c747340",
+            "path": "app/src/main/res/drawable/ic_launcher_background.xml"
+          }
+        ]
+      }
     },
     "app/src/main/res/drawable/ic_launcher_foreground.xml": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 923e5a42ce5add6ec13b67137f118b6d5e3c952f. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "923e5a42ce5add6ec13b67137f118b6d5e3c952f",
+        "last_change_commit": "9a52d7d5f0a45120d829cf16eef8bc03d4598b09",
+        "current_blob": "4e7ed36845505b62060a8748eeb4a64d0cb9b6d1",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [],
+        "introduction_exact_matches": [
+          {
+            "repository": "diabl0w/DFRoot",
+            "commit": "c274137e8c02b4f94f64d1b132d991b80c747340",
+            "path": "app/src/main/res/drawable/ic_launcher_foreground.xml"
+          }
+        ]
+      }
     },
     "app/src/main/res/drawable/ic_launcher_monochrome.xml": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 923e5a42ce5add6ec13b67137f118b6d5e3c952f. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "923e5a42ce5add6ec13b67137f118b6d5e3c952f",
+        "last_change_commit": "9a52d7d5f0a45120d829cf16eef8bc03d4598b09",
+        "current_blob": "866eb072d1fecc5c160e428837359c136c8f5b00",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [],
+        "introduction_exact_matches": [
+          {
+            "repository": "diabl0w/DFRoot",
+            "commit": "c274137e8c02b4f94f64d1b132d991b80c747340",
+            "path": "app/src/main/res/drawable/ic_launcher_monochrome.xml"
+          }
+        ]
+      }
     },
     "app/src/main/res/drawable/ic_more.xml": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path b3186e64190c0cde3368d586c6aeac42e9744dbe. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "b3186e64190c0cde3368d586c6aeac42e9744dbe",
+        "last_change_commit": "b3186e64190c0cde3368d586c6aeac42e9744dbe",
+        "current_blob": "bc0935af893062cc2ee33609ab9b892da14c0b52",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/res/drawable/ic_more.xml"
+          }
+        ],
+        "introduction_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/res/drawable/ic_more.xml"
+          }
+        ]
+      }
     },
     "app/src/main/res/drawable/ic_play.xml": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path b3186e64190c0cde3368d586c6aeac42e9744dbe. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "b3186e64190c0cde3368d586c6aeac42e9744dbe",
+        "last_change_commit": "b3186e64190c0cde3368d586c6aeac42e9744dbe",
+        "current_blob": "ecb7c2f2f00733dc1d2aaaffa67192a88283940e",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/res/drawable/ic_play.xml"
+          }
+        ],
+        "introduction_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/res/drawable/ic_play.xml"
+          }
+        ]
+      }
     },
     "app/src/main/res/drawable/ic_share.xml": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path b6b7d4d5732ac549b6c1ed1111b01cb89b225f6f. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "b6b7d4d5732ac549b6c1ed1111b01cb89b225f6f",
+        "last_change_commit": "0dabdbfa74584c4039fbd5c8385443451dca5b66",
+        "current_blob": "453a8de4e6af41b55105cc21a11a5ef6fa752f03",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/res/drawable/ic_share.xml"
+          }
+        ],
+        "introduction_exact_matches": []
+      }
     },
     "app/src/main/res/drawable/ic_tile_root.xml": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Added after DirtyFrag fork point; first tracked at current path 18b01126f58ca01adffa3c392cbee4a07c1b5684. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "18b01126f58ca01adffa3c392cbee4a07c1b5684",
+        "last_change_commit": "18b01126f58ca01adffa3c392cbee4a07c1b5684",
+        "current_blob": "babd68f82eedbdeaa05654d0433cfea370cc384e",
+        "present_at_DirtyFrag_fork_point": false,
+        "head_exact_matches": [],
+        "introduction_exact_matches": []
+      }
     },
     "app/src/main/res/drawable/menu_divider.xml": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path b3186e64190c0cde3368d586c6aeac42e9744dbe. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "b3186e64190c0cde3368d586c6aeac42e9744dbe",
+        "last_change_commit": "b3186e64190c0cde3368d586c6aeac42e9744dbe",
+        "current_blob": "cf52e00e3585bd2f315571aaa989051b2948a794",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/res/drawable/menu_divider.xml"
+          }
+        ],
+        "introduction_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/res/drawable/menu_divider.xml"
+          }
+        ]
+      }
     },
     "app/src/main/res/drawable/menu_item_bg.xml": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path b3186e64190c0cde3368d586c6aeac42e9744dbe. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "b3186e64190c0cde3368d586c6aeac42e9744dbe",
+        "last_change_commit": "2b3f9ed384aea4e8795e1073869f4c5ba93f966a",
+        "current_blob": "cb92bc0f4f140e2c853d5fa461dec3c72f62ce1c",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/res/drawable/menu_item_bg.xml"
+          }
+        ],
+        "introduction_exact_matches": []
+      }
     },
     "app/src/main/res/drawable/menu_item_ripple.xml": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path b3186e64190c0cde3368d586c6aeac42e9744dbe. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "b3186e64190c0cde3368d586c6aeac42e9744dbe",
+        "last_change_commit": "2b3f9ed384aea4e8795e1073869f4c5ba93f966a",
+        "current_blob": "a584abeda18afdf573d0329617a3c354fbe9c1ac",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/res/drawable/menu_item_ripple.xml"
+          }
+        ],
+        "introduction_exact_matches": []
+      }
     },
     "app/src/main/res/drawable/menu_row_highlight.xml": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path b3186e64190c0cde3368d586c6aeac42e9744dbe. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "b3186e64190c0cde3368d586c6aeac42e9744dbe",
+        "last_change_commit": "44f379d60d8a16438b68eb8a26e244f908770ca7",
+        "current_blob": "dbe1db70149bd63d424d1e367a74459e3c85ef5e",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [],
+        "introduction_exact_matches": []
+      }
     },
     "app/src/main/res/drawable/popup_bg.xml": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path b3186e64190c0cde3368d586c6aeac42e9744dbe. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "b3186e64190c0cde3368d586c6aeac42e9744dbe",
+        "last_change_commit": "62ee63408b1817d0f2f379b8314f9439346ae27d",
+        "current_blob": "4fd74496c5f2f22297f35f1a730b33c7d263fb6a",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [],
+        "introduction_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/res/drawable/popup_bg.xml"
+          }
+        ]
+      }
     },
     "app/src/main/res/font/inter.xml": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path b6b7d4d5732ac549b6c1ed1111b01cb89b225f6f. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "b6b7d4d5732ac549b6c1ed1111b01cb89b225f6f",
+        "last_change_commit": "b6b7d4d5732ac549b6c1ed1111b01cb89b225f6f",
+        "current_blob": "0e46e3ae00a1431a4be4bf565621bb4f3ea35173",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/res/font/inter.xml"
+          }
+        ],
+        "introduction_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/res/font/inter.xml"
+          }
+        ]
+      }
     },
     "app/src/main/res/font/inter_vf.ttf": {
-      "ORIGIN": "Inter Project; exact upstream revision pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path b6b7d4d5732ac549b6c1ed1111b01cb89b225f6f. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "A",
-      "status": "OFL-1.1 full notice packaged; subset metadata retained"
+      "status": "OFL-1.1; full text packaged; upstream subset revision still pending",
+      "history": {
+        "first_commit_at_current_path": "b6b7d4d5732ac549b6c1ed1111b01cb89b225f6f",
+        "last_change_commit": "3706cf761709b261420909764bf47cff905e773d",
+        "current_blob": "396717999aed87329d1bfbed685da1878c281df2",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/res/font/inter_vf.ttf"
+          }
+        ],
+        "introduction_exact_matches": []
+      }
     },
     "app/src/main/res/layout/activity_main.xml": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 247e9907cbd6d225cc06d6871b5657523ccd8554. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+        "last_change_commit": "4db6de9919b3c4f49e2329f89ec8da49a986886e",
+        "current_blob": "c111c345a52f3b4f9d5fff8ac78a8b4ff79fbb85",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [],
+        "introduction_exact_matches": []
+      }
     },
     "app/src/main/res/menu/menu_main.xml": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path b3186e64190c0cde3368d586c6aeac42e9744dbe. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "b3186e64190c0cde3368d586c6aeac42e9744dbe",
+        "last_change_commit": "b3186e64190c0cde3368d586c6aeac42e9744dbe",
+        "current_blob": "df18f696e2eeddefd391b72c6a53b77b50a3a86d",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/res/menu/menu_main.xml"
+          }
+        ],
+        "introduction_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/res/menu/menu_main.xml"
+          }
+        ]
+      }
     },
     "app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 923e5a42ce5add6ec13b67137f118b6d5e3c952f. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "923e5a42ce5add6ec13b67137f118b6d5e3c952f",
+        "last_change_commit": "923e5a42ce5add6ec13b67137f118b6d5e3c952f",
+        "current_blob": "b51aeb83bb52678d98d52bfc3d78c29d1afe5eb3",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "diabl0w/DFRoot",
+            "commit": "c274137e8c02b4f94f64d1b132d991b80c747340",
+            "path": "app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
+          },
+          {
+            "repository": "diabl0w/DFRoot",
+            "commit": "c274137e8c02b4f94f64d1b132d991b80c747340",
+            "path": "app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
+          },
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
+          },
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
+          }
+        ],
+        "introduction_exact_matches": [
+          {
+            "repository": "diabl0w/DFRoot",
+            "commit": "c274137e8c02b4f94f64d1b132d991b80c747340",
+            "path": "app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
+          },
+          {
+            "repository": "diabl0w/DFRoot",
+            "commit": "c274137e8c02b4f94f64d1b132d991b80c747340",
+            "path": "app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
+          },
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
+          },
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
+          }
+        ]
+      }
     },
     "app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 923e5a42ce5add6ec13b67137f118b6d5e3c952f. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "923e5a42ce5add6ec13b67137f118b6d5e3c952f",
+        "last_change_commit": "923e5a42ce5add6ec13b67137f118b6d5e3c952f",
+        "current_blob": "b51aeb83bb52678d98d52bfc3d78c29d1afe5eb3",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "diabl0w/DFRoot",
+            "commit": "c274137e8c02b4f94f64d1b132d991b80c747340",
+            "path": "app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
+          },
+          {
+            "repository": "diabl0w/DFRoot",
+            "commit": "c274137e8c02b4f94f64d1b132d991b80c747340",
+            "path": "app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
+          },
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
+          },
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
+          }
+        ],
+        "introduction_exact_matches": [
+          {
+            "repository": "diabl0w/DFRoot",
+            "commit": "c274137e8c02b4f94f64d1b132d991b80c747340",
+            "path": "app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
+          },
+          {
+            "repository": "diabl0w/DFRoot",
+            "commit": "c274137e8c02b4f94f64d1b132d991b80c747340",
+            "path": "app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
+          },
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
+          },
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
+          }
+        ]
+      }
     },
     "app/src/main/res/values-night/themes.xml": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 247e9907cbd6d225cc06d6871b5657523ccd8554. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+        "last_change_commit": "b6b7d4d5732ac549b6c1ed1111b01cb89b225f6f",
+        "current_blob": "2c5844dd7e7604b4332b2da826aa12ebe74f6242",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/res/values-night/themes.xml"
+          }
+        ],
+        "introduction_exact_matches": []
+      }
     },
     "app/src/main/res/values/colors.xml": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 247e9907cbd6d225cc06d6871b5657523ccd8554. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+        "last_change_commit": "2b3f9ed384aea4e8795e1073869f4c5ba93f966a",
+        "current_blob": "64362b97a8d7883280462a9dd415673d45243ca1",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/res/values/colors.xml"
+          }
+        ],
+        "introduction_exact_matches": []
+      }
     },
     "app/src/main/res/values/dimens.xml": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 402422fa02564c031e700084bd82f6c248a3a659. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "402422fa02564c031e700084bd82f6c248a3a659",
+        "last_change_commit": "402422fa02564c031e700084bd82f6c248a3a659",
+        "current_blob": "867a3f261c42242f63c7b113725acbb5c5670049",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/res/values/dimens.xml"
+          }
+        ],
+        "introduction_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "app/src/main/res/values/dimens.xml"
+          }
+        ]
+      }
     },
     "app/src/main/res/values/strings.xml": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Added after DirtyFrag fork point; first tracked at current path 62ee63408b1817d0f2f379b8314f9439346ae27d. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "62ee63408b1817d0f2f379b8314f9439346ae27d",
+        "last_change_commit": "62ee63408b1817d0f2f379b8314f9439346ae27d",
+        "current_blob": "9394314e370a32321edc2458b95054904974f60f",
+        "present_at_DirtyFrag_fork_point": false,
+        "head_exact_matches": [],
+        "introduction_exact_matches": []
+      }
     },
     "app/src/main/res/values/themes.xml": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 247e9907cbd6d225cc06d6871b5657523ccd8554. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+        "last_change_commit": "62ee63408b1817d0f2f379b8314f9439346ae27d",
+        "current_blob": "17a78535d06c9c1244fcd1bcc08d2525f45954a9",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [],
+        "introduction_exact_matches": []
+      }
     },
     "build.gradle.kts": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 247e9907cbd6d225cc06d6871b5657523ccd8554. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+        "last_change_commit": "923e5a42ce5add6ec13b67137f118b6d5e3c952f",
+        "current_blob": "f928a84390b953ebfda7816eae78d728b7d5a6fe",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "diabl0w/DFRoot",
+            "commit": "c274137e8c02b4f94f64d1b132d991b80c747340",
+            "path": "build.gradle.kts"
+          },
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "build.gradle.kts"
+          }
+        ],
+        "introduction_exact_matches": []
+      }
     },
     "docs/visual.gif": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 8a87c409f944ed7a59ac5402291ab7fd09599878. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "8a87c409f944ed7a59ac5402291ab7fd09599878",
+        "last_change_commit": "8a87c409f944ed7a59ac5402291ab7fd09599878",
+        "current_blob": "c49f726e2a33b310d73b9dcdc3bdbf8d21775b47",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "docs/visual.gif"
+          }
+        ],
+        "introduction_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "docs/visual.gif"
+          }
+        ]
+      }
     },
     "gradle.properties": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 247e9907cbd6d225cc06d6871b5657523ccd8554. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+        "last_change_commit": "6d097a5ee25b8d71c3a78adb3afea06017a14b08",
+        "current_blob": "e7c6f0c2fc4880d0fef34183891f88ce105090ef",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [],
+        "introduction_exact_matches": [
+          {
+            "repository": "diabl0w/DFRoot",
+            "commit": "c274137e8c02b4f94f64d1b132d991b80c747340",
+            "path": "gradle.properties"
+          },
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "gradle.properties"
+          }
+        ]
+      }
     },
     "gradle/gradle-daemon-jvm.properties": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 247e9907cbd6d225cc06d6871b5657523ccd8554. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+        "last_change_commit": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+        "current_blob": "6c1139ec06ae4e5307f6f0ea75ff8338aa2d4b72",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "diabl0w/DFRoot",
+            "commit": "c274137e8c02b4f94f64d1b132d991b80c747340",
+            "path": "gradle/gradle-daemon-jvm.properties"
+          },
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "gradle/gradle-daemon-jvm.properties"
+          },
+          {
+            "repository": "polygraphene/DFReroot",
+            "commit": "9edc769518f721d4cd39ad16e638e322abd74c45",
+            "path": "gradle/gradle-daemon-jvm.properties"
+          }
+        ],
+        "introduction_exact_matches": [
+          {
+            "repository": "diabl0w/DFRoot",
+            "commit": "c274137e8c02b4f94f64d1b132d991b80c747340",
+            "path": "gradle/gradle-daemon-jvm.properties"
+          },
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "gradle/gradle-daemon-jvm.properties"
+          },
+          {
+            "repository": "polygraphene/DFReroot",
+            "commit": "9edc769518f721d4cd39ad16e638e322abd74c45",
+            "path": "gradle/gradle-daemon-jvm.properties"
+          }
+        ]
+      }
     },
     "gradle/libs.versions.toml": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 247e9907cbd6d225cc06d6871b5657523ccd8554. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+        "last_change_commit": "669741ccde4b7d0f68664df18256a779cc704900",
+        "current_blob": "a4accce0e4bcc72af6eb49ac373a6081fbc4ad34",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "gradle/libs.versions.toml"
+          }
+        ],
+        "introduction_exact_matches": []
+      }
     },
     "gradle/wrapper/gradle-wrapper.jar": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 247e9907cbd6d225cc06d6871b5657523ccd8554. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+        "last_change_commit": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+        "current_blob": "eddabd2eef8d94a5437d6168ff9c87a78ff725b3",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "diabl0w/DFRoot",
+            "commit": "c274137e8c02b4f94f64d1b132d991b80c747340",
+            "path": "gradle/wrapper/gradle-wrapper.jar"
+          },
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "gradle/wrapper/gradle-wrapper.jar"
+          },
+          {
+            "repository": "polygraphene/DFReroot",
+            "commit": "9edc769518f721d4cd39ad16e638e322abd74c45",
+            "path": "gradle/wrapper/gradle-wrapper.jar"
+          }
+        ],
+        "introduction_exact_matches": [
+          {
+            "repository": "diabl0w/DFRoot",
+            "commit": "c274137e8c02b4f94f64d1b132d991b80c747340",
+            "path": "gradle/wrapper/gradle-wrapper.jar"
+          },
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "gradle/wrapper/gradle-wrapper.jar"
+          },
+          {
+            "repository": "polygraphene/DFReroot",
+            "commit": "9edc769518f721d4cd39ad16e638e322abd74c45",
+            "path": "gradle/wrapper/gradle-wrapper.jar"
+          }
+        ]
+      }
     },
     "gradle/wrapper/gradle-wrapper.properties": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 247e9907cbd6d225cc06d6871b5657523ccd8554. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+        "last_change_commit": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+        "current_blob": "ad7845be3062ed90f3a53dd7dc4a279d74a239ef",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "diabl0w/DFRoot",
+            "commit": "c274137e8c02b4f94f64d1b132d991b80c747340",
+            "path": "gradle/wrapper/gradle-wrapper.properties"
+          },
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "gradle/wrapper/gradle-wrapper.properties"
+          },
+          {
+            "repository": "polygraphene/DFReroot",
+            "commit": "9edc769518f721d4cd39ad16e638e322abd74c45",
+            "path": "gradle/wrapper/gradle-wrapper.properties"
+          }
+        ],
+        "introduction_exact_matches": [
+          {
+            "repository": "diabl0w/DFRoot",
+            "commit": "c274137e8c02b4f94f64d1b132d991b80c747340",
+            "path": "gradle/wrapper/gradle-wrapper.properties"
+          },
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "gradle/wrapper/gradle-wrapper.properties"
+          },
+          {
+            "repository": "polygraphene/DFReroot",
+            "commit": "9edc769518f721d4cd39ad16e638e322abd74c45",
+            "path": "gradle/wrapper/gradle-wrapper.properties"
+          }
+        ]
+      }
     },
     "gradlew": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
-      "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 247e9907cbd6d225cc06d6871b5657523ccd8554. Exact matches recorded separately; earliest author/renames require review.",
+      "bucket": "A",
+      "status": "Apache-2.0 SPDX and full header present; full distribution license/notice packaging review pending",
+      "history": {
+        "first_commit_at_current_path": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+        "last_change_commit": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+        "current_blob": "249efbb032ce46a80c687c0723eb172e85f6a136",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "diabl0w/DFRoot",
+            "commit": "c274137e8c02b4f94f64d1b132d991b80c747340",
+            "path": "gradlew"
+          },
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "gradlew"
+          },
+          {
+            "repository": "polygraphene/DFReroot",
+            "commit": "9edc769518f721d4cd39ad16e638e322abd74c45",
+            "path": "gradlew"
+          }
+        ],
+        "introduction_exact_matches": [
+          {
+            "repository": "diabl0w/DFRoot",
+            "commit": "c274137e8c02b4f94f64d1b132d991b80c747340",
+            "path": "gradlew"
+          },
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "gradlew"
+          },
+          {
+            "repository": "polygraphene/DFReroot",
+            "commit": "9edc769518f721d4cd39ad16e638e322abd74c45",
+            "path": "gradlew"
+          }
+        ]
+      }
     },
     "gradlew.bat": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
-      "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 247e9907cbd6d225cc06d6871b5657523ccd8554. Exact matches recorded separately; earliest author/renames require review.",
+      "bucket": "A",
+      "status": "Apache-2.0 SPDX and full header present; full distribution license/notice packaging review pending",
+      "history": {
+        "first_commit_at_current_path": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+        "last_change_commit": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+        "current_blob": "8508ef684d4e1f8473dcbbfdacf52a131beaee0e",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "diabl0w/DFRoot",
+            "commit": "c274137e8c02b4f94f64d1b132d991b80c747340",
+            "path": "gradlew.bat"
+          },
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "gradlew.bat"
+          },
+          {
+            "repository": "polygraphene/DFReroot",
+            "commit": "9edc769518f721d4cd39ad16e638e322abd74c45",
+            "path": "gradlew.bat"
+          }
+        ],
+        "introduction_exact_matches": [
+          {
+            "repository": "diabl0w/DFRoot",
+            "commit": "c274137e8c02b4f94f64d1b132d991b80c747340",
+            "path": "gradlew.bat"
+          },
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "gradlew.bat"
+          },
+          {
+            "repository": "polygraphene/DFReroot",
+            "commit": "9edc769518f721d4cd39ad16e638e322abd74c45",
+            "path": "gradlew.bat"
+          }
+        ]
+      }
     },
     "lkm/Makefile": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 1728222916d8fe9a2cdf18019ab44a23cb299cd9. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "1728222916d8fe9a2cdf18019ab44a23cb299cd9",
+        "last_change_commit": "1728222916d8fe9a2cdf18019ab44a23cb299cd9",
+        "current_blob": "a87535bc7d8b102a26bcd67bc3ee08e018f4450d",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "lkm/Makefile"
+          }
+        ],
+        "introduction_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "lkm/Makefile"
+          }
+        ]
+      }
     },
     "lkm/dfroot.c": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 1728222916d8fe9a2cdf18019ab44a23cb299cd9. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "1728222916d8fe9a2cdf18019ab44a23cb299cd9",
+        "last_change_commit": "4fb5603e0e210042e7f4df82baf56c05b8570e98",
+        "current_blob": "b9c23875cdeb6399179e77d31ed3b892596ca4dd",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "lkm/dfroot.c"
+          }
+        ],
+        "introduction_exact_matches": []
+      }
     },
     "settings.gradle.kts": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 247e9907cbd6d225cc06d6871b5657523ccd8554. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+        "last_change_commit": "247e9907cbd6d225cc06d6871b5657523ccd8554",
+        "current_blob": "9a18b80726695526306e70a8d6c5d81b4bad245d",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "settings.gradle.kts"
+          }
+        ],
+        "introduction_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "settings.gradle.kts"
+          }
+        ]
+      }
     },
     "tools/ic_launcher_dirtyfrag.svg": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path c9bfee14841b3c5fc3a3f48748ea1b36f22b51e7. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "c9bfee14841b3c5fc3a3f48748ea1b36f22b51e7",
+        "last_change_commit": "c9bfee14841b3c5fc3a3f48748ea1b36f22b51e7",
+        "current_blob": "6c01470244bc726bb3872ecdfe1ea38adf007914",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "tools/ic_launcher_dirtyfrag.svg"
+          }
+        ],
+        "introduction_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "tools/ic_launcher_dirtyfrag.svg"
+          }
+        ]
+      }
     },
     "tools/icon-source.png": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path c9bfee14841b3c5fc3a3f48748ea1b36f22b51e7. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "c9bfee14841b3c5fc3a3f48748ea1b36f22b51e7",
+        "last_change_commit": "c9bfee14841b3c5fc3a3f48748ea1b36f22b51e7",
+        "current_blob": "c3f0cf838d497a54de96e43d237f319a11a65276",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "tools/icon-source.png"
+          }
+        ],
+        "introduction_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "tools/icon-source.png"
+          }
+        ]
+      }
     },
     "tools/icon_preview.png": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path c9bfee14841b3c5fc3a3f48748ea1b36f22b51e7. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "c9bfee14841b3c5fc3a3f48748ea1b36f22b51e7",
+        "last_change_commit": "c9bfee14841b3c5fc3a3f48748ea1b36f22b51e7",
+        "current_blob": "9022ea09c7816dcb1a81264b79428aca1edd98e0",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "tools/icon_preview.png"
+          }
+        ],
+        "introduction_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "tools/icon_preview.png"
+          }
+        ]
+      }
     },
     "tools/subset_font.py": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path 3706cf761709b261420909764bf47cff905e773d. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "3706cf761709b261420909764bf47cff905e773d",
+        "last_change_commit": "3706cf761709b261420909764bf47cff905e773d",
+        "current_blob": "95da4d237746797280af63f8c2a71df6643a6fe3",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "tools/subset_font.py"
+          }
+        ],
+        "introduction_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "tools/subset_font.py"
+          }
+        ]
+      }
     },
     "tools/trace_icon.py": {
-      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "ORIGIN": "Inherited at DirtyFrag fork point; first tracked at current path c9bfee14841b3c5fc3a3f48748ea1b36f22b51e7. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "grant and ancestry unresolved"
+      "status": "grant and ancestry unresolved",
+      "history": {
+        "first_commit_at_current_path": "c9bfee14841b3c5fc3a3f48748ea1b36f22b51e7",
+        "last_change_commit": "c9bfee14841b3c5fc3a3f48748ea1b36f22b51e7",
+        "current_blob": "3f953f9f81eb77c5f518f562821b968d292beb40",
+        "present_at_DirtyFrag_fork_point": true,
+        "head_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "tools/trace_icon.py"
+          }
+        ],
+        "introduction_exact_matches": [
+          {
+            "repository": "mitschud/DirtyFrag",
+            "commit": "ccd61e7c516df1469d335e41638e881328136dbc",
+            "path": "tools/trace_icon.py"
+          }
+        ]
+      }
     },
     "PROVENANCE.md": {
-      "ORIGIN": "FragX provenance work dated 2026-10-21; reproduced component text retains original terms",
+      "ORIGIN": "Added after DirtyFrag fork point; first tracked at current path 230da6b264735d6d57a2c954453347f1c158f35a. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "new record; original-contribution license decision pending"
+      "status": "new record; original-contribution license decision pending",
+      "history": {
+        "first_commit_at_current_path": "230da6b264735d6d57a2c954453347f1c158f35a",
+        "last_change_commit": "59383bbfc5440ebe62e30e6533e2ad0edb1204ee",
+        "current_blob": "4c78776f58cba1ba4d42823703cf94e2650816be",
+        "present_at_DirtyFrag_fork_point": false,
+        "head_exact_matches": [],
+        "introduction_exact_matches": []
+      }
     },
     "THIRD_PARTY_NOTICES.md": {
-      "ORIGIN": "FragX provenance work dated 2026-10-21; reproduced component text retains original terms",
+      "ORIGIN": "Added after DirtyFrag fork point; first tracked at current path 230da6b264735d6d57a2c954453347f1c158f35a. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "new record; original-contribution license decision pending"
+      "status": "new record; original-contribution license decision pending",
+      "history": {
+        "first_commit_at_current_path": "230da6b264735d6d57a2c954453347f1c158f35a",
+        "last_change_commit": "230da6b264735d6d57a2c954453347f1c158f35a",
+        "current_blob": "ec16555d792aef20b6fe5ee38e4b01e1cc9c36d0",
+        "present_at_DirtyFrag_fork_point": false,
+        "head_exact_matches": [],
+        "introduction_exact_matches": []
+      }
     },
     "app/src/main/res/raw/third_party_notices.txt": {
-      "ORIGIN": "FragX provenance work dated 2026-10-21; reproduced component text retains original terms",
+      "ORIGIN": "Added after DirtyFrag fork point; first tracked at current path 230da6b264735d6d57a2c954453347f1c158f35a. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "new record; original-contribution license decision pending"
+      "status": "new record; original-contribution license decision pending",
+      "history": {
+        "first_commit_at_current_path": "230da6b264735d6d57a2c954453347f1c158f35a",
+        "last_change_commit": "230da6b264735d6d57a2c954453347f1c158f35a",
+        "current_blob": "ec16555d792aef20b6fe5ee38e4b01e1cc9c36d0",
+        "present_at_DirtyFrag_fork_point": false,
+        "head_exact_matches": [],
+        "introduction_exact_matches": []
+      }
     },
     "provenance/files.json": {
-      "ORIGIN": "FragX provenance work dated 2026-10-21; reproduced component text retains original terms",
+      "ORIGIN": "Added after DirtyFrag fork point; first tracked at current path 230da6b264735d6d57a2c954453347f1c158f35a. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "new record; original-contribution license decision pending"
+      "status": "new record; original-contribution license decision pending",
+      "history": {
+        "first_commit_at_current_path": "230da6b264735d6d57a2c954453347f1c158f35a",
+        "last_change_commit": "59383bbfc5440ebe62e30e6533e2ad0edb1204ee",
+        "current_blob": "3e29832f80b70277f771ccdc9dfc8014014e36fe",
+        "present_at_DirtyFrag_fork_point": false,
+        "head_exact_matches": [],
+        "introduction_exact_matches": []
+      }
     },
     "provenance/modules.json": {
-      "ORIGIN": "FragX provenance work dated 2026-10-21; reproduced component text retains original terms",
+      "ORIGIN": "Added after DirtyFrag fork point; first tracked at current path 230da6b264735d6d57a2c954453347f1c158f35a. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "new record; original-contribution license decision pending"
+      "status": "new record; original-contribution license decision pending",
+      "history": {
+        "first_commit_at_current_path": "230da6b264735d6d57a2c954453347f1c158f35a",
+        "last_change_commit": "230da6b264735d6d57a2c954453347f1c158f35a",
+        "current_blob": "d6601fc962bfe9586ddadc7f5246ff292a4f23bd",
+        "present_at_DirtyFrag_fork_point": false,
+        "head_exact_matches": [],
+        "introduction_exact_matches": []
+      }
     },
     "tools/check_provenance.py": {
-      "ORIGIN": "FragX provenance work dated 2026-10-21; reproduced component text retains original terms",
+      "ORIGIN": "Added after DirtyFrag fork point; first tracked at current path 230da6b264735d6d57a2c954453347f1c158f35a. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "new record; original-contribution license decision pending"
+      "status": "new record; original-contribution license decision pending",
+      "history": {
+        "first_commit_at_current_path": "230da6b264735d6d57a2c954453347f1c158f35a",
+        "last_change_commit": "230da6b264735d6d57a2c954453347f1c158f35a",
+        "current_blob": "38559910b9284d7d6e6c59dde7dee27671877b2a",
+        "present_at_DirtyFrag_fork_point": false,
+        "head_exact_matches": [],
+        "introduction_exact_matches": []
+      }
     },
     ".github/workflows/provenance.yml": {
-      "ORIGIN": "FragX provenance work dated 2026-10-21; reproduced component text retains original terms",
+      "ORIGIN": "Added after DirtyFrag fork point; first tracked at current path 230da6b264735d6d57a2c954453347f1c158f35a. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "new record; original-contribution license decision pending"
+      "status": "new record; original-contribution license decision pending",
+      "history": {
+        "first_commit_at_current_path": "230da6b264735d6d57a2c954453347f1c158f35a",
+        "last_change_commit": "230da6b264735d6d57a2c954453347f1c158f35a",
+        "current_blob": "066501874a30d0b0e8ca4cc5ea7fc6fbac50a7b8",
+        "present_at_DirtyFrag_fork_point": false,
+        "head_exact_matches": [],
+        "introduction_exact_matches": []
+      }
     },
     "tools/verify_release.py": {
-      "ORIGIN": "FragX release compliance work 2026-10-21; GPL texts reproduced from companion release license files",
+      "ORIGIN": "Added after DirtyFrag fork point; first tracked at current path 59383bbfc5440ebe62e30e6533e2ad0edb1204ee. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "B",
-      "status": "Original contribution license pending"
+      "status": "Original contribution license pending",
+      "history": {
+        "first_commit_at_current_path": "59383bbfc5440ebe62e30e6533e2ad0edb1204ee",
+        "last_change_commit": "46a64438341fee0f350a427789cac8dfe7028fc7",
+        "current_blob": "ca28c00c4766e368ee8c65d1e18bd8831b5a7879",
+        "present_at_DirtyFrag_fork_point": false,
+        "head_exact_matches": [],
+        "introduction_exact_matches": []
+      }
     },
     "app/src/main/res/raw/license_gpl_v2.txt": {
-      "ORIGIN": "FragX release compliance work 2026-10-21; GPL texts reproduced from companion release license files",
+      "ORIGIN": "Added after DirtyFrag fork point; first tracked at current path 59383bbfc5440ebe62e30e6533e2ad0edb1204ee. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "A",
-      "status": "License text reproduction"
+      "status": "License text reproduction",
+      "history": {
+        "first_commit_at_current_path": "59383bbfc5440ebe62e30e6533e2ad0edb1204ee",
+        "last_change_commit": "59383bbfc5440ebe62e30e6533e2ad0edb1204ee",
+        "current_blob": "ecbc0593737be657aef92e3adcf3bcbd6fdb812e",
+        "present_at_DirtyFrag_fork_point": false,
+        "head_exact_matches": [],
+        "introduction_exact_matches": []
+      }
     },
     "app/src/main/res/raw/license_gpl_v3.txt": {
-      "ORIGIN": "FragX release compliance work 2026-10-21; GPL texts reproduced from companion release license files",
+      "ORIGIN": "Added after DirtyFrag fork point; first tracked at current path 59383bbfc5440ebe62e30e6533e2ad0edb1204ee. Exact matches recorded separately; earliest author/renames require review.",
       "bucket": "A",
-      "status": "License text reproduction"
+      "status": "License text reproduction",
+      "history": {
+        "first_commit_at_current_path": "59383bbfc5440ebe62e30e6533e2ad0edb1204ee",
+        "last_change_commit": "59383bbfc5440ebe62e30e6533e2ad0edb1204ee",
+        "current_blob": "f288702d2fa16d3cdf0035b15a9fcbc552cd88e7",
+        "present_at_DirtyFrag_fork_point": false,
+        "head_exact_matches": [],
+        "introduction_exact_matches": []
+      }
+    },
+    "provenance/upstream-history.json": {
+      "ORIGIN": "FragX provenance audit 2026-10-21; factual Git history observations",
+      "bucket": "B",
+      "status": "Original-contribution license pending"
+    },
+    "provenance/PATH_AUDIT.md": {
+      "ORIGIN": "FragX provenance audit 2026-10-21; factual Git history observations",
+      "bucket": "B",
+      "status": "Original-contribution license pending"
+    },
+    "provenance/ddk-images.json": {
+      "ORIGIN": "Docker pull digests recorded in eight successful Build #11 jobs on 2026-10-21",
+      "bucket": "B",
+      "status": "Factual build record; original-contribution license pending"
     }
-  }
+  },
+  "audit_baseline": "46a64438341fee0f350a427789cac8dfe7028fc7",
+  "evidence_scope": "Current-path history and exact Git blob matches at six pinned upstream HEADs; not a complete authorship or similarity determination."
 }
