@@ -31,6 +31,8 @@ lkm/Module.symvers
 # Generated binaries
 out/
 app/src/main/jni/splicehelper
+# The eight .ko are committed in this fork so a clone builds without a DDK
+# toolchain. This only catches a ninth KMI added without -f.
 app/src/main/jni/ko/*.ko
 
 # stale APK copies dropped at the repo root by hand

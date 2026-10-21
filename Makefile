@@ -21,8 +21,11 @@ DDK_WF      := .github/workflows/build.yml
 DDK_IMAGE   ?= $(shell awk '/image: ghcr\.io\//{gsub(/.*image: /,"");gsub(/:.*$$/,"");print;exit}' $(DDK_WF))
 DDK_RELEASE ?= $(shell awk '/image: ghcr\.io\/ylarod\/ddk-min:/{sub(/.*-/,"");print;exit}' $(DDK_WF))
 
-SIGN_PASS  := df-ksu
-SIGN_ALIAS := df-ksu
+# Must match the signingConfig in app/build.gradle.kts, and the keystore has to
+# land where that config reads it - app/, not the repo root upstream used.
+KEYSTORE   := app/keystore.jks
+SIGN_PASS  := dirtyfrag
+SIGN_ALIAS := dirtyfrag
 
 LKM_SRCS    := lkm/dfroot.c lkm/Makefile
 LKM_KOS     := $(KMIS:%=app/src/main/jni/ko/dfroot-%.ko)
@@ -41,14 +44,16 @@ APK   := out/DFRoot.apk
 
 all: $(APK)
 
-keystore.jks:
+# signing.properties is written on every build and read by nothing - gradle
+# carries its own signing config - but it is what a person looks for, so it stays.
+$(KEYSTORE):
 	keytool -genkeypair -keystore $@ -storetype JKS \
 	    -storepass $(SIGN_PASS) -keypass $(SIGN_PASS) \
 	    -alias $(SIGN_ALIAS) -keyalg RSA -keysize 2048 -validity 10000 \
 	    -dname "CN=DFRoot"
 
-signing.properties: keystore.jks
-	printf 'KEYSTORE_FILE=../keystore.jks\nKEYSTORE_PASSWORD=%s\nKEY_ALIAS=%s\nKEY_PASSWORD=%s\n' \
+signing.properties: $(KEYSTORE)
+	printf 'KEYSTORE_FILE=keystore.jks\nKEYSTORE_PASSWORD=%s\nKEY_ALIAS=%s\nKEY_PASSWORD=%s\n' \
 	    $(SIGN_PASS) $(SIGN_ALIAS) $(SIGN_PASS) > $@
 
 $(LKM_KOS): $(LKM_SRCS)
@@ -75,12 +80,12 @@ $(LKM_KOS): $(LKM_SRCS)
 	        ' || exit 1; \
 	done; \
 
-$(APK): signing.properties $(LKM_KOS) $(APK_SRCS)
+$(APK): $(KEYSTORE) $(LKM_KOS) $(APK_SRCS)
 	@printf '\n\033[1;36m══  DFRoot APK  ══\033[0m\n'
 	@printf '\033[1;35m  → gradle assembleRelease\033[0m\n'
 	./gradlew :app:assembleRelease
 	mkdir -p $(dir $@)
-	cp app/build/outputs/apk/release/DFRoot_*.apk $@
+	cp app/build/outputs/apk/release/dirtyfrag.apk $@
 	@printf '\033[1;32m  ✔  DFRoot APK  →  $@\033[0m\n'
 
 clean:

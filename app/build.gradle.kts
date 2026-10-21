@@ -13,6 +13,15 @@ android {
         versionCode = 33
         versionName = "1.16"
 
+        // Pinned: an unpinned NDK means AGP's default, which moves under you on an
+        // AGP bump and silently changes the shipped native code. If CI names a
+        // different version on its first run, use that one.
+        ndkVersion = "27.2.12479018"
+
+        // Every UI string is hardcoded in Java, so the library locale resources
+        // are dead weight.
+        resourceConfigurations += listOf("en")
+
         ndk {
             abiFilters += listOf("arm64-v8a")
         }
@@ -30,6 +39,9 @@ android {
     buildTypes {
         debug {
             signingConfig = signingConfigs.getByName("keystore")
+            // So a pasted run log says which build produced it. The update
+            // check's numeric compare ignores the suffix.
+            versionNameSuffix = "-debug"
         }
         release {
             signingConfig = signingConfigs.getByName("keystore")
