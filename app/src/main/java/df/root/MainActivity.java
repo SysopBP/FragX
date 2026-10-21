@@ -767,6 +767,20 @@ public class MainActivity extends AppCompatActivity implements IReporter {
             box.addView(backgroundRow, new android.widget.LinearLayout.LayoutParams(
                     android.view.ViewGroup.LayoutParams.MATCH_PARENT, (int) (46 * md)));
 
+            TextView dimBackgroundRow = new TextView(this);
+            dimBackgroundRow.setText("Background dimming");
+            dimBackgroundRow.setTextColor(0xFFE8E8E8);
+            dimBackgroundRow.setTextSize(15);
+            dimBackgroundRow.setGravity(android.view.Gravity.CENTER_VERTICAL);
+            dimBackgroundRow.setPadding((int) (20 * md), 0, (int) (20 * md), 0);
+            dimBackgroundRow.setBackgroundResource(R.drawable.menu_row_highlight);
+            dimBackgroundRow.setOnClickListener(row -> {
+                if (pwRef[0] != null) pwRef[0].dismiss();
+                customBackground.adjustDim();
+            });
+            box.addView(dimBackgroundRow, new android.widget.LinearLayout.LayoutParams(
+                    android.view.ViewGroup.LayoutParams.MATCH_PARENT, (int) (46 * md)));
+
             TextView resetBackgroundRow = new TextView(this);
             resetBackgroundRow.setText("Reset background");
             resetBackgroundRow.setTextColor(0xFFE8E8E8);

@@ -32,7 +32,7 @@ final class CustomBackground {
         file = new AtomicFile(new File(activity.getFilesDir(), "custom_background.png"));
         picker = activity.registerForActivityResult(new ActivityResultContracts.GetContent(),
                 uri -> { if (uri != null) importImage(uri); });
-        view.setColorFilter(0x66000000, PorterDuff.Mode.SRC_ATOP);
+        applyDim(dimPercent());
         int request = ++generation;
         worker.execute(() -> {
             if (!file.getBaseFile().exists()) return;
@@ -45,6 +45,50 @@ final class CustomBackground {
                 // Keep the built-in background if the stored image is unavailable.
             }
         });
+    }
+
+    private int dimPercent() {
+        return Math.max(0, Math.min(100, activity.getSharedPreferences(
+                "fragx_appearance", android.content.Context.MODE_PRIVATE).getInt("background_dim", 40)));
+    }
+
+    private void applyDim(int percent) {
+        int alpha = Math.round(percent * 255f / 100f);
+        view.setColorFilter(alpha << 24, PorterDuff.Mode.SRC_ATOP);
+    }
+
+    void adjustDim() {
+        int original = dimPercent();
+        float density = activity.getResources().getDisplayMetrics().density;
+        android.widget.LinearLayout content = new android.widget.LinearLayout(activity);
+        content.setOrientation(android.widget.LinearLayout.VERTICAL);
+        int padding = Math.round(24 * density);
+        content.setPadding(padding, padding / 2, padding, padding / 2);
+        android.widget.TextView value = new android.widget.TextView(activity);
+        value.setText("Dimming: " + original + "%");
+        content.addView(value);
+        android.widget.SeekBar slider = new android.widget.SeekBar(activity);
+        slider.setMax(100);
+        slider.setProgress(original);
+        content.addView(slider, new android.widget.LinearLayout.LayoutParams(
+                android.view.ViewGroup.LayoutParams.MATCH_PARENT, Math.round(48 * density)));
+        slider.setOnSeekBarChangeListener(new android.widget.SeekBar.OnSeekBarChangeListener() {
+            @Override public void onProgressChanged(android.widget.SeekBar bar, int progress, boolean user) {
+                value.setText("Dimming: " + progress + "%");
+                applyDim(progress);
+            }
+            @Override public void onStartTrackingTouch(android.widget.SeekBar bar) { }
+            @Override public void onStopTrackingTouch(android.widget.SeekBar bar) { }
+        });
+        new androidx.appcompat.app.AlertDialog.Builder(activity)
+                .setTitle("Background dimming").setView(content)
+                .setPositiveButton("Save", (dialog, which) -> {
+                    activity.getSharedPreferences("fragx_appearance", android.content.Context.MODE_PRIVATE)
+                            .edit().putInt("background_dim", slider.getProgress()).apply();
+                })
+                .setNegativeButton("Cancel", (dialog, which) -> applyDim(original))
+                .setOnCancelListener(dialog -> applyDim(original))
+                .show();
     }
 
     void choose() {

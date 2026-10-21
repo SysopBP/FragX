@@ -584,9 +584,10 @@
         android:backgroundTint="#FF7A7A7A"
         android:textColor="#FFE0E0E0"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toStartOf="@+id/glPillStart"
+        app:layout_constraintEnd_toStartOf="@id/btnKsu"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintWidth_percent="0.48"
         app:strokeWidth="0.5dp"
         app:strokeColor="#FFA6A6A6" />
@@ -616,7 +617,7 @@
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/btnRun">
 
         <!-- Fades in while the circle opens up; dark ink on the lit pill.
