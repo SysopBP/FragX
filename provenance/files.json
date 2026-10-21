@@ -2243,6 +2243,16 @@
       "ORIGIN": "2026-10-21 artifact/source audit; exact Kotlin v2.2.10 licensing evidence recorded",
       "bucket": "B",
       "status": "Factual notice inventory; gaps recorded"
+    },
+    "app/src/main/java/df/root/ReleaseVersion.java": {
+      "ORIGIN": "FragX signing and preview-update work 2026-10-21; public certificate fingerprint only",
+      "bucket": "B",
+      "status": "Original-contribution license pending"
+    },
+    "provenance/signing-certificate.sha256": {
+      "ORIGIN": "FragX signing and preview-update work 2026-10-21; public certificate fingerprint only",
+      "bucket": "B",
+      "status": "Original-contribution license pending"
     }
   },
   "audit_baseline": "46a64438341fee0f350a427789cac8dfe7028fc7",

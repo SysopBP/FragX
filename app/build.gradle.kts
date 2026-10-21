@@ -10,8 +10,8 @@ android {
         applicationId = "df.root"
         minSdk = 32
         targetSdk = 37
-        versionCode = 33
-        versionName = "1.16"
+        versionCode = 34
+        versionName = "1.17-preview.1"
 
         // Pinned: an unpinned NDK means AGP's default, which moves under you on an
         // AGP bump and silently changes the shipped native code. If CI names a
@@ -30,9 +30,10 @@ android {
     signingConfigs {
         create("keystore") {
             storeFile = file("keystore.jks")
-            storePassword = "dirtyfrag"
-            keyAlias = "dirtyfrag"
-            keyPassword = "dirtyfrag"
+            storeType = "PKCS12"
+            storePassword = System.getenv("FRAGX_KEYSTORE_PASSWORD") ?: "dirtyfrag"
+            keyAlias = System.getenv("FRAGX_KEY_ALIAS") ?: "dirtyfrag"
+            keyPassword = System.getenv("FRAGX_KEYSTORE_PASSWORD") ?: "dirtyfrag"
         }
     }
 

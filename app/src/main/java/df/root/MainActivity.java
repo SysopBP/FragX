@@ -45,17 +45,12 @@ public class MainActivity extends AppCompatActivity implements IReporter {
     /** Where the app links to: this fork's own repository. */
     private static final String REPO = "SysopBP/FragX";
     private static final String REPO_URL = "https://github.com/" + REPO;
-    /** Where the update check looks. Point this at whichever repo actually
-     *  publishes releases - the fork's own once it does, mitschud/DirtyFrag until
-     *  then. A repo with no releases answers 404 and the pill simply never
-     *  appears, which is why this is not the fork yet. The numeric compare below
-     *  is what makes watching an upstream safe: a build that is ahead of it is no
-     *  longer told to update back down to it. */
-    private static final String UPDATE_REPO = "mitschud/DirtyFrag";
-    private static final String RELEASES_URL =
-            "https://github.com/" + UPDATE_REPO + "/releases";
+    /** Stable and preview updates are published by this fork. */
+    private static final String UPDATE_REPO = REPO;
+    private static final String RELEASES_URL = "https://github.com/" + UPDATE_REPO + "/releases";
     private static final String LATEST_API =
-            "https://api.github.com/repos/" + UPDATE_REPO + "/releases/latest";
+            "https://api.github.com/repos/" + UPDATE_REPO + "/releases?per_page=100";
+    private volatile String updateReleaseUrl = RELEASES_URL;
 
     private ActivityMainBinding binding;
     private final Handler mMain = new Handler(Looper.getMainLooper());
@@ -490,7 +485,7 @@ public class MainActivity extends AppCompatActivity implements IReporter {
         // releases page. No newer release, no pill - the header stays the plain word.
         binding.updatePill.setOnClickListener(v -> {
             v.performHapticFeedback(HapticFeedbackConstants.KEYBOARD_TAP);
-            openUrl(RELEASES_URL);
+            openUrl(updateReleaseUrl);
         });
         mExec.execute(this::checkForAppUpdate);
 
@@ -1562,71 +1557,55 @@ public class MainActivity extends AppCompatActivity implements IReporter {
         binding.updatePill.setLayoutParams(lp);
     }
 
-    /** SamSU-style GitHub release check: the pill around the version turns
-     *  green when the latest published release tag differs from this build's
-     *  versionName. Silent on offline / rate-limit / API hiccups. */
+    /** Select the newest version among public releases, including previews. */
     private void checkForAppUpdate() {
+        java.net.HttpURLConnection conn = null;
         try {
-            java.net.HttpURLConnection conn = (java.net.HttpURLConnection)
-                    new java.net.URL(LATEST_API)
-                            .openConnection();
+            conn = (java.net.HttpURLConnection) new java.net.URL(LATEST_API).openConnection();
             conn.setConnectTimeout(8000);
             conn.setReadTimeout(8000);
             conn.setRequestProperty("Accept", "application/vnd.github+json");
             conn.setRequestProperty("User-Agent", "FragX");
             if (conn.getResponseCode() != 200) return;
-            java.io.BufferedReader reader = new java.io.BufferedReader(
-                    new java.io.InputStreamReader(conn.getInputStream()));
             StringBuilder body = new StringBuilder();
-            String line;
-            while ((line = reader.readLine()) != null) body.append(line);
-            reader.close();
-            String tag = new org.json.JSONObject(body.toString()).optString("tag_name", "");
-            if (tag.isEmpty()) {
-                Log.i(TAG, "update check: empty tag_name");
-                return;
+            try (java.io.BufferedReader reader = new java.io.BufferedReader(
+                    new java.io.InputStreamReader(conn.getInputStream(), java.nio.charset.StandardCharsets.UTF_8))) {
+                String line;
+                while ((line = reader.readLine()) != null) body.append(line);
             }
-            String latest = tag.replaceFirst("^[vV]", "").trim();
-            String mine;
-            try {
-                mine = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
-            } catch (Exception e) {
-                return;
+            String mine = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
+            if (mine == null) return;
+            mine = mine.replaceFirst("-debug$", "");
+            if (!ReleaseVersion.valid(mine)) return;
+            String best = mine;
+            String destination = null;
+            org.json.JSONArray releases = new org.json.JSONArray(body.toString());
+            for (int i = 0; i < releases.length(); i++) {
+                org.json.JSONObject release = releases.optJSONObject(i);
+                if (release == null || release.optBoolean("draft", false)) continue;
+                String tag = release.optString("tag_name", "");
+                String url = release.optString("html_url", "");
+                if (!ReleaseVersion.valid(tag) || !url.startsWith(RELEASES_URL + "/tag/")) continue;
+                boolean hasApk = false;
+                org.json.JSONArray assets = release.optJSONArray("assets");
+                if (assets != null) for (int j = 0; j < assets.length(); j++) {
+                    org.json.JSONObject asset = assets.optJSONObject(j);
+                    if (asset != null && asset.optString("name", "").endsWith(".apk")) hasApk = true;
+                }
+                if (hasApk && ReleaseVersion.compare(tag, best) > 0) {
+                    best = tag;
+                    destination = url;
+                }
             }
-            // Numeric compare, not string inequality: a fork that is ahead of the
-            // repo it checks was being told to "update" back down to it.
-            if (compareVersions(latest, mine) <= 0) {
-                Log.i(TAG, "update check: up to date (" + mine + " >= " + latest + ")");
-                return;
+            if (destination != null) {
+                updateReleaseUrl = destination;
+                mMain.post(this::showUpdatePill);
             }
-            Log.i(TAG, "update check: update available (latest=" + latest + ")");
-            mMain.post(this::showUpdatePill);
-        } catch (Exception e) {
-            Log.i(TAG, "update check failed: " + e);
+        } catch (Exception error) {
+            Log.i(TAG, "update check failed: " + error);
+        } finally {
+            if (conn != null) conn.disconnect();
         }
-    }
-
-    /** -1, 0 or 1 over dotted numeric versions. A non-numeric tail is ignored, so
-     *  "1.16" against "1.16" and "1.16" against "1.16-debug" both come out 0 -
-     *  which is what lets the debug build type carry a suffix and still not be
-     *  told to update itself. */
-    private static int compareVersions(String a, String b) {
-        String[] pa = a.split("\\.");
-        String[] pb = b.split("\\.");
-        for (int i = 0; i < Math.max(pa.length, pb.length); i++) {
-            int na = numPart(i < pa.length ? pa[i] : "0");
-            int nb = numPart(i < pb.length ? pb[i] : "0");
-            if (na != nb) return na < nb ? -1 : 1;
-        }
-        return 0;
-    }
-
-    private static int numPart(String s) {
-        int n = 0;
-        for (int i = 0; i < s.length() && Character.isDigit(s.charAt(i)); i++) {
-            n = n * 10 + (s.charAt(i) - '0');
-        }
-        return n;
     }
 
     /**

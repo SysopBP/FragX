@@ -80,23 +80,31 @@ jobs:
           distribution: temurin
           java-version: 21
 
-      # Both build types sign with app/keystore.jks, so the file has to exist on a
-      # pull_request too - and on a fork with no KEYSTORE secret, where the missing
-      # file used to fail the whole build at the signing task. A throwaway key is
-      # better than no APK; it just cannot be installed over one signed with the
-      # real key.
+      # PR builds use a disposable development key. Distributable builds require
+      # the permanent key and must match the recorded public certificate.
       - name: Provide a signing keystore
+        env:
+          KEYSTORE_B64: ${{ secrets.KEYSTORE }}
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
         run: |
           mkdir -p app
-          if [ -n "${{ secrets.KEYSTORE }}" ]; then
-            echo "${{ secrets.KEYSTORE }}" | base64 --decode > app/keystore.jks
-          else
-            echo "::warning::KEYSTORE secret is not set. Generating a throwaway key: the APK installs, but not over one signed with the real key."
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
             keytool -genkeypair -keystore app/keystore.jks -alias dirtyfrag \
-              -keyalg RSA -keysize 2048 -validity 10000 \
-              -storepass dirtyfrag -keypass dirtyfrag -dname "CN=DirtyFrag"
+              -keyalg RSA -keysize 2048 -validity 30 \
+              -storepass dirtyfrag -keypass dirtyfrag -dname "CN=FragX development"
+            echo "FRAGX_KEYSTORE_PASSWORD=dirtyfrag" >> "$GITHUB_ENV"
+            echo "FRAGX_KEY_ALIAS=dirtyfrag" >> "$GITHUB_ENV"
+          else
+            test -n "$KEYSTORE_B64" || { echo "::error::Set the permanent KEYSTORE secret before release builds."; exit 1; }
+            test -n "$KEYSTORE_PASSWORD" || { echo "::error::Set KEYSTORE_PASSWORD before release builds."; exit 1; }
+            printf '%s' "$KEYSTORE_B64" | base64 --decode > app/keystore.jks
+            keytool -exportcert -keystore app/keystore.jks -alias fragx \
+              -storepass:env KEYSTORE_PASSWORD -file "$RUNNER_TEMP/fragx-release.der"
+            EXPECTED_CERT=$(cat provenance/signing-certificate.sha256)
+            printf '%s  %s\n' "$EXPECTED_CERT" "$RUNNER_TEMP/fragx-release.der" | sha256sum --check
+            printf 'FRAGX_KEYSTORE_PASSWORD=%s\n' "$KEYSTORE_PASSWORD" >> "$GITHUB_ENV"
+            echo "FRAGX_KEY_ALIAS=fragx" >> "$GITHUB_ENV"
           fi
-          ls -l app/keystore.jks
 
       - name: Download DF LKMs
         uses: actions/download-artifact@v7

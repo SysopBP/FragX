@@ -12,9 +12,10 @@ hardening) and keeps upstream's SU-manager agnostic design.
 
 ## Install
 
-1. Install the DirtyFrag APK from [Releases](https://github.com/mitschud/DirtyFrag/releases/latest).
-   Releases are published on mitschud/DirtyFrag; this fork has none of its own
-   yet, and the update check watches upstream until it does.
+1. Download a published FragX APK from [FragX releases](https://github.com/SysopBP/FragX/releases).
+   Preview releases are supported by the in-app update checker. CI development APKs may use
+   temporary signatures; moving from those builds to permanent signing requires a one-time
+   uninstall/reinstall, which removes app settings. Back up any settings you need first.
 2. Install an SU manager that **ships `libksud.so`**:
    - Samsung - **required**:
      - [diabl0w's KernelSU](https://github.com/diabl0w/KernelSU/releases)
