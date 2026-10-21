@@ -40,6 +40,7 @@ import java.util.concurrent.Executors;
 public class MainActivity extends AppCompatActivity implements IReporter {
 
     private static final String TAG = "dfroot";
+    private CustomBackground customBackground;
 
     /** Where the app links to: this fork's own repository. */
     private static final String REPO = "SysopBP/FragX";
@@ -470,6 +471,7 @@ public class MainActivity extends AppCompatActivity implements IReporter {
         mDeCtx = createDeviceProtectedStorageContext();
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        customBackground = new CustomBackground(this, binding.customBackground);
 
         // The header is the app's name and nothing else. The version number that
         // used to ride next to it is still recorded, just not in the one line of
@@ -734,6 +736,34 @@ public class MainActivity extends AppCompatActivity implements IReporter {
                 resetCardLayout();
             });
             box.addView(rlRow, new android.widget.LinearLayout.LayoutParams(
+                    android.view.ViewGroup.LayoutParams.MATCH_PARENT, (int) (46 * md)));
+
+            TextView backgroundRow = new TextView(this);
+            backgroundRow.setText("Choose background");
+            backgroundRow.setTextColor(0xFFE8E8E8);
+            backgroundRow.setTextSize(15);
+            backgroundRow.setGravity(android.view.Gravity.CENTER_VERTICAL);
+            backgroundRow.setPadding((int) (20 * md), 0, (int) (20 * md), 0);
+            backgroundRow.setBackgroundResource(R.drawable.menu_row_highlight);
+            backgroundRow.setOnClickListener(row -> {
+                if (pwRef[0] != null) pwRef[0].dismiss();
+                customBackground.choose();
+            });
+            box.addView(backgroundRow, new android.widget.LinearLayout.LayoutParams(
+                    android.view.ViewGroup.LayoutParams.MATCH_PARENT, (int) (46 * md)));
+
+            TextView resetBackgroundRow = new TextView(this);
+            resetBackgroundRow.setText("Reset background");
+            resetBackgroundRow.setTextColor(0xFFE8E8E8);
+            resetBackgroundRow.setTextSize(15);
+            resetBackgroundRow.setGravity(android.view.Gravity.CENTER_VERTICAL);
+            resetBackgroundRow.setPadding((int) (20 * md), 0, (int) (20 * md), 0);
+            resetBackgroundRow.setBackgroundResource(R.drawable.menu_row_highlight);
+            resetBackgroundRow.setOnClickListener(row -> {
+                if (pwRef[0] != null) pwRef[0].dismiss();
+                customBackground.reset();
+            });
+            box.addView(resetBackgroundRow, new android.widget.LinearLayout.LayoutParams(
                     android.view.ViewGroup.LayoutParams.MATCH_PARENT, (int) (46 * md)));
 
             // Width: content, but at least 210dp so the popup reads properly.
@@ -1966,6 +1996,12 @@ public class MainActivity extends AppCompatActivity implements IReporter {
         } catch (Exception e) {
             Log.i(TAG, "no browser for " + url);
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        if (customBackground != null) customBackground.close();
+        super.onDestroy();
     }
 
 }
