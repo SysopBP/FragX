@@ -61,6 +61,10 @@ public class MainActivity extends AppCompatActivity implements IReporter {
     private final Executor mExec = Executors.newSingleThreadExecutor();
     private final StringBuilder logBuffer = new StringBuilder();
     private File lastLogFile;
+    /** mtime of last_run.log as it was last rendered. The QS tile roots the
+     *  device headlessly and writes the same file, so a newer one has to replace
+     *  what is on screen instead of the screen quietly keeping the old one. */
+    private long logMtime;
     private boolean running;
     private boolean runArmed;
     private boolean advancedLog;
@@ -567,18 +571,7 @@ public class MainActivity extends AppCompatActivity implements IReporter {
         String last = readLastLog();
         boolean hasLastLog = !last.isEmpty();
         if (hasLastLog) {
-            appendLog(LOG_HEADER);
-            for (String l : last.split("\n")) {
-                String t = stripHeader(l.trim());
-                // Skip stale headers, old result lines and duplicate header lines.
-                if (t.isEmpty()
-                        || t.equals("LAST RUN")
-                        || t.equals("EXPLOIT SUCCESS")
-                        || t.equals(LOG_HEADER)) {
-                    continue;
-                }
-                appendLog(t);
-            }
+            loadLastLogIntoView();
         }
 
         // Advanced log toggle: full log vs. simple status (progress bar only).
@@ -628,6 +621,7 @@ public class MainActivity extends AppCompatActivity implements IReporter {
             binding.outputView.setText("");
             logBuffer.setLength(0);
             if (lastLogFile.exists()) lastLogFile.delete();
+            logMtime = 0;
             createDeviceProtectedStorageContext()
                     .getSharedPreferences("dfroot", MODE_PRIVATE)
                     .edit().putBoolean("last_run_success", false).apply();
@@ -836,6 +830,10 @@ public class MainActivity extends AppCompatActivity implements IReporter {
         // Run stays locked until an SU manager is selected (and, after a failed
         // run, until the device has been rebooted).
         updateRunButton();
+
+        // Offer the shade tile once. A tile that was never added is never
+        // instantiated, so it cannot offer itself.
+        RootTileService.offer(this);
     }
 
     /** Expert mode off: the autorun card is inaccessible - greyed text and
@@ -1149,7 +1147,40 @@ public class MainActivity extends AppCompatActivity implements IReporter {
     protected void onResume() {
         super.onResume();
         loadSuManagerPref();
+        // updateRunButton() re-reads /dev/df, so a root gained outside this
+        // activity - the tile, the boot receiver - shows up on the way back in.
         updateRunButton();
+        // A log written outside this activity replaces the one on screen.
+        if (!running && lastLogFile != null && lastLogFile.exists()
+                && lastLogFile.lastModified() != logMtime) {
+            loadLastLogIntoView();
+            updateLogVisibility();
+        }
+    }
+
+    /** Render last_run.log into the log view. Called on start, and again on
+     *  resume when something outside this activity wrote a newer one - the QS
+     *  tile roots the device headlessly and writes the same file. */
+    private void loadLastLogIntoView() {
+        String last = readLastLog();
+        if (last.isEmpty()) return;
+        logBuffer.setLength(0);
+        binding.outputView.setText("");
+        appendLog(LOG_HEADER);
+        for (String l : last.split("\n")) {
+            String t = stripHeader(l.trim());
+            // Skip stale headers, old result lines and duplicate header lines.
+            if (t.isEmpty()
+                    || t.equals("LAST RUN")
+                    || t.equals("EXPLOIT SUCCESS")
+                    || t.equals(LOG_HEADER)) {
+                continue;
+            }
+            appendLog(t);
+        }
+        // Read after the writes, so this is the mtime the file has now and not
+        // the one it had before saveLog() rewrote it.
+        logMtime = lastLogFile.lastModified();
     }
 
     private void setRootedState() {
@@ -1913,6 +1944,9 @@ public class MainActivity extends AppCompatActivity implements IReporter {
         } finally {
             mMain.post(() -> {
                 running = false;
+                if (lastLogFile != null && lastLogFile.exists()) {
+                    logMtime = lastLogFile.lastModified();
+                }
                 boolean rooted = new File("/dev/df").exists();
                 if (rooted) {
                     setRootedState(true);

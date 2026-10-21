@@ -35,5 +35,21 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
+    <!-- Root from the shade. Root is ephemeral by design, so after every reboot
+         the app is two taps away; the tile makes it one, and does it headlessly -
+         it calls ExploitRunner directly, so nothing has to come to the
+         foreground. exported because SystemUI binds it, gated by the permission
+         that binding requires. -->
+    <service
+        android:name=".RootTileService"
+        android:exported="true"
+        android:icon="@drawable/ic_tile_root"
+        android:label="DirtyFrag"
+        android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+        <intent-filter>
+            <action android:name="android.service.quicksettings.action.QS_TILE" />
+        </intent-filter>
+    </service>
+
     </application>
 </manifest>
