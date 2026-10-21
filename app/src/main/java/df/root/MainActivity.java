@@ -547,7 +547,7 @@ public class MainActivity extends AppCompatActivity implements IReporter {
                     // been set, because that is the combination the headline renders
                     // in - and the update pill has to be exactly this wide to cover it.
                     headlinePx = Math.round(
-                            titleView.getPaint().measureText("DirtyFrag"));
+                            titleView.getPaint().measureText(getString(R.string.app_name)));
                 }
             }
         });
@@ -1486,7 +1486,7 @@ public class MainActivity extends AppCompatActivity implements IReporter {
             conn.setConnectTimeout(8000);
             conn.setReadTimeout(8000);
             conn.setRequestProperty("Accept", "application/vnd.github+json");
-            conn.setRequestProperty("User-Agent", "DirtyFrag");
+            conn.setRequestProperty("User-Agent", "FragX");
             if (conn.getResponseCode() != 200) return;
             java.io.BufferedReader reader = new java.io.BufferedReader(
                     new java.io.InputStreamReader(conn.getInputStream()));

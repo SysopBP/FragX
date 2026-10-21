@@ -110,20 +110,20 @@ jobs:
       - name: Stage release asset
         if: startsWith(github.ref, 'refs/tags/')
         run: |
-          # app/build.gradle.kts always writes app/build/outputs/apk/release/dirtyfrag.apk,
+          # app/build.gradle.kts always writes app/build/outputs/apk/release/fragx.apk,
           # so the versioned asset name comes from the tag (v1.11 -> DirtyFrag-v1.11.apk).
-          cp app/build/outputs/apk/release/dirtyfrag.apk "DirtyFrag-${GITHUB_REF_NAME}.apk"
-          ls -l DirtyFrag-*.apk
+          cp app/build/outputs/apk/release/fragx.apk "FragX-${GITHUB_REF_NAME}.apk"
+          ls -l FragX-*.apk
 
       - name: Upload DFRoot APK
         uses: actions/upload-artifact@v7
         with:
-          name: DFRoot
+          name: FragX
           # A pull request only produces the debug APK.
           if-no-files-found: ignore
           path: |
-            app/build/outputs/apk/release/dirtyfrag.apk
-            app/build/outputs/apk/debug/dirtyfrag.apk
+            app/build/outputs/apk/release/fragx.apk
+            app/build/outputs/apk/debug/fragx.apk
 
       - name: Build release notes from CHANGELOG
         if: startsWith(github.ref, 'refs/tags/')

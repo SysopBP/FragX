@@ -9,7 +9,8 @@
     <item>
         <shape android:shape="rectangle">
             <corners android:radius="100dp" />
-            <solid android:color="#FF1C1C1C" />
+            <gradient android:angle="270" android:startColor="#E2374254" android:endColor="#E01B2230" />
+            <stroke android:width="1dp" android:color="#40FFFFFF" />
         </shape>
     </item>
 </ripple>

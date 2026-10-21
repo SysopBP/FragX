@@ -2,9 +2,9 @@
     <style name="Theme.DirtyFrag" parent="Theme.Material3.DynamicColors.DayNight.NoActionBar">
         <item name="android:fontFamily">@font/inter</item>
         <item name="fontFamily">@font/inter</item>
-        <item name="android:windowBackground">@color/black</item>
-        <item name="android:statusBarColor">@color/black</item>
-        <item name="android:navigationBarColor">@color/black</item>
+        <item name="android:windowBackground">@drawable/bg_glass_backdrop</item>
+        <item name="android:statusBarColor">#101A2A</item>
+        <item name="android:navigationBarColor">#080C14</item>
         <item name="colorSurface">@color/black</item>
         <item name="colorSurfaceContainerLow">@color/black</item>
         <item name="colorSurfaceContainer">@color/black</item>

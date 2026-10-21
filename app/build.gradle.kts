@@ -58,7 +58,7 @@ android {
 androidComponents {
     onVariants { variant ->
         variant.outputs.forEach { output ->
-            output.outputFileName.set("dirtyfrag.apk")
+            output.outputFileName.set("fragx.apk")
         }
     }
 }

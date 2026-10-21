@@ -21,8 +21,9 @@ import com.google.android.material.card.MaterialCardView;
  */
 public class DraggableCardView extends MaterialCardView {
 
-    private static final int REST_BG = 0xFF1C1C1C, HELD_BG = 0xFF3A3A3C;
-    private static final int HELD_STROKE = 0xFFFFFFFF;
+    private static final int REST_BG = 0xB3212938, HELD_BG = 0xE03A465A;
+    private static final int HELD_STROKE = 0xB3FFFFFF;
+    private static final int REST_STROKE = 0x40FFFFFF;
     private static final float STROKE_W_DP = 1.2f;
     /** How far the lifted card floats above the stack. */
     private static final float LIFT_Z_DP = 18f;
@@ -52,9 +53,9 @@ public class DraggableCardView extends MaterialCardView {
         density = context.getResources().getDisplayMetrics().density;
         maxStroke = (int) (STROKE_W_DP * density);
         liftZ = LIFT_Z_DP * density;
-        // The outline is always white; the rest state keeps a width of zero, so
-        // the card stays the flat card the app has always had.
-        setStrokeColor(ColorStateList.valueOf(HELD_STROKE));
+        // Fine translucent outlines keep the glass panels visible at rest.
+        setStrokeColor(ColorStateList.valueOf(REST_STROKE));
+        setStrokeWidth(Math.max(1, Math.round(density)));
         setCardBackgroundColor(REST_BG);
     }
 
@@ -63,7 +64,8 @@ public class DraggableCardView extends MaterialCardView {
         if (this.held == held) return;
         this.held = held;
         setCardBackgroundColor(held ? HELD_BG : REST_BG);
-        setStrokeWidth(held ? maxStroke : 0);
+        setStrokeColor(ColorStateList.valueOf(held ? HELD_STROKE : REST_STROKE));
+        setStrokeWidth(held ? maxStroke : Math.max(1, Math.round(density)));
         setTranslationZ(held ? liftZ : 0f);
         invalidate();
     }

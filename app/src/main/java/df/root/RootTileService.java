@@ -257,7 +257,7 @@ public class RootTileService extends TileService implements IReporter {
         }
         sbm.requestAddTileService(
                 new ComponentName(ctx, RootTileService.class),
-                "DirtyFrag",
+                "FragX",
                 Icon.createWithResource(ctx, R.drawable.ic_tile_root),
                 ctx.getMainExecutor(),
                 result -> Log.i(TAG, "tile request: " + result));
