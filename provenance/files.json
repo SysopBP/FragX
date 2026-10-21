@@ -2131,8 +2131,8 @@
     },
     "tools/check_provenance.py": {
       "ORIGIN": "Added after DirtyFrag fork point; first tracked at current path 230da6b264735d6d57a2c954453347f1c158f35a. Exact matches recorded separately; earliest author/renames require review.",
-      "bucket": "B",
-      "status": "new record; original-contribution license decision pending",
+      "bucket": "A",
+      "status": "Original FragX contribution under scoped MIT LICENSE",
       "history": {
         "first_commit_at_current_path": "230da6b264735d6d57a2c954453347f1c158f35a",
         "last_change_commit": "230da6b264735d6d57a2c954453347f1c158f35a",
@@ -2157,8 +2157,8 @@
     },
     "tools/verify_release.py": {
       "ORIGIN": "Added after DirtyFrag fork point; first tracked at current path 59383bbfc5440ebe62e30e6533e2ad0edb1204ee. Exact matches recorded separately; earliest author/renames require review.",
-      "bucket": "B",
-      "status": "Original contribution license pending",
+      "bucket": "A",
+      "status": "Original FragX contribution under scoped MIT LICENSE",
       "history": {
         "first_commit_at_current_path": "59383bbfc5440ebe62e30e6533e2ad0edb1204ee",
         "last_change_commit": "46a64438341fee0f350a427789cac8dfe7028fc7",
@@ -2246,13 +2246,23 @@
     },
     "app/src/main/java/df/root/ReleaseVersion.java": {
       "ORIGIN": "FragX signing and preview-update work 2026-10-21; public certificate fingerprint only",
-      "bucket": "B",
-      "status": "Original-contribution license pending"
+      "bucket": "A",
+      "status": "Original FragX contribution under scoped MIT LICENSE"
     },
     "provenance/signing-certificate.sha256": {
       "ORIGIN": "FragX signing and preview-update work 2026-10-21; public certificate fingerprint only",
       "bucket": "B",
       "status": "Original-contribution license pending"
+    },
+    "LICENSE": {
+      "ORIGIN": "Original FragX licensing/status record by SysopBP, 2026-10-21",
+      "bucket": "A",
+      "status": "MIT for SysopBP original contributions; referenced upstream rights remain separate"
+    },
+    "UPSTREAM.md": {
+      "ORIGIN": "Original FragX licensing/status record by SysopBP, 2026-10-21",
+      "bucket": "A",
+      "status": "MIT for SysopBP original contributions; referenced upstream rights remain separate"
     }
   },
   "audit_baseline": "46a64438341fee0f350a427789cac8dfe7028fc7",

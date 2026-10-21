@@ -155,3 +155,7 @@ next privileged call to the hooked function runs the shellcode, which loads the 
 - Original PoC and various code: https://github.com/lsposed/lspromise
 - SELinux permissive kernel modules and various code: https://github.com/polygraphene/DFReroot
 - Unprivileged XFRM socket method: https://github.com/combeng6th/DirtyInit
+
+## Licensing
+
+Original FragX contributions owned by SysopBP are [MIT](LICENSE). Inherited components retain their applicable upstream terms; unresolved requests are listed in [UPSTREAM.md](UPSTREAM.md) and tracked in [issue #1](https://github.com/SysopBP/FragX/issues/1). See [third-party notices](THIRD_PARTY_NOTICES.md) for component licenses.
