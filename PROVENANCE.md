@@ -90,3 +90,9 @@ Build #13 passed the pre-import/Gradle license checkpoint: https://github.com/Sy
 ## Resolved runtime metadata checkpoint — 2026-10-21
 
 Build #14 passed all module, APK, dependency-report and packaged notice checks: https://github.com/SysopBP/FragX/actions/runs/39600802484 . provenance/android-runtime-dependencies.json records 62 selected coordinates from that build's releaseRuntimeClasspath tree, excluding constraint-only occurrences. This includes metadata/platform coordinates and does not claim that all 62 contribute packaged code. Every selected coordinate has an Apache-2.0 declaration in its published POM or exact parent POM. listenablefuture:1.0 inherits the declaration from guava-parent:26.0-android. URLs, POM hashes and the dependency-report hash are recorded. This completes the metadata-license pass for this build graph; transitive artifact/source notices and APK class-level attribution remain under review.
+
+## Transitive artifact/source notice checkpoint — 2026-10-21
+
+Inspected 117 published binary/source archives across the 62-coordinate Build14 graph, including nested JARs and source headers. Found 12 named LICENSE entries with one identical Apache text; no separate named NOTICE entries were found in successfully scanned archives. Three source-classifier URLs returned 404 (two BOMs and kotlin-stdlib-common); these remain recorded gaps.
+
+POM declarations do not cover all subcomponent licensing: exact Kotlin v2.2.10 license/README.md identifies BSD-3-Clause time sources and Boost-licensed JVM math functions. Full BSD and Boost notices are now retained in source and the APK notice resource. Kotlin compiler NOTICE is compiler-scoped and not treated as a runtime notice. provenance/android-artifact-notices.json records archive hashes, notice paths, source copyright observations, exact Kotlin file blobs and limits. Retained-class mapping and inherited FragX grants remain unresolved.

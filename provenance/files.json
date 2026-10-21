@@ -2228,6 +2228,21 @@
       "ORIGIN": "Build14 resolved Gradle runtime graph and exact published POMs; parent license evidence and metadata hashes recorded",
       "bucket": "B",
       "status": "Factual audit record; all 62 POM license declarations found, artifact/source notice review remains open"
+    },
+    "LICENSE-Kotlin-ThreeTenBP-BSD.txt": {
+      "ORIGIN": "2026-10-21 artifact/source audit; exact Kotlin v2.2.10 licensing evidence recorded",
+      "bucket": "A",
+      "status": "Verbatim upstream license text"
+    },
+    "LICENSE-Boost-1.0.txt": {
+      "ORIGIN": "2026-10-21 artifact/source audit; exact Kotlin v2.2.10 licensing evidence recorded",
+      "bucket": "A",
+      "status": "Verbatim upstream license text"
+    },
+    "provenance/android-artifact-notices.json": {
+      "ORIGIN": "2026-10-21 artifact/source audit; exact Kotlin v2.2.10 licensing evidence recorded",
+      "bucket": "B",
+      "status": "Factual notice inventory; gaps recorded"
     }
   },
   "audit_baseline": "46a64438341fee0f350a427789cac8dfe7028fc7",
