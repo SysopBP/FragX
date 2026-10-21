@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements IReporter {
      *  appears, which is why this is not the fork yet. The numeric compare below
      *  is what makes watching an upstream safe: a build that is ahead of it is no
      *  longer told to update back down to it. */
-    private static final String UPDATE_REPO = "mitschud/DirtyFrag";
+    private static final String UPDATE_REPO = "SysopBP/FragX";
     private static final String RELEASES_URL =
             "https://github.com/" + UPDATE_REPO + "/releases";
     private static final String LATEST_API =

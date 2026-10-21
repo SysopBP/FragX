@@ -12,9 +12,8 @@ hardening) and keeps upstream's SU-manager agnostic design.
 
 ## Install
 
-1. Install the DirtyFrag APK from [Releases](https://github.com/mitschud/DirtyFrag/releases/latest).
-   Releases are published on mitschud/DirtyFrag; this fork has none of its own
-   yet, and the update check watches upstream until it does.
+1. Install the FragX APK from [FragX Releases](https://github.com/SysopBP/FragX/releases/latest).
+   The in-app update check follows SysopBP/FragX releases; it does not notify you about upstream DirtyFrag releases.
 2. Install an SU manager that **ships `libksud.so`**:
    - Samsung - **required**:
      - [diabl0w's KernelSU](https://github.com/diabl0w/KernelSU/releases)
@@ -154,3 +153,7 @@ next privileged call to the hooked function runs the shellcode, which loads the 
 - Original PoC and various code: https://github.com/lsposed/lspromise
 - SELinux permissive kernel modules and various code: https://github.com/polygraphene/DFReroot
 - Unprivileged XFRM socket method: https://github.com/combeng6th/DirtyInit
+
+## License
+
+FragX's original SysopBP contributions are MIT licensed; inherited components retain their upstream terms. Permission requests and scope are tracked in [issue #1](https://github.com/SysopBP/FragX/issues/1) and [UPSTREAM.md](UPSTREAM.md). This does not license inherited code with unresolved grants.

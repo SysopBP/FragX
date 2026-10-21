@@ -133,7 +133,7 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         run: |
           # app/build.gradle.kts always writes app/build/outputs/apk/release/fragx.apk,
-          # so the versioned asset name comes from the tag (v1.11 -> DirtyFrag-v1.11.apk).
+          # so the versioned asset name comes from the tag (v1.16 -> FragX-v1.16.apk).
           cp app/build/outputs/apk/release/fragx.apk "FragX-${GITHUB_REF_NAME}.apk"
           ls -l FragX-*.apk
 
