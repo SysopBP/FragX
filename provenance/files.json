@@ -1,0 +1,500 @@
+{
+  "baseline": "780a8ea624dbeaf82b91508db6bb82bfd58600d3",
+  "files": {
+    ".github/workflows/build.yml": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    ".gitignore": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "CHANGELOG.md": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "Makefile": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "README.md": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/build.gradle.kts": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/proguard-rules.pro": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/AndroidManifest.xml": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/java/df/root/Appearance.java": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/java/df/root/BootReceiver.java": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/java/df/root/BottomFadeView.java": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/java/df/root/CardLayoutStore.java": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/java/df/root/CardStackLayout.java": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/java/df/root/CustomBackground.java": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/java/df/root/D2Status.java": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/java/df/root/Diagnostics.java": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/java/df/root/DraggableCardView.java": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/java/df/root/ExploitRunner.java": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/java/df/root/GlassDialog.java": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/java/df/root/IReporter.java": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/java/df/root/MainActivity.java": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/java/df/root/OneUiSwitch.java": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/java/df/root/RootTileService.java": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/java/df/root/ScaleFix.java": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/java/df/root/TwoStepProgressView.java": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/jni/CMakeLists.txt": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/jni/aes256.h": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/jni/bootstrap.c": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/jni/elf_parser.c": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/jni/exp.c": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/jni/include.inc": {
+      "ORIGIN": "Odzhan 2018; retained header",
+      "bucket": "A",
+      "status": "BSD-style three-condition notice preserved"
+    },
+    "app/src/main/jni/ko/dfroot-android12-5.10.ko": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/jni/ko/dfroot-android13-5.10.ko": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/jni/ko/dfroot-android13-5.15.ko": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/jni/ko/dfroot-android14-5.15.ko": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/jni/ko/dfroot-android14-6.1.ko": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/jni/ko/dfroot-android15-6.6.ko": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/jni/ko/dfroot-android16-6.12.ko": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/jni/ko/dfroot-android17-6.18.ko": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/jni/libcxx.S": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/jni/splicehelper.c": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/res/drawable-nodpi/fragx_icon_color.webp": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/res/drawable/bg_card_hide_button.xml": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/res/drawable/bg_circle.xml": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/res/drawable/bg_circle_grey_ripple.xml": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/res/drawable/bg_glass_backdrop.xml": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/res/drawable/bg_odin_pill.xml": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/res/drawable/bg_pill.xml": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/res/drawable/bg_update_pill.xml": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/res/drawable/dot_white.xml": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/res/drawable/ic_card_hide.xml": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/res/drawable/ic_chevron.xml": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/res/drawable/ic_launcher_background.xml": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/res/drawable/ic_launcher_foreground.xml": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/res/drawable/ic_launcher_monochrome.xml": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/res/drawable/ic_more.xml": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/res/drawable/ic_play.xml": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/res/drawable/ic_share.xml": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/res/drawable/ic_tile_root.xml": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/res/drawable/menu_divider.xml": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/res/drawable/menu_item_bg.xml": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/res/drawable/menu_item_ripple.xml": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/res/drawable/menu_row_highlight.xml": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/res/drawable/popup_bg.xml": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/res/font/inter.xml": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/res/font/inter_vf.ttf": {
+      "ORIGIN": "Inter Project; exact upstream revision pending",
+      "bucket": "A",
+      "status": "OFL-1.1 full notice packaged; subset metadata retained"
+    },
+    "app/src/main/res/layout/activity_main.xml": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/res/menu/menu_main.xml": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/res/values-night/themes.xml": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/res/values/colors.xml": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/res/values/dimens.xml": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/res/values/strings.xml": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "app/src/main/res/values/themes.xml": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "build.gradle.kts": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "docs/visual.gif": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "gradle.properties": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "gradle/gradle-daemon-jvm.properties": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "gradle/libs.versions.toml": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "gradle/wrapper/gradle-wrapper.jar": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "gradle/wrapper/gradle-wrapper.properties": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "gradlew": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "gradlew.bat": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "lkm/Makefile": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "lkm/dfroot.c": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "settings.gradle.kts": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "tools/ic_launcher_dirtyfrag.svg": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "tools/icon-source.png": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "tools/icon_preview.png": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "tools/subset_font.py": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "tools/trace_icon.py": {
+      "ORIGIN": "FragX baseline 780a8ea624dbeaf82b91508db6bb82bfd58600d3; earliest ancestor pending",
+      "bucket": "B",
+      "status": "grant and ancestry unresolved"
+    },
+    "PROVENANCE.md": {
+      "ORIGIN": "FragX provenance work dated 2026-10-21; reproduced component text retains original terms",
+      "bucket": "B",
+      "status": "new record; original-contribution license decision pending"
+    },
+    "THIRD_PARTY_NOTICES.md": {
+      "ORIGIN": "FragX provenance work dated 2026-10-21; reproduced component text retains original terms",
+      "bucket": "B",
+      "status": "new record; original-contribution license decision pending"
+    },
+    "app/src/main/res/raw/third_party_notices.txt": {
+      "ORIGIN": "FragX provenance work dated 2026-10-21; reproduced component text retains original terms",
+      "bucket": "B",
+      "status": "new record; original-contribution license decision pending"
+    },
+    "provenance/files.json": {
+      "ORIGIN": "FragX provenance work dated 2026-10-21; reproduced component text retains original terms",
+      "bucket": "B",
+      "status": "new record; original-contribution license decision pending"
+    },
+    "provenance/modules.json": {
+      "ORIGIN": "FragX provenance work dated 2026-10-21; reproduced component text retains original terms",
+      "bucket": "B",
+      "status": "new record; original-contribution license decision pending"
+    },
+    "tools/check_provenance.py": {
+      "ORIGIN": "FragX provenance work dated 2026-10-21; reproduced component text retains original terms",
+      "bucket": "B",
+      "status": "new record; original-contribution license decision pending"
+    },
+    ".github/workflows/provenance.yml": {
+      "ORIGIN": "FragX provenance work dated 2026-10-21; reproduced component text retains original terms",
+      "bucket": "B",
+      "status": "new record; original-contribution license decision pending"
+    }
+  }
+}

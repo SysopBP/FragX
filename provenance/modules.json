@@ -1,0 +1,69 @@
+{
+  "status": "observed tracked binaries; not build attestations",
+  "modules": [
+    {
+      "path": "app/src/main/jni/ko/dfroot-android12-5.10.ko",
+      "sha256": "31e937c1cd4993bc2015b36795bf933ead7eacb68a90c4363ee8f240867f95d5",
+      "kmi": "android12-5.10",
+      "source_commit": null,
+      "toolchain_digest": null,
+      "verified_rebuild": false
+    },
+    {
+      "path": "app/src/main/jni/ko/dfroot-android13-5.10.ko",
+      "sha256": "fd9f1bc0e406ff8c85f278f645435dee388685d31e4e359ce69eb5a25f3f8668",
+      "kmi": "android13-5.10",
+      "source_commit": null,
+      "toolchain_digest": null,
+      "verified_rebuild": false
+    },
+    {
+      "path": "app/src/main/jni/ko/dfroot-android13-5.15.ko",
+      "sha256": "3a1c2086f430630e65ffbee0852cf9b4ecfdc814fea962bda009badc5ccf27bf",
+      "kmi": "android13-5.15",
+      "source_commit": null,
+      "toolchain_digest": null,
+      "verified_rebuild": false
+    },
+    {
+      "path": "app/src/main/jni/ko/dfroot-android14-5.15.ko",
+      "sha256": "fa78c676a54e62d729bb445761b9308f6cfeefabd052ea7560fa47cf4cd7e6cb",
+      "kmi": "android14-5.15",
+      "source_commit": null,
+      "toolchain_digest": null,
+      "verified_rebuild": false
+    },
+    {
+      "path": "app/src/main/jni/ko/dfroot-android14-6.1.ko",
+      "sha256": "7d7c9a38e294b8c0f5ead2f061088eeb8ff3d81280e10d867caa35ec1d63d8e3",
+      "kmi": "android14-6.1",
+      "source_commit": null,
+      "toolchain_digest": null,
+      "verified_rebuild": false
+    },
+    {
+      "path": "app/src/main/jni/ko/dfroot-android15-6.6.ko",
+      "sha256": "7693a7ba0f78b61133c36ba2b71db1cb54d850700e118ef19ae94e8e8b67cf57",
+      "kmi": "android15-6.6",
+      "source_commit": null,
+      "toolchain_digest": null,
+      "verified_rebuild": false
+    },
+    {
+      "path": "app/src/main/jni/ko/dfroot-android16-6.12.ko",
+      "sha256": "6ec93ae92f3c4173447350511179896663b76fee9cde532030ee24728ab767d4",
+      "kmi": "android16-6.12",
+      "source_commit": null,
+      "toolchain_digest": null,
+      "verified_rebuild": false
+    },
+    {
+      "path": "app/src/main/jni/ko/dfroot-android17-6.18.ko",
+      "sha256": "0dd4968e6e42bc47281c85123b44cae284b6a259b2a47f2fa224a96afe3f6f71",
+      "kmi": "android17-6.18",
+      "source_commit": null,
+      "toolchain_digest": null,
+      "verified_rebuild": false
+    }
+  ]
+}

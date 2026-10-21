@@ -1,0 +1,53 @@
+# Provenance
+
+Opened 2026-10-21. Audited FragX baseline: `780a8ea624dbeaf82b91508db6bb82bfd58600d3`. Release remains a draft. This is an evidence record, not a declaration of clearance.
+
+## Seven-project lineage index
+
+The README credits are leads, not proof that every file follows each edge. Exact per-path ancestry remains under review.
+
+| Project | Relationship | Current status |
+|---|---|---|
+| [V4bel/dirtyfrag](https://github.com/V4bel/dirtyfrag) | Ancestor or credited contributor; path-level tracing pending | No general grant demonstrated; request delivery blocked by integration HTTP 403 on 2026-10-21; NOT delivered |
+| [LSPosed/lspromise](https://github.com/LSPosed/lspromise) | Ancestor or credited contributor; path-level tracing pending | No general grant demonstrated; request delivery blocked by integration HTTP 403 on 2026-10-21; NOT delivered |
+| [polygraphene/DFReroot](https://github.com/polygraphene/DFReroot) | Ancestor or credited contributor; path-level tracing pending | No general grant demonstrated; request delivery blocked by integration HTTP 403 on 2026-10-21; NOT delivered |
+| [combeng6th/DirtyInit](https://github.com/combeng6th/DirtyInit) | Ancestor or credited contributor; path-level tracing pending | No general grant demonstrated; request delivery blocked by integration HTTP 403 on 2026-10-21; NOT delivered |
+| [diabl0w/DFRoot](https://github.com/diabl0w/DFRoot) | Ancestor or credited contributor; path-level tracing pending | No general grant demonstrated; request delivery blocked by integration HTTP 403 on 2026-10-21; NOT delivered |
+| [mitschud/DirtyFrag](https://github.com/mitschud/DirtyFrag) | Ancestor or credited contributor; path-level tracing pending | No general grant demonstrated; request delivery blocked by integration HTTP 403 on 2026-10-21; NOT delivered |
+| [SysopBP/FragX](https://github.com/SysopBP/FragX) | Current downstream | Original-contribution license decision pending; inherited rights unresolved |
+
+Direct DirtyFrag fork point: `ccd61e7c516df1469d335e41638e881328136dbc`.
+
+## Classification rules
+
+A: demonstrated license, compliance review required. B: grant unresolved, outreach pending or obtainable. C: no grant and documented inability to reach the rights holder. Silence is not C. `provenance/files.json` inventories every tracked baseline path; unresolved entries are B, not a completed authorship audit. Existing notices must be preserved. Do not infer ownership from commit authorship alone.
+
+## Licensed components
+
+| Component | Evidence | Status |
+|---|---|---|
+| Odzhan include.inc | Full three-condition BSD-style header | Full text copied into THIRD_PARTY_NOTICES.md and APK res/raw/third_party_notices.txt |
+| Inter subset | Font metadata and rsms/inter/LICENSE.txt OFL 1.1 | Full text in same locations; in-app screen still pending |
+| Companion KitsuSU | Separate GPL-3.0-or-later manager/daemon and GPL-2.0-only kernel | Matching source archive and license texts prepared; dependency completeness remains open |
+
+## Supporting arguments
+
+GitHub public-repository terms permit viewing and GitHub-side forking. Any broader inference about modification or publication remains an unresolved supporting argument, not a substitute for a demonstrated redistribution grant, and does not establish permission to distribute APKs onto devices. No patent clearance is claimed.
+
+## Module record
+
+`provenance/modules.json` records hashes of the eight currently tracked modules. These are observations, not verified build attestations. Their exact source commits and toolchain provenance are unresolved. Current CI names KMI-specific ylarod/ddk-min images tagged 20260828; tags are not immutable image digests. Rebuild and compare before claiming a source-to-binary match. MODULE_LICENSE is loader metadata, not a source license grant.
+
+## Open release gates
+
+- Deliver six license-commit requests; record public links and replies. All six integration attempts failed with HTTP 403.
+- Public tracking issue creation failed because Issues is disabled in FragX (HTTP 410).
+- Audit all six histories, release terms and XDA thread; trace per-path earliest origin.
+- Add an accessible licenses screen with full texts; res/raw packaging alone does not complete this UI gate.
+- Verify complete corresponding source, build scripts and dependencies for each shipped GPL binary, offered together with that exact binary; a commit link alone is insufficient.
+- Attach notices alongside release APKs; verify their presence inside the final APK.
+- Pin module source, KMI, toolchain/container digest; rebuild, record imported symbols, and compare shipped checksums.
+- Choose the license for original contributions and DCO policy without relicensing inherited contributions.
+- Deliberately choose product name, applicationId and signing identity. Current df.root conflicts with DirtyFrag; signing key continuity has not been established.
+- Light trademark search and patent issue notation remain pending; no clearance conclusion.
+- Decide any minimum rewrite set only after classification; independent implementation is evidence-sensitive and not guaranteed clearance.
