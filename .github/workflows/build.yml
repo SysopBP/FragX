@@ -13,11 +13,18 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build-lkms:
     name: LKMs / ${{ matrix.kmi }}
     runs-on: ubuntu-latest
     strategy:
+      # All eight KMIs are needed before the APK can be assembled, so let every
+      # job report rather than cancelling the siblings on the first failure.
+      fail-fast: false
       matrix:
         kmi:
           - android12-5.10
@@ -60,21 +67,27 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
-      - name: Validate signing config
-        if: github.event_name != 'pull_request'
-        run: |
-          if [ "${{ secrets.KEYSTORE }}" = "" ]; then
-            echo "::error::Signing secrets not configured. KEYSTORE secret is required for release builds."
-            exit 1
-          fi
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: 21
 
-      - name: Create keystore
-        if: github.event_name != 'pull_request'
+      # Both build types sign with app/keystore.jks, so the file has to exist on a
+      # pull_request too - and on a fork with no KEYSTORE secret, where the missing
+      # file used to fail the whole build at the signing task. A throwaway key is
+      # better than no APK; it just cannot be installed over one signed with the
+      # real key.
+      - name: Provide a signing keystore
         run: |
-          # app/build.gradle.kts signs with app/keystore.jks (gitignored; the README
-          # documents how to generate it), so the KEYSTORE secret has to be decoded
-          # into app/, not into the repo root the upstream workflow used.
-          echo ${{ secrets.KEYSTORE }} | base64 --decode > app/keystore.jks
+          mkdir -p app
+          if [ -n "${{ secrets.KEYSTORE }}" ]; then
+            echo "${{ secrets.KEYSTORE }}" | base64 --decode > app/keystore.jks
+          else
+            echo "::warning::KEYSTORE secret is not set. Generating a throwaway key: the APK installs, but not over one signed with the real key."
+            keytool -genkeypair -keystore app/keystore.jks -alias dirtyfrag \
+              -keyalg RSA -keysize 2048 -validity 10000 \
+              -storepass dirtyfrag -keypass dirtyfrag -dname "CN=DirtyFrag"
+          fi
           ls -l app/keystore.jks
 
       - name: Download DF LKMs
@@ -83,11 +96,6 @@ jobs:
           pattern: df-lkm-*
           merge-multiple: true
           path: app/src/main/jni/ko/
-
-      - uses: actions/setup-java@v6
-        with:
-          distribution: temurin
-          java-version: 21
 
       - uses: gradle/actions/setup-gradle@v6
 
@@ -111,6 +119,8 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: DFRoot
+          # A pull request only produces the debug APK.
+          if-no-files-found: ignore
           path: |
             app/build/outputs/apk/release/dirtyfrag.apk
             app/build/outputs/apk/debug/dirtyfrag.apk
