@@ -37,9 +37,12 @@ if args.apk:
     with zipfile.ZipFile(args.apk) as apk:
         if apk.read('assets/build_provenance.json') != manifest_path.read_bytes():
             raise SystemExit('Packaged build record differs')
+        # AAPT may shorten resource paths; compare complete bytes, not ZIP names.
+        packaged_resources = {apk.read(info.filename) for info in apk.infolist()
+                              if info.filename.startswith('res/') and not info.is_dir()}
         for name in ['third_party_notices.txt', 'license_gpl_v2.txt', 'license_gpl_v3.txt']:
             expected = (ROOT / 'app/src/main/res/raw' / name).read_bytes()
-            if apk.read('res/raw/' + name) != expected:
+            if expected not in packaged_resources:
                 raise SystemExit(f'Missing or changed license text: {name}')
         executable = apk.read('lib/arm64-v8a/libdfroot.so')
         for entry in manifest['modules']:
