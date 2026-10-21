@@ -47,3 +47,5 @@ __pycache__/
 /MODULE_BUILD.json
 /THIRD_PARTY_NOTICES.txt
 /FragX-source.tar.gz
+
+/DEPENDENCIES.txt

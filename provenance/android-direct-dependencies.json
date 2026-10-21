@@ -1,0 +1,48 @@
+{
+  "checked_on": "2026-10-21",
+  "scope": "Three directly declared libraries at exact configured versions; not the resolved runtime graph. Their AARs and nested classes.jar were inspected for license/notice filenames.",
+  "dependencies": [
+    {
+      "coordinate": "androidx.appcompat:appcompat:1.7.1",
+      "metadata_url": "https://dl.google.com/dl/android/maven2/androidx/appcompat/appcompat/1.7.1/appcompat-1.7.1.pom",
+      "pom_sha256": "1f79910cc20de198acf3867b1e93f9ed59ddb643585b2e9c28ee55518af1bc00",
+      "aar_sha256": "2ad334a323b28046e89b738c77d184cb3dcca32a551ab048851b2fda23a3ba26",
+      "license_declarations": [
+        {
+          "name": "The Apache Software License, Version 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        }
+      ],
+      "aar_notice_paths": []
+    },
+    {
+      "coordinate": "com.google.android.material:material:1.13.0",
+      "metadata_url": "https://dl.google.com/dl/android/maven2/com/google/android/material/material/1.13.0/material-1.13.0.pom",
+      "pom_sha256": "9c1f3c4600295cc5d7f6d6886aea16d497f13f9af4675442ad271e7c2febf772",
+      "aar_sha256": "6d5e1cbb67c05bcdcbbf84005787dafd354a155f59a4d3800fd45fa7eb3689f5",
+      "license_declarations": [
+        {
+          "name": "The Apache Software License, Version 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        }
+      ],
+      "aar_notice_paths": []
+    },
+    {
+      "coordinate": "androidx.constraintlayout:constraintlayout:2.2.1",
+      "metadata_url": "https://dl.google.com/dl/android/maven2/androidx/constraintlayout/constraintlayout/2.2.1/constraintlayout-2.2.1.pom",
+      "pom_sha256": "ccccaa27e5658da4734f7e9cd345c1fc4d495bad49c0821279ddba0503dffb91",
+      "aar_sha256": "30f8d79b782d283a90f0b6f7369169d9cf560091537fdd6056d1daa9f3033763",
+      "license_declarations": [
+        {
+          "name": "The Apache Software License, Version 2.0",
+          "url": "http://www.apache.org/licenses/LICENSE-2.0.txt"
+        }
+      ],
+      "aar_notice_paths": [
+        "META-INF/androidx/constraintlayout/constraintlayout/LICENSE.txt"
+      ]
+    }
+  ],
+  "status": "Apache-2.0 text already packaged; transitive metadata and source notices remain to review"
+}

@@ -2218,6 +2218,11 @@
       "ORIGIN": "2026-10-21 Git object audit of full fetched upstream histories",
       "bucket": "B",
       "status": "Factual evidence; original-contribution license pending"
+    },
+    "provenance/android-direct-dependencies.json": {
+      "ORIGIN": "Exact published Maven POM/AAR observations dated 2026-10-21; URLs and hashes recorded",
+      "bucket": "B",
+      "status": "Factual audit record; own-contribution license pending"
     }
   },
   "audit_baseline": "46a64438341fee0f350a427789cac8dfe7028fc7",

@@ -82,3 +82,7 @@ LSPromise was previously a shallow one-commit checkout; it is now unshallowed to
 provenance/pre-import.json records exact whole-file matches against reachable historical objects: DFRoot initial-import elf_parser.c matches historical LSPromise and DFReroot blobs; the initial dirtyfrag-lkm/dirtyfrag.c matches DFReroot. Other reviewed initial code files have no whole-file match, which does not rule out copied portions. Import ancestry is not fully resolved.
 
 Both Gradle wrapper scripts retain explicit Apache-2.0 headers. Added LICENSE-Apache-2.0.txt and included its full text in source and APK notices. This is a component-scoped compliance change; transitive Android dependency notices remain under review.
+
+## Android direct-library checkpoint — 2026-10-21
+
+Build #13 passed the pre-import/Gradle license checkpoint: https://github.com/SysopBP/FragX/actions/runs/39600124684 . Exact published POMs for AppCompat 1.7.1, Material 1.13.0 and ConstraintLayout 2.2.1 declare Apache-2.0. AAR license-path inspection and SHA-256 values are recorded in provenance/android-direct-dependencies.json. Their component names are now included in source/APK notices, using the already packaged full Apache text. Transitive dependency and source-level notices remain open. CI now exports the actual releaseRuntimeClasspath Gradle dependency report as DEPENDENCIES.txt with the build bundle, so further review can use the resolved graph rather than an inferred POM tree.

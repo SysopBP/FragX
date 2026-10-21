@@ -342,3 +342,7 @@ The gradlew and gradlew.bat scripts retain their original Apache-2.0 SPDX header
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
+
+## Direct Android libraries
+
+The configured releases androidx.appcompat:appcompat:1.7.1, com.google.android.material:material:1.13.0 and androidx.constraintlayout:constraintlayout:2.2.1 declare Apache License 2.0 in their published Maven POMs. The full Apache text above applies to these components as well as the Gradle wrapper. Published metadata URLs and artifact hashes are recorded in provenance/android-direct-dependencies.json. ConstraintLayout also carries a copy of the Apache license in its AAR. This direct-library inventory does not cover the entire transitive runtime graph or establish a license for inherited FragX code.
