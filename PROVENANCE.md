@@ -51,3 +51,18 @@ GitHub public-repository terms permit viewing and GitHub-side forking. Any broad
 - Deliberately choose product name, applicationId and signing identity. Current df.root conflicts with DirtyFrag; signing key continuity has not been established.
 - Light trademark search and patent issue notation remain pending; no clearance conclusion.
 - Decide any minimum rewrite set only after classification; independent implementation is evidence-sensitive and not guaranteed clearance.
+
+## Outreach and UI update — 2026-10-21
+
+Tracking issue is open: https://github.com/SysopBP/FragX/issues/1 . The earlier disabled-Issues blocker is resolved. Browser delivery supersedes the initial integration failures for five projects:
+
+| Project | Request | Status |
+|---|---|---|
+| V4bel/dirtyfrag | https://github.com/V4bel/dirtyfrag/issues/76 | Delivered; grant pending |
+| LSPosed/LSPromise | https://github.com/LSPosed/LSPromise/issues/4 | Delivered; grant pending |
+| mitschud/DirtyFrag | https://github.com/mitschud/DirtyFrag/issues/72 | Delivered; grant pending |
+| polygraphene/DFReroot | https://github.com/polygraphene/DFReroot/issues/10 | Delivered; grant pending |
+| combeng6th/DirtyInit | https://github.com/combeng6th/DirtyInit/issues/1 | Delivered; grant pending |
+| diabl0w/DFRoot | No issue delivered | New issues restricted to collaborators; not classified unreachable |
+
+The overflow menu now provides Licenses & credits, with selectable full BSD/OFL notices and full GPL v2/v3 texts. Including GPL texts does not assign a source license to inherited code or resolve missing grants. Release validation checks the packaged notice bytes and module hashes against a build-generated manifest. This establishes integrity within that build, not an independent reproducibility result or legal clearance.

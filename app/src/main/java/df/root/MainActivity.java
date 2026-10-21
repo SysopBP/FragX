@@ -809,6 +809,20 @@ public class MainActivity extends AppCompatActivity implements IReporter {
             box.addView(resetBackgroundRow, new android.widget.LinearLayout.LayoutParams(
                     android.view.ViewGroup.LayoutParams.MATCH_PARENT, (int) (46 * md)));
 
+            TextView licensesRow = new TextView(this);
+            licensesRow.setText("Licenses & credits");
+            licensesRow.setTextColor(0xFFE8E8E8);
+            licensesRow.setTextSize(15);
+            licensesRow.setGravity(android.view.Gravity.CENTER_VERTICAL);
+            licensesRow.setPadding((int) (20 * md), 0, (int) (20 * md), 0);
+            licensesRow.setBackgroundResource(R.drawable.menu_row_highlight);
+            licensesRow.setOnClickListener(row -> {
+                if (pwRef[0] != null) pwRef[0].dismiss();
+                showLicenses();
+            });
+            box.addView(licensesRow, new android.widget.LinearLayout.LayoutParams(
+                    android.view.ViewGroup.LayoutParams.MATCH_PARENT, (int) (46 * md)));
+
             // Width: content, but at least 210dp so the popup reads properly.
             box.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
             int pw_w = Math.max(box.getMeasuredWidth(), (int) (190 * md));
@@ -1962,6 +1976,40 @@ public class MainActivity extends AppCompatActivity implements IReporter {
                 | (Math.round(ar + (br - ar) * t) << 16)
                 | (Math.round(ag + (bg - ag) * t) << 8)
                 | Math.round(ab + (bb - ab) * t);
+    }
+
+    private void showLicenses() {
+        String[] names = {"Credits, Odzhan BSD & Inter OFL", "Kernel GPL v2", "Companion manager GPL v3"};
+        int[] resources = {R.raw.third_party_notices, R.raw.license_gpl_v2, R.raw.license_gpl_v3};
+        GlassDialog.show(new androidx.appcompat.app.AlertDialog.Builder(this)
+                .setTitle("Licenses & credits")
+                .setItems(names, (dialog, which) -> showLicenseText(names[which], resources[which]))
+                .setNegativeButton("Close", null).create());
+    }
+
+    private void showLicenseText(String title, int resource) {
+        String contents;
+        try (java.io.InputStream input = getResources().openRawResource(resource);
+             java.io.ByteArrayOutputStream output = new java.io.ByteArrayOutputStream()) {
+            byte[] buffer = new byte[4096];
+            int count;
+            while ((count = input.read(buffer)) != -1) output.write(buffer, 0, count);
+            contents = new String(output.toByteArray(), java.nio.charset.StandardCharsets.UTF_8);
+        } catch (java.io.IOException error) {
+            Log.e(TAG, "Cannot read license text", error);
+            contents = "License text could not be opened. Please see the source distribution notices.";
+        }
+        TextView text = new TextView(this);
+        int padding = Math.round(20 * getResources().getDisplayMetrics().density);
+        text.setPadding(padding, padding / 2, padding, padding / 2);
+        text.setTextSize(14);
+        text.setTextColor(0xFFE8E8E8);
+        text.setTextIsSelectable(true);
+        text.setText(contents);
+        android.widget.ScrollView scroll = new android.widget.ScrollView(this);
+        scroll.addView(text);
+        GlassDialog.show(new androidx.appcompat.app.AlertDialog.Builder(this)
+                .setTitle(title).setView(scroll).setPositiveButton("Close", null).create());
     }
 
     /** Saves the current log to Downloads and opens the Downloads screen. */

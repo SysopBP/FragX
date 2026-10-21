@@ -41,3 +41,9 @@ app/src/main/jni/ko/*.ko
 # staged release APK for the GitHub release asset
 /release/
 __pycache__/
+
+# Generated build provenance and release assets
+/app/src/main/assets/build_provenance.json
+/MODULE_BUILD.json
+/THIRD_PARTY_NOTICES.txt
+/FragX-source.tar.gz

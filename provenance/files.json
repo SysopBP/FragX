@@ -495,6 +495,21 @@
       "ORIGIN": "FragX provenance work dated 2026-10-21; reproduced component text retains original terms",
       "bucket": "B",
       "status": "new record; original-contribution license decision pending"
+    },
+    "tools/verify_release.py": {
+      "ORIGIN": "FragX release compliance work 2026-10-21; GPL texts reproduced from companion release license files",
+      "bucket": "B",
+      "status": "Original contribution license pending"
+    },
+    "app/src/main/res/raw/license_gpl_v2.txt": {
+      "ORIGIN": "FragX release compliance work 2026-10-21; GPL texts reproduced from companion release license files",
+      "bucket": "A",
+      "status": "License text reproduction"
+    },
+    "app/src/main/res/raw/license_gpl_v3.txt": {
+      "ORIGIN": "FragX release compliance work 2026-10-21; GPL texts reproduced from companion release license files",
+      "bucket": "A",
+      "status": "License text reproduction"
     }
   }
 }

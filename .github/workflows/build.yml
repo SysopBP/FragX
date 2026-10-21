@@ -97,6 +97,9 @@ jobs:
           merge-multiple: true
           path: app/src/main/jni/ko/
 
+      - name: Prepare source and module provenance
+        run: python3 tools/verify_release.py --prepare
+
       - uses: gradle/actions/setup-gradle@v6
 
       - name: Build DFRoot APK
@@ -105,6 +108,14 @@ jobs:
             ./gradlew :app:assembleDebug
           else
             ./gradlew :app:assembleRelease
+          fi
+
+      - name: Verify packaged licenses and embedded modules
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            python3 tools/verify_release.py --apk app/build/outputs/apk/debug/fragx.apk
+          else
+            python3 tools/verify_release.py --apk app/build/outputs/apk/release/fragx.apk
           fi
 
       - name: Stage release asset
@@ -124,6 +135,9 @@ jobs:
           path: |
             app/build/outputs/apk/release/fragx.apk
             app/build/outputs/apk/debug/fragx.apk
+            MODULE_BUILD.json
+            THIRD_PARTY_NOTICES.txt
+            FragX-source.tar.gz
 
       - name: Build release notes from CHANGELOG
         if: startsWith(github.ref, 'refs/tags/')
@@ -131,11 +145,17 @@ jobs:
           # Take just the section for this tag: v1.11 -> the "## 1.11" block.
           VER="${GITHUB_REF_NAME#v}"
           awk -v ver="$VER" '/^## /{p = ($0 == "## " ver); next} p' CHANGELOG.md > RELEASE_NOTES.md
-          wc -l RELEASE_NOTES.md
+          echo "" >> RELEASE_NOTES.md
+          echo "Exact source commit: $GITHUB_SHA. Source archive and build-record manifest are attached; dependency and license clearance remain under review." >> RELEASE_NOTES.md
 
       - name: Create GitHub Release
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v1
         with:
-          files: DirtyFrag-*.apk
+          draft: true
+          files: |
+            FragX-*.apk
+            MODULE_BUILD.json
+            THIRD_PARTY_NOTICES.txt
+            FragX-source.tar.gz
           body_path: RELEASE_NOTES.md
