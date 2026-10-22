@@ -2253,6 +2253,21 @@
       "ORIGIN": "Original SysopBP upstream-request tracking document added in f7235ecf22ead88b2538b3c922da364d39a5f0d1.",
       "bucket": "A",
       "status": "Original documentation under scoped MIT; linked requests do not imply grants"
+    },
+    "app/src/main/java/df/root/ReleaseVersion.java": {
+      "ORIGIN": "Tracked in FragX integration history; first observed commit at current path: unverified. Original authorship and licensing require review.",
+      "bucket": "B",
+      "status": "origin and licensing review pending"
+    },
+    "docs/RELEASE_READINESS_2026-10-21.md": {
+      "ORIGIN": "Tracked in FragX integration history; first observed commit at current path: unverified. Original authorship and licensing require review.",
+      "bucket": "B",
+      "status": "origin and licensing review pending"
+    },
+    "provenance/signing-certificate.sha256": {
+      "ORIGIN": "Tracked in FragX integration history; first observed commit at current path: unverified. Original authorship and licensing require review.",
+      "bucket": "B",
+      "status": "origin and licensing review pending"
     }
   },
   "audit_baseline": "46a64438341fee0f350a427789cac8dfe7028fc7",

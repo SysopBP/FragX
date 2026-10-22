@@ -1,3 +1,11 @@
+## 1.17-preview.1
+
+- Prepare permanent signing with certificate verification; temporary-key installations need one uninstall/reinstall.
+- Check this fork's stable and preview APK releases, including numeric preview-version ordering.
+- Point downloads at FragX and retain full third-party notices.
+- Add a scoped MIT grant for original SysopBP contributions and an upstream request/status index.
+- Inherited licensing requests remain pending; this entry does not declare clearance or publication.
+
 # Changelog
 
 ## Unreleased

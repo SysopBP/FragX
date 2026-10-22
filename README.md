@@ -12,8 +12,10 @@ hardening) and keeps upstream's SU-manager agnostic design.
 
 ## Install
 
-1. Install the FragX APK from [FragX Releases](https://github.com/SysopBP/FragX/releases/latest).
-   The in-app update check follows SysopBP/FragX releases; it does not notify you about upstream DirtyFrag releases.
+1. Download a published FragX APK from [FragX releases](https://github.com/SysopBP/FragX/releases).
+   Preview releases are supported by the in-app update checker. CI development APKs may use
+   temporary signatures; moving from those builds to permanent signing requires a one-time
+   uninstall/reinstall, which removes app settings. Back up any settings you need first.
 2. Install an SU manager that **ships `libksud.so`**:
    - Samsung - **required**:
      - [diabl0w's KernelSU](https://github.com/diabl0w/KernelSU/releases)
@@ -154,6 +156,6 @@ next privileged call to the hooked function runs the shellcode, which loads the 
 - SELinux permissive kernel modules and various code: https://github.com/polygraphene/DFReroot
 - Unprivileged XFRM socket method: https://github.com/combeng6th/DirtyInit
 
-## License
+## Licensing
 
-FragX's original SysopBP contributions are MIT licensed; inherited components retain their upstream terms. Permission requests and scope are tracked in [issue #1](https://github.com/SysopBP/FragX/issues/1) and [UPSTREAM.md](UPSTREAM.md). This does not license inherited code with unresolved grants.
+Original FragX contributions owned by SysopBP are [MIT](LICENSE). Inherited components retain their applicable upstream terms; unresolved requests are listed in [UPSTREAM.md](UPSTREAM.md) and tracked in [issue #1](https://github.com/SysopBP/FragX/issues/1). See [third-party notices](THIRD_PARTY_NOTICES.md) for component licenses.
