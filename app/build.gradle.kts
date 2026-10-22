@@ -7,10 +7,10 @@ android {
     compileSdk = 37
 
     defaultConfig {
-        applicationId = "df.root"
+        applicationId = "com.sysopbp.fragx"
         minSdk = 32
         targetSdk = 37
-        versionCode = 33
+        versionCode = 34
         versionName = "1.16"
 
         // Pinned: an unpinned NDK means AGP's default, which moves under you on an
