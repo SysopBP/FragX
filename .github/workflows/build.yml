@@ -98,12 +98,12 @@ jobs:
             test -n "$KEYSTORE_B64" || { echo "::error::Set the permanent KEYSTORE secret before release builds."; exit 1; }
             test -n "$KEYSTORE_PASSWORD" || { echo "::error::Set KEYSTORE_PASSWORD before release builds."; exit 1; }
             printf '%s' "$KEYSTORE_B64" | base64 --decode > app/keystore.jks
-            keytool -exportcert -keystore app/keystore.jks -alias fragx \
+            keytool -exportcert -keystore app/keystore.jks -alias dirtyfrag \
               -storepass:env KEYSTORE_PASSWORD -file "$RUNNER_TEMP/fragx-release.der"
             EXPECTED_CERT=$(cat provenance/signing-certificate.sha256)
             printf '%s  %s\n' "$EXPECTED_CERT" "$RUNNER_TEMP/fragx-release.der" | sha256sum --check
             printf 'FRAGX_KEYSTORE_PASSWORD=%s\n' "$KEYSTORE_PASSWORD" >> "$GITHUB_ENV"
-            echo "FRAGX_KEY_ALIAS=fragx" >> "$GITHUB_ENV"
+            echo "FRAGX_KEY_ALIAS=dirtyfrag" >> "$GITHUB_ENV"
           fi
 
       - name: Download DF LKMs
