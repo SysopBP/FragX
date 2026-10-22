@@ -9,9 +9,9 @@
 #include <unistd.h>
 
 #define BLKROSET   0x125d
-#define KSUD_STAGE "/data/user_de/0/df.root/ksud"
+#define KSUD_STAGE "/data/user_de/0/com.sysopbp.fragx/ksud"
 #define KSUD       "/data/adb/ksud"
-#define PREFS_PATH "/data/user_de/0/df.root/shared_prefs/dfroot.xml"
+#define PREFS_PATH "/data/user_de/0/com.sysopbp.fragx/shared_prefs/dfroot.xml"
 #define MODULES_DIR "/data/adb/modules"
 
 static int pref_true(const char *buf, const char *key)
