@@ -7,7 +7,7 @@ android {
     compileSdk = 37
 
     defaultConfig {
-        applicationId = "df.root"
+        applicationId = "com.sysopbp.fragx"
         minSdk = 32
         targetSdk = 37
         versionCode = 34
