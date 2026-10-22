@@ -1,11 +1,4 @@
-Scope of this license
-
-This MIT grant covers only original FragX contributions owned by SysopBP,
-including original modifications made after the DirtyFrag fork point
-ccd61e7c516df1469d335e41638e881328136dbc. It does not license or relicense
-inherited code, third-party libraries, fonts, artwork, kernel components or
-other contributors' work. Those retain their applicable terms; unresolved
-grants remain unresolved. See UPSTREAM.md and THIRD_PARTY_NOTICES.md.
+Scope: This license covers only original contributions owned by SysopBP in FragX. Inherited code and third-party components are excluded and retain their applicable terms; unresolved upstream grants are not supplied by this file.
 
 MIT License
 
