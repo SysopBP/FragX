@@ -2011,10 +2011,34 @@ public class MainActivity extends AppCompatActivity implements IReporter {
     }
 
     private void recoveryAction(android.widget.LinearLayout panel, String title, Runnable action) {
-        android.widget.Button button = new android.widget.Button(this);
+        float density = getResources().getDisplayMetrics().density;
+        int accent = Appearance.accent(this);
+        androidx.appcompat.widget.AppCompatButton button =
+                new androidx.appcompat.widget.AppCompatButton(this);
         button.setText(title);
+        button.setAllCaps(false);
+        button.setTextSize(15);
+        button.setGravity(android.view.Gravity.CENTER_VERTICAL | android.view.Gravity.START);
+        button.setPadding(Math.round(18 * density), Math.round(12 * density),
+                Math.round(18 * density), Math.round(12 * density));
+        button.setMinHeight(Math.round(52 * density));
+        button.setMinimumHeight(Math.round(52 * density));
+        button.setSupportBackgroundTintList(null);
+        android.graphics.drawable.GradientDrawable surface =
+                new android.graphics.drawable.GradientDrawable();
+        surface.setColor((accent & 0x00FFFFFF) | 0x18000000);
+        surface.setCornerRadius(16 * density);
+        surface.setStroke(Math.max(1, Math.round(density)),
+                (accent & 0x00FFFFFF) | 0x66000000);
+        button.setBackground(new android.graphics.drawable.RippleDrawable(
+                android.content.res.ColorStateList.valueOf((accent & 0x00FFFFFF) | 0x33000000),
+                surface, null));
+        button.setStateListAnimator(null);
         button.setOnClickListener(v -> action.run());
-        panel.addView(button, new android.widget.LinearLayout.LayoutParams(-1, -2));
+        android.widget.LinearLayout.LayoutParams layout =
+                new android.widget.LinearLayout.LayoutParams(-1, -2);
+        layout.topMargin = Math.round(10 * density);
+        panel.addView(button, layout);
     }
 
     private void confirmReboot(boolean soft) {
