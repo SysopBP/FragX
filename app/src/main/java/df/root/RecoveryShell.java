@@ -42,6 +42,17 @@ final class RecoveryShell {
         // Java may reject a missing executable before KernelSU's exec hook
         // sees it. Let Android's shell issue exec instead. Retry only missing
         // or non-executable entry points, never permission denial or timeout.
+        // Try exec directly first: some KernelSU configurations expose su
+        // through the exec hook without placing it on disk. Keep the shell
+        // fallback for runtimes which reject missing executables in Java.
+        for (String su : new String[]{"/system/bin/su", "/system/xbin/su",
+                "/sbin/su", "/debug_ramdisk/su", "su"}) {
+            try {
+                return new ProcessBuilder(su, "-c", command).redirectErrorStream(true).start();
+            } catch (java.io.IOException missingExecutable) {
+                // No child started; trying another entry point cannot repeat the command.
+            }
+        }
         String script = "";
         for (String su : new String[]{"/system/bin/su", "/system/xbin/su",
                 "/sbin/su", "/debug_ramdisk/su", "su"}) {

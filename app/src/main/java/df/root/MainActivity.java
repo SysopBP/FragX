@@ -95,6 +95,8 @@ public class MainActivity extends AppCompatActivity implements IReporter {
     private CharSequence suManagerLabel;
     /** A failed run locks the Run button until reboot (page-cache patch). */
     private boolean failedRun;
+    /** A driver marker alone does not establish shell access. */
+    private boolean rootShellVerified;
     /** Raw "***FAILED***: ..." text from the exploit, used for the failure log. */
     private String lastFailReason;
 
@@ -1747,7 +1749,7 @@ public class MainActivity extends AppCompatActivity implements IReporter {
         int bg = (rooted || !ok) ? 0xFF1F1F1F : Appearance.accent(this);
         int stroke = (rooted || !ok) ? 0xFF1F1F1F : 0xFFA6A6A6;
         binding.btnRun.setEnabled(ok);
-        binding.btnRun.setText(rooted ? "Rooted" : "Run exploit");
+        binding.btnRun.setText(rooted ? (rootShellVerified ? "Rooted" : "Driver active") : "Run exploit");
         binding.btnRun.setTextColor(fg);
         binding.btnRun.setBackgroundTintList(ColorStateList.valueOf(bg));
         ((com.google.android.material.button.MaterialButton) binding.btnRun)
@@ -1962,8 +1964,10 @@ public class MainActivity extends AppCompatActivity implements IReporter {
             if (root) RecoveryState.recordVerifiedRoot(mDeCtx);
             mMain.post(() -> {
                 if (isFinishing() || isDestroyed() || running) return;
+                rootShellVerified = root;
                 boolean driver = new File("/dev/df").exists();
-                binding.twoStep.setSeg1(root ? 1f : (driver ? 0.5f : 0f),
+                if (driver || root) setRootedState(true);
+                binding.twoStep.setSeg1((root || driver) ? 1f : 0f,
                         root ? "Root active" : (driver ? "Driver detected" : "Root unchecked"));
                 binding.twoStep.setSeg2(installed ? 1f : 0f,
                         installed ? "Manager installed" : "Manager unavailable", 0xFFFFFFFF);
@@ -1985,8 +1989,13 @@ public class MainActivity extends AppCompatActivity implements IReporter {
             String uid = RecoveryShell.run("id -u");
             if (RecoveryShell.uidZero(uid)) RecoveryState.recordVerifiedRoot(mDeCtx);
             mMain.post(() -> {
-                if (!isFinishing() && !isDestroyed()) status.setText(Diagnostics.snapshot(mDeCtx)
-                        + "\n" + RecoveryState.summary(mDeCtx) + "\nLive UID: " + uid);
+                if (!isFinishing() && !isDestroyed()) {
+                    rootShellVerified = RecoveryShell.uidZero(uid);
+                    if (!running && (rootShellVerified || new File("/dev/df").exists()))
+                        setRootedState(true);
+                    status.setText(Diagnostics.snapshot(mDeCtx)
+                            + "\n" + RecoveryState.summary(mDeCtx) + "\nLive UID: " + uid);
+                }
             });
         });
         android.widget.CheckBox once = new android.widget.CheckBox(this);
