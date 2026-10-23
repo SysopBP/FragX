@@ -159,3 +159,7 @@ next privileged call to the hooked function runs the shellcode, which loads the 
 ## Licensing
 
 Original FragX contributions owned by SysopBP are [MIT](LICENSE). Inherited components retain their applicable upstream terms; unresolved requests are listed in [UPSTREAM.md](UPSTREAM.md) and tracked in [issue #1](https://github.com/SysopBP/FragX/issues/1). See [third-party notices](THIRD_PARTY_NOTICES.md) for component licenses.
+
+## VaultGuard preview
+
+Samsung recovery checks now use authenticated System Server vault verification via LSPosed rather than a lock-screen-based Odin estimate. See [VaultGuard setup, limits and testing](docs/VAULTGUARD.md). Original DMC discovery: **@diablOw**; recovery implementation adapted from **D2 Guardian**.
