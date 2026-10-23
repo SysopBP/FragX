@@ -132,7 +132,8 @@ object DmcRecovery {
 
     @JvmStatic
     fun refreshForUi(context: Context, done: Runnable) {
-        request(context, "fragx_ui", retry = 3, force = true, actionResult = { done.run() })
+        // Match D2 status refresh: retain throttling and the 5/15/30-second retry schedule.
+        request(context, "fragx_ui", done = { main.post { done.run() } })
     }
 
     /** One forced check; never authorize recovery using the cached status. */
