@@ -85,7 +85,7 @@ static int __nocfi __init dfroot_init(void)
     // the helper only touches the marker and execs bootstrap, and the call is
     // UMH_WAIT_EXEC, so there is no child exit status left to leak.
     static const char sh[] = "/system/bin/sh";
-    static const char bootstrap[] = "/data/user_de/0/df.root/bootstrap";
+    static const char bootstrap[] = "/data/user_de/0/com.sysopbp.fragx/bootstrap";
     static char cmd[512];
     static char *envp[] = { "PATH=/system/bin", NULL };
     static char *argv[] = { (char *)sh, "-c", cmd, NULL };
