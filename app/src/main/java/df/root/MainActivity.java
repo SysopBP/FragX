@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements IReporter {
     private boolean moduleRefresh;
 
     /** Device-protected storage context: bootstrap.c reads its prefs from
-     *  /data/user_de/0/df.root/, so every pref the exploit depends on must live
+     *  /data/user_de/0/com.sysopbp.fragx/, so every pref the exploit depends on must live
      *  there, not in credential-protected storage. */
     private Context mDeCtx;
     /** Package name of the SU manager whose libksud.so gets staged, or null. */
