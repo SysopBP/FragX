@@ -2268,6 +2268,66 @@
       "ORIGIN": "Tracked in FragX integration history; first observed commit at current path: unverified. Original authorship and licensing require review.",
       "bucket": "B",
       "status": "origin and licensing review pending"
+    },
+    "LICENSE-D2-VaultGuard.txt": {
+      "ORIGIN": "Adapted from SysopBP/SamsungLockD2-Public DMC recovery source/tests; original DMC discovery @diablOw. Original reserved-rights notice retained.",
+      "bucket": "B",
+      "status": "D2-derived; retained reserved rights"
+    },
+    "app/src/main/java/df/root/vaultguard/DmcPowerDecision.java": {
+      "ORIGIN": "Adapted from SysopBP/SamsungLockD2-Public DMC recovery source/tests; original DMC discovery @diablOw. Original reserved-rights notice retained.",
+      "bucket": "B",
+      "status": "D2-derived; retained reserved rights"
+    },
+    "app/src/main/java/df/root/vaultguard/DmcPowerGuard.kt": {
+      "ORIGIN": "Adapted from SysopBP/SamsungLockD2-Public DMC recovery source/tests; original DMC discovery @diablOw. Original reserved-rights notice retained.",
+      "bucket": "B",
+      "status": "D2-derived; retained reserved rights"
+    },
+    "app/src/main/java/df/root/vaultguard/DmcRecovery.kt": {
+      "ORIGIN": "Adapted from SysopBP/SamsungLockD2-Public DMC recovery source/tests; original DMC discovery @diablOw. Original reserved-rights notice retained.",
+      "bucket": "B",
+      "status": "D2-derived; retained reserved rights"
+    },
+    "app/src/main/java/df/root/vaultguard/DmcVaultPolicy.java": {
+      "ORIGIN": "Adapted from SysopBP/SamsungLockD2-Public DMC recovery source/tests; original DMC discovery @diablOw. Original reserved-rights notice retained.",
+      "bucket": "B",
+      "status": "D2-derived; retained reserved rights"
+    },
+    "app/src/main/java/df/root/vaultguard/VaultGuardModule.kt": {
+      "ORIGIN": "Adapted from SysopBP/SamsungLockD2-Public DMC recovery source/tests; original DMC discovery @diablOw. Original reserved-rights notice retained.",
+      "bucket": "B",
+      "status": "D2-derived; retained reserved rights"
+    },
+    "app/src/main/resources/META-INF/xposed/java_init.list": {
+      "ORIGIN": "New FragX VaultGuard metadata/documentation added for this preview.",
+      "bucket": "A",
+      "status": "original FragX contribution"
+    },
+    "app/src/main/resources/META-INF/xposed/module.prop": {
+      "ORIGIN": "New FragX VaultGuard metadata/documentation added for this preview.",
+      "bucket": "A",
+      "status": "original FragX contribution"
+    },
+    "app/src/main/resources/META-INF/xposed/scope.list": {
+      "ORIGIN": "New FragX VaultGuard metadata/documentation added for this preview.",
+      "bucket": "A",
+      "status": "original FragX contribution"
+    },
+    "app/src/test/java/df/root/vaultguard/DmcPowerDecisionTest.java": {
+      "ORIGIN": "Adapted from SysopBP/SamsungLockD2-Public DMC recovery source/tests; original DMC discovery @diablOw. Original reserved-rights notice retained.",
+      "bucket": "B",
+      "status": "D2-derived; retained reserved rights"
+    },
+    "app/src/test/java/df/root/vaultguard/DmcVaultPolicyTest.java": {
+      "ORIGIN": "Adapted from SysopBP/SamsungLockD2-Public DMC recovery source/tests; original DMC discovery @diablOw. Original reserved-rights notice retained.",
+      "bucket": "B",
+      "status": "D2-derived; retained reserved rights"
+    },
+    "docs/VAULTGUARD.md": {
+      "ORIGIN": "New FragX VaultGuard metadata/documentation added for this preview.",
+      "bucket": "A",
+      "status": "original FragX contribution"
     }
   },
   "audit_baseline": "46a64438341fee0f350a427789cac8dfe7028fc7",
