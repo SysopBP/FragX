@@ -31,9 +31,9 @@ final class CardLayoutStore {
     static List<String> loadOrder(Context deCtx, String[] def) {
         List<String> saved = parse(prefs(deCtx).getString(KEY_ORDER, ""));
         List<String> expected = new ArrayList<>(Arrays.asList(def));
-        if (saved.size() != expected.size() || !expected.containsAll(saved)) {
-            return expected;
-        }
+        if (saved.isEmpty()) return expected;
+        saved.retainAll(expected);
+        for (String key : expected) if (!saved.contains(key)) saved.add(key);
         return saved;
     }
 

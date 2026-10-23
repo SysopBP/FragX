@@ -2340,6 +2340,36 @@
       "ORIGIN": "New FragX VaultGuard metadata/documentation added for this preview.",
       "bucket": "A",
       "status": "original FragX contribution"
+    },
+    "app/src/main/java/df/root/RecoveryState.java": {
+      "ORIGIN": "Original FragX recovery controls, diagnostic bookkeeping and export work, 2026-10-23.",
+      "bucket": "A",
+      "status": "project-authored"
+    },
+    "app/src/main/java/df/root/RecoveryPolicy.java": {
+      "ORIGIN": "Original FragX recovery controls, diagnostic bookkeeping and export work, 2026-10-23.",
+      "bucket": "A",
+      "status": "project-authored"
+    },
+    "app/src/main/java/df/root/RecoveryShell.java": {
+      "ORIGIN": "Original FragX recovery controls, diagnostic bookkeeping and export work, 2026-10-23.",
+      "bucket": "A",
+      "status": "project-authored"
+    },
+    "app/src/main/java/df/root/ReportRedactor.java": {
+      "ORIGIN": "Original FragX recovery controls, diagnostic bookkeeping and export work, 2026-10-23.",
+      "bucket": "A",
+      "status": "project-authored"
+    },
+    "app/src/test/java/df/root/RecoveryPolicyTest.java": {
+      "ORIGIN": "Original FragX recovery and redaction regression tests, 2026-10-23.",
+      "bucket": "A",
+      "status": "project-authored"
+    },
+    "app/src/test/java/df/root/ReportRedactorTest.java": {
+      "ORIGIN": "Original FragX recovery and redaction regression tests, 2026-10-23.",
+      "bucket": "A",
+      "status": "project-authored"
     }
   },
   "audit_baseline": "46a64438341fee0f350a427789cac8dfe7028fc7",

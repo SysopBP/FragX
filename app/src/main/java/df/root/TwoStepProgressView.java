@@ -18,7 +18,6 @@ public class TwoStepProgressView extends View {
     private static final int BAR_H_DP = 4;
     private static final int GAP_DP = 12;
     private static final int TRACK = 0xFF2E2E30;
-    private static final int FILL = 0xFF4E8AE8;
     private static final int FILL_GREY = 0xFF2A2A2E;
     private static final int FAILED_RED = 0xFFE57373;
     private static final int LABEL_GREY = 0xFF47474A;
@@ -131,7 +130,7 @@ public class TwoStepProgressView extends View {
         // Bars. Red while failed, otherwise blue easing to grey once Verified settles.
         trackPaint.setColor(TRACK);
         fillPaint.setColor(failed ? FAILED_RED
-                : mixColor(FILL, FILL_GREY, greyMix));
+                : mixColor(Appearance.accent(getContext()), FILL_GREY, greyMix));
 
         rect.set(0, 0, half, barH);
         canvas.drawRoundRect(rect, barH / 2f, barH / 2f, trackPaint);

@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements IReporter {
 
     /** The card keys as they are written to dfroot_ui, in the shipped order.
      *  "sumanager" is first and is the one card that can never be hidden. */
-    private static final String[] CARD_KEYS = {"sumanager", "autorun", "modules", "log"};
+    private static final String[] CARD_KEYS = {"sumanager", "autorun", "modules", "log", "recovery"};
     /** Hide button per card, index-parallel to CARD_KEYS. They live in the root
      *  layout, not inside the cards: MaterialCardView clips its children to the
      *  rounded outline, and the badge has to straddle the card's top-left edge. */
@@ -248,7 +248,7 @@ public class MainActivity extends AppCompatActivity implements IReporter {
         }
         if (t.equals("ksud start: SUCCESS")) {
             setSeg1(1f);
-            setSeg2(1f, "Verified", 0xFFFFFFFF);
+            setSeg2(1f, "Daemon started", 0xFFFFFFFF);
         }
         if (exploitPhase.equals("cleanup") && t.startsWith("restoring")) {
             cleanupSteps++;
@@ -466,6 +466,12 @@ public class MainActivity extends AppCompatActivity implements IReporter {
         mDeCtx = createDeviceProtectedStorageContext();
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        if (!ExploitRunner.active) RecoveryState.restoreModulePreference(mDeCtx);
+        binding.rowRecovery.setOnClickListener(v -> showRecovery());
+        binding.twoStep.setOnClickListener(v -> showRecovery());
+        binding.recoverySubtitle.setText(RecoveryState.prefs(mDeCtx).getBoolean("pending", false)
+                ? "Last attempt unconfirmed • tap for details" : "Boot result, reports and reboot controls");
+        binding.twoStep.setContentDescription("Root and manager status. Tap for details");
         customBackground = new CustomBackground(this, binding.customBackground);
         Appearance.apply(this, binding);
 
@@ -579,17 +585,13 @@ public class MainActivity extends AppCompatActivity implements IReporter {
         updateLogVisibility();
 
         // Restore the simple status for the current state: rooted device or a
-        // successful last run -> 100% + Verified; failed run -> Failed.
+        // Only live checks establish current root; historical logs are not proof.
         boolean rootedNow = new File("/dev/df").exists();
-        boolean lastSuccess = hasLastLog
-                && createDeviceProtectedStorageContext()
-                        .getSharedPreferences("dfroot", MODE_PRIVATE)
-                        .getBoolean("last_run_success", false);
         boolean lastFailed = hasLastLog
                 && last.toLowerCase().contains("=== exploit failed");
-        if (rootedNow || lastSuccess) {
-            binding.twoStep.setSeg1(1f, "100%");
-            binding.twoStep.setSeg2(1f, "Verified", 0xFFFFFFFF);
+        if (rootedNow) {
+            binding.twoStep.setSeg1(1f, "Root marker active");
+            binding.twoStep.setSeg2(0f, "Manager unchecked", 0xFFFFFFFF);
         } else if (lastFailed) {
             setFailedState();
         }
@@ -661,7 +663,7 @@ public class MainActivity extends AppCompatActivity implements IReporter {
 
             android.widget.LinearLayout box = new android.widget.LinearLayout(this);
             box.setOrientation(android.widget.LinearLayout.VERTICAL);
-            box.setBackgroundResource(R.drawable.popup_bg);
+            box.setBackground(Appearance.glass(this, 26));
             box.setPadding(0, (int) (6 * md), 0, (int) (6 * md));
 
             // -- Github Page row --
@@ -878,6 +880,7 @@ public class MainActivity extends AppCompatActivity implements IReporter {
         boolean bootEnabled = state == PackageManager.COMPONENT_ENABLED_STATE_ENABLED;
         binding.switchBootStart.setChecked(bootEnabled);
         binding.switchBootStart.setOnCheckedChangeListener((btn, checked) -> {
+            if (checked) RecoveryState.rearm(mDeCtx);
             getPackageManager().setComponentEnabledSetting(bootReceiver,
                 checked ? PackageManager.COMPONENT_ENABLED_STATE_ENABLED
                         : PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
@@ -940,6 +943,7 @@ public class MainActivity extends AppCompatActivity implements IReporter {
             case "autorun": return binding.cardBoot;
             case "modules": return binding.cardModules;
             case "log": return binding.cardLog;
+            case "recovery": return binding.cardRecovery;
             default: return null;
         }
     }
@@ -1231,6 +1235,7 @@ public class MainActivity extends AppCompatActivity implements IReporter {
         // updateRunButton() re-reads /dev/df, so a root gained outside this
         // activity - the tile, the boot receiver - shows up on the way back in.
         updateRunButton();
+        if (!running && new File("/dev/df").exists()) refreshLiveStatus();
         // A log written outside this activity replaces the one on screen.
         if (!running && lastLogFile != null && lastLogFile.exists()
                 && lastLogFile.lastModified() != logMtime) {
@@ -1348,7 +1353,7 @@ public class MainActivity extends AppCompatActivity implements IReporter {
 
         android.widget.LinearLayout box = new android.widget.LinearLayout(this);
         box.setOrientation(android.widget.LinearLayout.VERTICAL);
-        box.setBackgroundResource(R.drawable.popup_bg);
+        box.setBackground(Appearance.glass(this, 26));
         box.setPadding(0, (int) (6 * md), 0, (int) (6 * md));
 
         if (apps.isEmpty()) {
@@ -1942,6 +1947,109 @@ public class MainActivity extends AppCompatActivity implements IReporter {
     }
 
     /** Saves the current log to Downloads and opens the Downloads screen. */
+    private void refreshLiveStatus() {
+        // Probe off the UI thread; a manager permission prompt may take time.
+        binding.twoStep.setSeg1(new File("/dev/df").exists() ? 1f : 0f, "Checking root…");
+        mExec.execute(() -> {
+            String uid = RecoveryShell.run("id -u");
+            boolean root = RecoveryShell.uidZero(uid);
+            boolean manager = false;
+            try {
+                if (suManagerPkg != null) manager = ExploitRunner.hasKsud(
+                        getPackageManager().getApplicationInfo(suManagerPkg, 0));
+            } catch (Exception ignored) { }
+            final boolean installed = manager;
+            if (root) RecoveryState.prefs(mDeCtx).edit()
+                    .putLong("root_verified_at", System.currentTimeMillis()).apply();
+            mMain.post(() -> {
+                if (isFinishing() || isDestroyed() || running) return;
+                binding.twoStep.setSeg1(root ? 1f : 0f, root ? "Root active" : "Root unverified");
+                binding.twoStep.setSeg2(installed ? 1f : 0f,
+                        installed ? "Manager installed" : "Manager unavailable", 0xFFFFFFFF);
+            });
+        });
+    }
+
+    private void showRecovery() {
+        android.widget.LinearLayout panel = new android.widget.LinearLayout(this);
+        panel.setOrientation(android.widget.LinearLayout.VERTICAL);
+        int pad = Math.round(20 * getResources().getDisplayMetrics().density);
+        panel.setPadding(pad, pad / 2, pad, pad);
+        TextView status = new TextView(this);
+        status.setTextIsSelectable(true);
+        status.setText(Diagnostics.snapshot(mDeCtx) + "\n" + RecoveryState.summary(mDeCtx)
+                + "\nLive UID: checking…");
+        panel.addView(status);
+        mExec.execute(() -> {
+            String uid = RecoveryShell.run("id -u");
+            if (RecoveryShell.uidZero(uid)) RecoveryState.prefs(mDeCtx).edit()
+                    .putLong("root_verified_at", System.currentTimeMillis()).apply();
+            mMain.post(() -> {
+                if (!isFinishing() && !isDestroyed()) status.setText(Diagnostics.snapshot(mDeCtx)
+                        + "\n" + RecoveryState.summary(mDeCtx) + "\nLive UID: " + uid);
+            });
+        });
+        android.widget.CheckBox once = new android.widget.CheckBox(this);
+        once.setText("Next root attempt without modules");
+        once.setChecked(RecoveryState.prefs(mDeCtx).getBoolean("without_modules_once", false));
+        once.setEnabled(!running && !ExploitRunner.active);
+        once.setOnCheckedChangeListener((v, checked) -> RecoveryState.prefs(mDeCtx).edit()
+                .putBoolean("without_modules_once", checked).apply());
+        panel.addView(once);
+        TextView note = new TextView(this);
+        note.setText("Applies once when you next run root. Modules disabled by bootstrap stay disabled in the manager until you re-enable them. Autorun pauses after a failed or unconfirmed attempt.");
+        panel.addView(note);
+        recoveryAction(panel, "Export diagnostics", this::shareLog);
+        recoveryAction(panel, "VaultGuard details", this::showOdinPopup);
+        recoveryAction(panel, "Soft reboot", () -> confirmReboot(true));
+        recoveryAction(panel, "Full reboot", () -> confirmReboot(false));
+        android.widget.ScrollView scroll = new android.widget.ScrollView(this);
+        scroll.addView(panel);
+        GlassDialog.show(new androidx.appcompat.app.AlertDialog.Builder(this)
+                .setTitle("Recovery & diagnostics").setView(scroll)
+                .setNegativeButton("Close", null).create());
+    }
+
+    private void recoveryAction(android.widget.LinearLayout panel, String title, Runnable action) {
+        android.widget.Button button = new android.widget.Button(this);
+        button.setText(title);
+        button.setOnClickListener(v -> action.run());
+        panel.addView(button, new android.widget.LinearLayout.LayoutParams(-1, -2));
+    }
+
+    private void confirmReboot(boolean soft) {
+        if (running || ExploitRunner.active) {
+            android.widget.Toast.makeText(this, "Wait for the current attempt to finish", android.widget.Toast.LENGTH_LONG).show();
+            return;
+        }
+        GlassDialog.show(new androidx.appcompat.app.AlertDialog.Builder(this)
+                .setTitle(soft ? "Soft reboot Android?" : "Fully reboot device?")
+                .setMessage(soft ? "Restarts Android using the active manager daemon. Save your work first."
+                        : "Restarts the whole device. Ephemeral root will be lost; Autorun may run if enabled.")
+                .setPositiveButton("Reboot", (d, which) ->
+                    df.root.vaultguard.DmcRecovery.INSTANCE.verifyForAction(this, vault -> {
+                    if (!vault.getTargetsMet()) {
+                        android.widget.Toast.makeText(this, "Reboot cancelled: VaultGuard could not verify recovery status", android.widget.Toast.LENGTH_LONG).show();
+                        return kotlin.Unit.INSTANCE;
+                    }
+                    mExec.execute(() -> {
+                    if (!RecoveryShell.uidZero(RecoveryShell.run("id -u"))) {
+                        mMain.post(() -> android.widget.Toast.makeText(this, "Root shell unavailable", android.widget.Toast.LENGTH_LONG).show());
+                        return;
+                    }
+                    RecoveryState.prefs(mDeCtx).edit().putLong("reboot_at", System.currentTimeMillis())
+                            .putString("reboot_kind", soft ? "Soft reboot" : "Full reboot").commit();
+                    String result = RecoveryShell.run(soft ? "/data/adb/ksud soft-reboot" : "reboot");
+                    mMain.post(() -> {
+                        if (!isFinishing() && !isDestroyed()) android.widget.Toast.makeText(this,
+                                result.startsWith("Unavailable") ? result : "Reboot request sent; completion unconfirmed",
+                                android.widget.Toast.LENGTH_LONG).show();
+                    });
+                    });
+                    return kotlin.Unit.INSTANCE;
+                })).setNegativeButton("Cancel", null).create());
+    }
+
     private void showDiagnostics() {
         String log = logBuffer.length() > 0 ? logBuffer.toString() : readLastLog();
         android.widget.TextView text = new android.widget.TextView(this);
@@ -1960,8 +2068,9 @@ public class MainActivity extends AppCompatActivity implements IReporter {
 
     private void shareLog() {
         String log = logBuffer.length() > 0 ? logBuffer.toString() : readLastLog();
-        log = Diagnostics.snapshot(mDeCtx) + "\n" + Diagnostics.recentOutput(log)
-                + "\nCOMPLETE RUN LOG\n" + log;
+        log = ReportRedactor.redact(Diagnostics.snapshot(mDeCtx) + "\n" + RecoveryState.summary(mDeCtx)
+                + "\n" + D2Status.read(this).detail + "\n" + Diagnostics.recentOutput(log)
+                + "\nCOMPLETE RUN LOG\n" + log);
         try {
             ContentValues values = new ContentValues();
             values.put(MediaStore.Downloads.DISPLAY_NAME, "FragX_diagnostics.txt");
@@ -2015,7 +2124,7 @@ public class MainActivity extends AppCompatActivity implements IReporter {
                 boolean rooted = new File("/dev/df").exists();
                 if (rooted) {
                     setRootedState(true);
-                    binding.twoStep.setSeg2(1f, "Verified", 0xFFFFFFFF);
+                    refreshLiveStatus();
                 } else {
                     setFailedState();
                     setRootedState(false);

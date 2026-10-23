@@ -16,7 +16,7 @@ final class Appearance {
     private static final String[] NAMES = {
             "Silver", "Ocean", "Mint", "Forest", "Amber", "Rose", "Wine", "Lavender"};
     private static final int[] COLORS = {
-            0xFFD0D7E2, 0xFF9CCAFF, 0xFF8DE0CF, 0xFFA9D799,
+            0xFFD4D4D4, 0xFF9CCAFF, 0xFF8DE0CF, 0xFFA9D799,
             0xFFF4CE8A, 0xFFF4AEC3, 0xFFD9A0BA, 0xFFC9B3F5};
 
     private static int index(Context context) {
@@ -48,11 +48,11 @@ final class Appearance {
                 }).setNegativeButton("Cancel", null).create());
     }
 
-    private static GradientDrawable glass(Context context, float radius) {
+    static GradientDrawable glass(Context context, float radius) {
         int c = accent(context);
         GradientDrawable d = new GradientDrawable(GradientDrawable.Orientation.TL_BR,
                 new int[]{Color.argb(225, Color.red(c)/3, Color.green(c)/3, Color.blue(c)/3),
-                        Color.argb(220, 17, 22, 32)});
+                        Color.argb(220, Color.red(c)/10, Color.green(c)/10, Color.blue(c)/10)});
         d.setCornerRadius(radius * context.getResources().getDisplayMetrics().density);
         d.setStroke(Math.max(1, Math.round(context.getResources().getDisplayMetrics().density)),
                 (c & 0x00FFFFFF) | 0x66000000);
@@ -61,6 +61,15 @@ final class Appearance {
 
     static void apply(Context context, ActivityMainBinding binding) {
         updateChildren(binding.getRoot());
+        int c = accent(context);
+        binding.getRoot().setBackground(new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM,
+                new int[]{Color.rgb(Color.red(c)/12, Color.green(c)/12, Color.blue(c)/12), Color.BLACK}));
+        if (context instanceof android.app.Activity) {
+            android.view.Window w = ((android.app.Activity) context).getWindow();
+            w.setStatusBarColor(Color.TRANSPARENT);
+            w.setNavigationBarColor(Color.BLACK);
+        }
+        binding.twoStep.invalidate();
         binding.floatingActions.setBackground(glass(context, 38));
         binding.odinPill.setBackground(glass(context, 28));
         binding.btnMenu.setBackground(glass(context, 28));
