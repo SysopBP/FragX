@@ -220,34 +220,17 @@ int main(void)
     }
 
     touch("/dev/dfm5");
-    // ksu only allows init to switch to ksud context and we are in kernel context now
-    // once ksu starts, selinux is enforcing, but here its still permissive
-    // switch our context while we still can
-    pid_t pid = fork();
-    if (pid < 0)
-        return 1;
-    if (pid == 0) {
-        int fd = open("/proc/self/attr/current", O_WRONLY);
-        if (fd >= 0) {
-            const char *ctx = "u:r:init:s0";
-            write(fd, ctx, strlen(ctx));
-            close(fd);
+    if (run_ctx(NULL, (char *[]){ KSUD_STAGE, "late-load", "--package-name", su_manager, NULL }) == 0) {
+        touch("/dev/dfm6");
+        if (soft_reboot) {
+            while (late_load_running()) sleep(1);
+            int reboot_rc = run_ctx("u:r:ksu:s0", (char *[]){ KSUD, "soft-reboot", NULL });
+            if (reboot_rc != 0)
+                touch("/dev/dfme3");
         }
-        if (run_ctx(NULL, (char *[]){ KSUD_STAGE, "late-load", "--package-name", su_manager, NULL }) == 0) {
-            touch("/dev/dfm6");
-            if (soft_reboot) {
-                while (late_load_running()) sleep(1);
-                int reboot_rc = run_ctx("u:r:ksu:s0", (char *[]){ KSUD, "soft-reboot", NULL });
-                if (reboot_rc != 0)
-                    touch("/dev/dfme3");
-            }
-        } else {
-            touch("/dev/dfme2");
-        }
-        _exit(0);
+    } else {
+        touch("/dev/dfme2");
     }
-    int status;
-    waitpid(pid, &status, 0);
 
     return 0;
 }

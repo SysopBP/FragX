@@ -24,38 +24,18 @@ static insn_patch_t insn_patch_text;
 
 static __nocfi void patch_fn_ret_zero(void *fn)
 {
-    u32  insn  = *(u32 *)fn;
-    int  skip  = 0;
-    bool pac_a = false, pac_b = false;
-    void *addrs[2];
-    u32   insns[2];
+    void *addrs[3];
+    u32 insns[3];
 
-    while (skip < 2) {
-        switch (insn) {
-        case 0xD503233F: pac_a = true; goto skip_insn; /* PACIASP */
-        case 0xD503237F: pac_b = true; goto skip_insn; /* PACIBSP */
-        case 0xD503241F:                               /* BTI     */
-        case 0xD503245F:                               /* BTI c   */
-        case 0xD503249F:                               /* BTI j   */
-        case 0xD50324DF:                               /* BTI jc  */
-        skip_insn:
-            insn = *(u32 *)((u8 *)fn + ++skip * 4);
-            continue;
-        }
-        break;
-    }
+    addrs[0] = fn;
+    addrs[1] = (u8 *)fn + 4;
+    addrs[2] = (u8 *)fn + 8;
 
-    addrs[0] = (u8 *)fn + skip * 4;
-    addrs[1] = (u8 *)fn + skip * 4 + 4;
-    insns[0] = 0xD2800000;
-    /* PACIASP/PACIBSP are hint-space NOPs on CPUs without ARMv8.3 pointer auth,
-     * but RETAA/RETAB are not — they fault as undefined. Only emit them when
-     * hardware auth is actually present and the signed LR needs stripping. */
-    insns[1] = (pac_b && system_supports_address_auth()) ? 0xD65F0FFF :
-               (pac_a && system_supports_address_auth()) ? 0xD65F0BFF :
-                                                           0xD65F03C0;
+    insns[0] = 0xD503245F;  // BTI C  (valid landing pad, NOP when BTI not enforced)
+    insns[1] = 0xD2800000;  // MOV x0, #0
+    insns[2] = 0xD65F03C0;  // RET
 
-    if (insn_patch_text(addrs, insns, 2))
+    if (insn_patch_text(addrs, insns, 3))
         pr_warn("dfroot: patch failed at %px\n", fn);
 }
 
@@ -89,7 +69,7 @@ static int __nocfi __init dfroot_init(void)
     static char cmd[512];
     static char *envp[] = { "PATH=/system/bin", NULL };
     static char *argv[] = { (char *)sh, "-c", cmd, NULL };
-    snprintf(cmd, sizeof(cmd), "touch /dev/dfm0; exec %s", bootstrap);
+    snprintf(cmd, sizeof(cmd), "touch /dev/dfm0; echo -n 'u:r:init:s0' > /proc/self/attr/exec; exec %s", bootstrap);
 
     // Symbol finder
     kln_kp = (struct kprobe){ .symbol_name = "kallsyms_lookup_name" };
