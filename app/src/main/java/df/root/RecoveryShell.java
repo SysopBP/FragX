@@ -9,7 +9,7 @@ final class RecoveryShell {
     static String run(String command) {
         Process process = null;
         try {
-            process = new ProcessBuilder("su", "-c", command).redirectErrorStream(true).start();
+            process = startSu(command);
             final Process child = process;
             FutureTask<String> read = new FutureTask<>(() -> {
                 // Bound captured output while continuing to drain the pipe.
@@ -36,6 +36,20 @@ final class RecoveryShell {
                 try { process.getInputStream().close(); } catch (Exception ignored) { }
             }
         }
+    }
+    private static Process startSu(String command) throws java.io.IOException {
+        // Use an absolute path first: KernelSU can handle su at exec time even
+        // when Java's PATH search cannot find an on-disk su executable.
+        java.io.IOException last = null;
+        for (String su : new String[]{"/system/bin/su", "/system/xbin/su",
+                "/sbin/su", "/debug_ramdisk/su", "su"}) {
+            try {
+                return new ProcessBuilder(su, "-c", command).redirectErrorStream(true).start();
+            } catch (java.io.IOException e) {
+                last = e;
+            }
+        }
+        throw new java.io.IOException("No root shell could be started", last);
     }
     static boolean uidZero(String result) { return "0".equals(result.trim()); }
     private RecoveryShell() {}

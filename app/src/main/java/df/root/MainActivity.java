@@ -1963,7 +1963,9 @@ public class MainActivity extends AppCompatActivity implements IReporter {
                     .putLong("root_verified_at", System.currentTimeMillis()).apply();
             mMain.post(() -> {
                 if (isFinishing() || isDestroyed() || running) return;
-                binding.twoStep.setSeg1(root ? 1f : 0f, root ? "Root active" : "Root unverified");
+                boolean driver = new File("/dev/df").exists();
+                binding.twoStep.setSeg1(root ? 1f : (driver ? 0.5f : 0f),
+                        root ? "Root active" : (driver ? "Driver detected" : "Root unchecked"));
                 binding.twoStep.setSeg2(installed ? 1f : 0f,
                         installed ? "Manager installed" : "Manager unavailable", 0xFFFFFFFF);
             });
