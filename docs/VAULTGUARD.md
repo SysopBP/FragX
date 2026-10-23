@@ -27,3 +27,11 @@ The experimental power guard covers ShutdownThread.beginShutdownSequence and Act
 ## Review provenance
 
 Adapted from SysopBP/SamsungLockD2-Public: DmcRecovery.kt, DmcVaultPolicy.java, DmcPowerDecision.java, DmcPowerGuard.kt and the DMC portions of GuardianXposedBridge.kt, plus their policy/decision tests. D2's keyguard, authentication, wake, power-menu UI and Guardian handoff hooks are excluded. The port adds FragX-specific authenticated messaging, branding, UI and bounded ordinary recovery workers. Retain original discovery credit to @diablOw.
+
+## D2 SRP alignment
+
+Implementation baseline: `SysopBP/SamsungLockD2-Public@81c707a91eb00bc9eb64f278834b2775e62ad750`.
+
+The vault policy and power-decision classes match D2 apart from package names. The power guard retains D2's verification, deadline and emergency handling, with FragX messages. Status refresh follows D2's ten-second throttling and bounded retries after 5, 15 and 30 seconds; action verification is forced and does not reuse cached approval. LSPosed System Server scope is `system`, as in D2; Android broadcast delivery still targets package `android`.
+
+FragX-specific differences are its package/actions, UI adapter and messages, removal of D2 widget and SystemUI/keyguard handoffs, and a single-worker admission guard for ordinary System Server recovery. The System Framework module must reload after installation. Build success does not establish device verification.
