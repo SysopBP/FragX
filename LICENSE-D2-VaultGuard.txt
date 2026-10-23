@@ -1,0 +1,12 @@
+Copyright (c) 2026 D2 Project. All rights reserved.
+
+No open-source license is granted for D2's original source code, documentation,
+or artwork. Public availability does not grant permission to modify or
+redistribute those materials.
+
+Third-party components and data remain subject to their respective licenses;
+see THIRD_PARTY_NOTICES.txt. This notice does not limit rights granted by those
+licenses, applicable law, or GitHub's terms of service.
+
+Source: https://github.com/SysopBP/SamsungLockD2-Public
+Scope in FragX: D2-derived VaultGuard source and tests.

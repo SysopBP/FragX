@@ -44,6 +44,14 @@ public class BootReceiver extends BroadcastReceiver implements IReporter {
             Log.i(TAG, "boot: expert mode off - autorun skipped");
             return;
         }
+        if (RecoveryState.alreadyAttemptedThisBoot(deCtx)) return;
+        if (!RecoveryState.allowAutorun(deCtx)) {
+            Log.w(TAG, "boot: autorun paused after an unconfirmed/failed attempt or duplicate boot delivery");
+            context.getPackageManager().setComponentEnabledSetting(
+                    new ComponentName(context, BootReceiver.class),
+                    PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
+            return;
+        }
         boolean autoSoftReboot = deCtx.getSharedPreferences("dfroot", Context.MODE_PRIVATE)
                 .getBoolean("auto_soft_reboot", false);
         // auto_soft_reboot=true: on success, ksud triggers its OWN soft reboot

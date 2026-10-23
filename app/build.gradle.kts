@@ -64,8 +64,8 @@ androidComponents {
     }
 }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     lint {
@@ -93,6 +93,8 @@ androidComponents {
 }
 
 dependencies {
+    compileOnly("io.github.libxposed:api:102.0.0")
+    testImplementation("junit:junit:4.13.2")
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.constraintlayout)

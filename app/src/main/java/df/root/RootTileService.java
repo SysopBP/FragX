@@ -33,7 +33,7 @@ import java.nio.charset.StandardCharsets;
  * activity has to come to the foreground and nothing has to be resumed.
  *
  * Four states, all derived from the device rather than stored:
- *   - /dev/df exists       -> ACTIVE, "Rooted". Tapping opens the app, which is
+ *   - /dev/df exists       -> ACTIVE, "Driver active". Tapping opens the app, which is
  *                             the only place that can say what state the device
  *                             is in.
  *   - a run is in flight   -> UNAVAILABLE, "Rooting". Also covers a run started
@@ -81,8 +81,8 @@ public class RootTileService extends TileService implements IReporter {
         }
         if (new File("/dev/df").exists()) {
             tile.setState(Tile.STATE_ACTIVE);
-            tile.setLabel("Rooted");
-            tile.setSubtitle(null);
+            tile.setLabel("Driver active");
+            tile.setSubtitle("Open FragX to verify root");
         } else if (sRunning) {
             tile.setState(Tile.STATE_UNAVAILABLE);
             tile.setLabel("Rooting\u2026");

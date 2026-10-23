@@ -412,3 +412,8 @@ SHALL THE COPYRIGHT HOLDERS OR ANYONE DISTRIBUTING THE SOFTWARE BE LIABLE
 FOR ANY DAMAGES OR OTHER LIABILITY, WHETHER IN CONTRACT, TORT OR OTHERWISE,
 ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
+
+
+## VaultGuard / D2 Guardian
+
+VaultGuard adapts DMC recovery, vault policy, framework observers, power-action guard and related tests from SysopBP/SamsungLockD2-Public. Copyright (c) 2026 D2 Project. All rights reserved. D2 source retains its original reserved-rights notice; see LICENSE-D2-VaultGuard.txt. Original DMC discovery credit: @diablOw. libxposed API 102 is a compile-only framework API (Apache-2.0); the framework supplies it at runtime.

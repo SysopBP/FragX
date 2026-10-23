@@ -31,9 +31,14 @@ final class CardLayoutStore {
     static List<String> loadOrder(Context deCtx, String[] def) {
         List<String> saved = parse(prefs(deCtx).getString(KEY_ORDER, ""));
         List<String> expected = new ArrayList<>(Arrays.asList(def));
-        if (saved.size() != expected.size() || !expected.containsAll(saved)) {
+        if (saved.isEmpty()) return expected;
+        // Keep the expanding log last when upgrading the former default layout.
+        if (saved.equals(Arrays.asList("sumanager", "autorun", "modules", "log"))
+                || saved.equals(Arrays.asList("sumanager", "autorun", "modules", "log", "recovery"))) {
             return expected;
         }
+        saved.retainAll(expected);
+        for (String key : expected) if (!saved.contains(key)) saved.add(key);
         return saved;
     }
 

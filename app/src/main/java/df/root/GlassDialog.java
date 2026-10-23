@@ -23,14 +23,17 @@ final class GlassDialog {
         Context context = dialog.getContext();
         float density = context.getResources().getDisplayMetrics().density;
         int accent = Appearance.accent(context);
+        int c = Appearance.accent(context);
         GradientDrawable panel = new GradientDrawable(GradientDrawable.Orientation.TL_BR,
-                new int[]{0xF22B3545, 0xF2141923});
+                new int[]{Color.rgb(Color.red(c)/5, Color.green(c)/5, Color.blue(c)/5),
+                        Color.rgb(Color.red(c)/12, Color.green(c)/12, Color.blue(c)/12)});
+        panel.setAlpha(255);
         panel.setCornerRadius(28 * density);
         panel.setStroke(Math.max(1, Math.round(density)), (accent & 0xFFFFFF) | 0x66000000);
         window.setBackgroundDrawable(panel);
         window.addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
         WindowManager.LayoutParams params = window.getAttributes();
-        params.dimAmount = 0.35f;
+        params.dimAmount = 0.60f;
         window.setAttributes(params);
         View decor = window.getDecorView();
         decor.setClipToOutline(true);
@@ -66,6 +69,8 @@ final class GlassDialog {
             for (int i = 0; i < group.getChildCount(); i++) style(group.getChildAt(i), accent);
         }
         if (view instanceof TextView) ((TextView) view).setTextColor(0xFFF1F4FA);
+        if (view instanceof android.widget.CompoundButton)
+            ((android.widget.CompoundButton) view).setButtonTintList(ColorStateList.valueOf(accent));
         if (view instanceof CheckedTextView)
             ((CheckedTextView) view).setCheckMarkTintList(ColorStateList.valueOf(accent));
         if (view instanceof SeekBar) {

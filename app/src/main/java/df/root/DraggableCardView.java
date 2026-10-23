@@ -70,7 +70,7 @@ public class DraggableCardView extends MaterialCardView {
     }
 
     public void refreshPalette() {
-        setCardBackgroundColor(held ? HELD_BG : Appearance.surface(getContext()));
+        setCardBackgroundColor(held ? ((Appearance.accent(getContext()) & 0xFFFFFF) | 0xD0000000) : Appearance.surface(getContext()));
         setStrokeColor(ColorStateList.valueOf(held ? HELD_STROKE :
                 ((Appearance.accent(getContext()) & 0x00FFFFFF) | 0x40000000)));
     }

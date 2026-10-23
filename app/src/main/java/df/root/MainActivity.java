@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements IReporter {
     private boolean moduleRefresh;
 
     /** Device-protected storage context: bootstrap.c reads its prefs from
-     *  /data/user_de/0/df.root/, so every pref the exploit depends on must live
+     *  /data/user_de/0/com.sysopbp.fragx/, so every pref the exploit depends on must live
      *  there, not in credential-protected storage. */
     private Context mDeCtx;
     /** Package name of the SU manager whose libksud.so gets staged, or null. */
@@ -95,6 +95,8 @@ public class MainActivity extends AppCompatActivity implements IReporter {
     private CharSequence suManagerLabel;
     /** A failed run locks the Run button until reboot (page-cache patch). */
     private boolean failedRun;
+    /** A driver marker alone does not establish shell access. */
+    private boolean rootShellVerified;
     /** Raw "***FAILED***: ..." text from the exploit, used for the failure log. */
     private String lastFailReason;
 
@@ -102,7 +104,7 @@ public class MainActivity extends AppCompatActivity implements IReporter {
 
     /** The card keys as they are written to dfroot_ui, in the shipped order.
      *  "sumanager" is first and is the one card that can never be hidden. */
-    private static final String[] CARD_KEYS = {"sumanager", "autorun", "modules", "log"};
+    private static final String[] CARD_KEYS = {"sumanager", "autorun", "modules", "recovery", "log"};
     /** Hide button per card, index-parallel to CARD_KEYS. They live in the root
      *  layout, not inside the cards: MaterialCardView clips its children to the
      *  rounded outline, and the badge has to straddle the card's top-left edge. */
@@ -248,7 +250,7 @@ public class MainActivity extends AppCompatActivity implements IReporter {
         }
         if (t.equals("ksud start: SUCCESS")) {
             setSeg1(1f);
-            setSeg2(1f, "Verified", 0xFFFFFFFF);
+            setSeg2(1f, "Daemon started", 0xFFFFFFFF);
         }
         if (exploitPhase.equals("cleanup") && t.startsWith("restoring")) {
             cleanupSteps++;
@@ -466,6 +468,12 @@ public class MainActivity extends AppCompatActivity implements IReporter {
         mDeCtx = createDeviceProtectedStorageContext();
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        if (!ExploitRunner.active) RecoveryState.restoreModulePreference(mDeCtx);
+        binding.rowRecovery.setOnClickListener(v -> showRecovery());
+        binding.twoStep.setOnClickListener(v -> showRecovery());
+        binding.recoverySubtitle.setText(RecoveryState.prefs(mDeCtx).getBoolean("pending", false)
+                ? "Last attempt unconfirmed • tap for details" : "Boot result, reports and reboot controls");
+        binding.twoStep.setContentDescription("Root and manager status. Tap for details");
         customBackground = new CustomBackground(this, binding.customBackground);
         Appearance.apply(this, binding);
 
@@ -489,16 +497,13 @@ public class MainActivity extends AppCompatActivity implements IReporter {
         });
         mExec.execute(this::checkForAppUpdate);
 
-        // Odin / download-mode availability: the pill left of the menu button,
-        // built from the same inputs Samsung writes into its DMC vault, so it
-        // needs no root - see D2Status for why reading the vault itself cannot
-        // work from here. Tapping it opens a submenu of the three facts behind the
-        // dot, which is what makes a wrong dot arguable without a cable.
+        // Actual VaultGuard status; unavailable hooks remain gray.
+        binding.odinLabel.setText("VaultGuard");
         binding.odinPill.setOnClickListener(v -> {
             v.performHapticFeedback(HapticFeedbackConstants.KEYBOARD_TAP);
             showOdinPopup();
         });
-        mExec.execute(this::refreshOdin);
+        requestVaultGuard();
 
         // SU Manager card: upstream 3.2 deleted the bundled assets/ksud, so the
         // exploit stages libksud.so out of the chosen manager's
@@ -582,17 +587,13 @@ public class MainActivity extends AppCompatActivity implements IReporter {
         updateLogVisibility();
 
         // Restore the simple status for the current state: rooted device or a
-        // successful last run -> 100% + Verified; failed run -> Failed.
+        // Only live checks establish current root; historical logs are not proof.
         boolean rootedNow = new File("/dev/df").exists();
-        boolean lastSuccess = hasLastLog
-                && createDeviceProtectedStorageContext()
-                        .getSharedPreferences("dfroot", MODE_PRIVATE)
-                        .getBoolean("last_run_success", false);
         boolean lastFailed = hasLastLog
                 && last.toLowerCase().contains("=== exploit failed");
-        if (rootedNow || lastSuccess) {
-            binding.twoStep.setSeg1(1f, "100%");
-            binding.twoStep.setSeg2(1f, "Verified", 0xFFFFFFFF);
+        if (rootedNow) {
+            binding.twoStep.setSeg1(1f, "Root marker active");
+            binding.twoStep.setSeg2(0f, "Manager unchecked", 0xFFFFFFFF);
         } else if (lastFailed) {
             setFailedState();
         }
@@ -664,7 +665,7 @@ public class MainActivity extends AppCompatActivity implements IReporter {
 
             android.widget.LinearLayout box = new android.widget.LinearLayout(this);
             box.setOrientation(android.widget.LinearLayout.VERTICAL);
-            box.setBackgroundResource(R.drawable.popup_bg);
+            box.setBackground(Appearance.glass(this, 26));
             box.setPadding(0, (int) (6 * md), 0, (int) (6 * md));
 
             // -- Github Page row --
@@ -881,6 +882,7 @@ public class MainActivity extends AppCompatActivity implements IReporter {
         boolean bootEnabled = state == PackageManager.COMPONENT_ENABLED_STATE_ENABLED;
         binding.switchBootStart.setChecked(bootEnabled);
         binding.switchBootStart.setOnCheckedChangeListener((btn, checked) -> {
+            if (checked) RecoveryState.rearm(mDeCtx);
             getPackageManager().setComponentEnabledSetting(bootReceiver,
                 checked ? PackageManager.COMPONENT_ENABLED_STATE_ENABLED
                         : PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
@@ -943,6 +945,7 @@ public class MainActivity extends AppCompatActivity implements IReporter {
             case "autorun": return binding.cardBoot;
             case "modules": return binding.cardModules;
             case "log": return binding.cardLog;
+            case "recovery": return binding.cardRecovery;
             default: return null;
         }
     }
@@ -1228,10 +1231,13 @@ public class MainActivity extends AppCompatActivity implements IReporter {
     @Override
     protected void onResume() {
         super.onResume();
+        refreshOdin();
+        requestVaultGuard();
         loadSuManagerPref();
         // updateRunButton() re-reads /dev/df, so a root gained outside this
         // activity - the tile, the boot receiver - shows up on the way back in.
         updateRunButton();
+        if (!running && new File("/dev/df").exists()) refreshLiveStatus();
         // A log written outside this activity replaces the one on screen.
         if (!running && lastLogFile != null && lastLogFile.exists()
                 && lastLogFile.lastModified() != logMtime) {
@@ -1349,7 +1355,7 @@ public class MainActivity extends AppCompatActivity implements IReporter {
 
         android.widget.LinearLayout box = new android.widget.LinearLayout(this);
         box.setOrientation(android.widget.LinearLayout.VERTICAL);
-        box.setBackgroundResource(R.drawable.popup_bg);
+        box.setBackground(Appearance.glass(this, 26));
         box.setPadding(0, (int) (6 * md), 0, (int) (6 * md));
 
         if (apps.isEmpty()) {
@@ -1608,18 +1614,7 @@ public class MainActivity extends AppCompatActivity implements IReporter {
         }
     }
 
-    /**
-     * Reads the Odin / download-mode state and paints the toolbar dot: green when
-     * download mode is not gated, red when the firmware will answer with the D2
-     * error, grey when this device does not gate download mode at all - which is
-     * also what a non-Samsung device gets, so the control never vanishes on a
-     * Galaxy for no visible reason. Runs on the background executor because
-     * D2Status reads the Settings provider; the dot itself is touched on the UI
-     * thread. The inputs go to logcat under this tag as well as into the submenu,
-     * so a dot the owner disagrees with is traceable to the facts that produced it
-     * rather than being a mystery, which is how the vault-reading attempt at this
-     * feature stayed undiagnosable.
-     */
+    /** Paint only verified VaultGuard results. */
     private void refreshOdin() {
         D2Status.Result r = D2Status.read(this);
         mMain.post(() -> {
@@ -1636,79 +1631,41 @@ public class MainActivity extends AppCompatActivity implements IReporter {
             binding.odinDot.setBackgroundTintList(ColorStateList.valueOf(dot));
         });
     }
-    /**
-     * The submenu that hangs off the Odin pill: the three facts the dot is
-     * computed from, as three lines. Same rounded card, 46dp rows, hairline
-     * separators, scale-in and dimmed backdrop as the overflow menu, because two
-     * popups that do different jobs should look like the same control. Read-only,
-     * so the rows carry no press highlight and an outside tap closes it.
-     */
-    private void showOdinPopup() {
-        D2Status.Result r = mOdin;
-        if (r == null) {
-            // The first tap beat the background read. Reading here costs three
-            // binder round trips on a tap, which is the one moment that is free.
-            r = D2Status.read(this);
-            mOdin = r;
-        }
-        float md = getResources().getDisplayMetrics().density;
-        final D2Status.Result shown = r;
-
-        android.widget.LinearLayout box = new android.widget.LinearLayout(this);
-        box.setOrientation(android.widget.LinearLayout.VERTICAL);
-        box.setBackgroundResource(R.drawable.popup_bg);
-        box.setPadding(0, (int) (6 * md), 0, (int) (6 * md));
-
-        box.addView(odinRow("Lockscreen", shown.lockscreenLabel()), odinRowLp(md));
-        box.addView(odinSep(md), odinSepLp(md));
-        box.addView(odinRow("Maintenance Mode", shown.maintenanceLabel()), odinRowLp(md));
-        box.addView(odinSep(md), odinSepLp(md));
-        box.addView(odinRow("Device", shown.deviceLabel()), odinRowLp(md));
-
-        box.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
-        int pw_w = Math.max(box.getMeasuredWidth(), (int) (230 * md));
-
-        final android.widget.PopupWindow pw = new android.widget.PopupWindow(box,
-                pw_w, android.view.ViewGroup.LayoutParams.WRAP_CONTENT, true);
-        pw.setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(
-                android.graphics.Color.TRANSPARENT));
-        pw.setOutsideTouchable(true);
-        pw.setOnDismissListener(() ->
-                binding.dimOverlay.animate().alpha(0f).setDuration(150)
-                        .withEndAction(() -> binding.dimOverlay
-                                .setVisibility(View.GONE)).start());
-
-        box.setOutlineProvider(new android.view.ViewOutlineProvider() {
-            @Override
-            public void getOutline(View view, android.graphics.Outline outline) {
-                outline.setRoundRect(0, 0, view.getWidth(), view.getHeight(), 26 * md);
-            }
+    private void requestVaultGuard() {
+        df.root.vaultguard.DmcRecovery.refreshForUi(this, () -> {
+            if (!isFinishing() && !isDestroyed()) refreshOdin();
         });
-        box.setClipToOutline(true);
-        box.setElevation(48 * md);
+    }
 
-        // Right-aligned under the pill, which is how the overflow menu hangs off
-        // its own button. Clamped to an 8dp margin so a popup wider than the
-        // screen cannot walk off the left edge.
-        int[] loc = new int[2];
-        binding.odinPill.getLocationOnScreen(loc);
-        int x = Math.max((int) (8 * md),
-                loc[0] + binding.odinPill.getWidth() - pw_w);
-        int y = loc[1] + binding.odinPill.getHeight() + (int) (4 * md);
-
-        binding.dimOverlay.setVisibility(View.VISIBLE);
-        binding.dimOverlay.setAlpha(0f);
-        binding.dimOverlay.animate().alpha(0.5f).setDuration(150).start();
-        box.setPivotX(pw_w);
-        box.setPivotY(0f);
-        box.setScaleX(0.85f);
-        box.setScaleY(0.9f);
-        box.setAlpha(0f);
-        pw.showAtLocation(binding.odinPill,
-                android.view.Gravity.TOP | android.view.Gravity.START, x, y);
-        box.animate().scaleX(1f).scaleY(1f).alpha(1f).setDuration(150)
-                .setInterpolator(new android.view.animation.DecelerateInterpolator())
-                .start();
+    private void showOdinPopup() {
+        android.widget.TextView report = new android.widget.TextView(this);
+        int padding = Math.round(20 * getResources().getDisplayMetrics().density);
+        report.setPadding(padding, padding, padding, padding);
+        report.setTextIsSelectable(true);
+        report.setText(D2Status.read(this).detail);
+        android.widget.ScrollView scroll = new android.widget.ScrollView(this);
+        scroll.addView(report);
+        androidx.appcompat.app.AlertDialog dialog = new androidx.appcompat.app.AlertDialog.Builder(this)
+                .setTitle("VaultGuard status")
+                .setView(scroll)
+                .setPositiveButton("Refresh", null)
+                .setNegativeButton("Close", null)
+                .create();
+        GlassDialog.show(dialog);
+        Runnable refresh = () -> {
+            report.setText("Samsung recovery checks…");
+            dialog.getButton(android.content.DialogInterface.BUTTON_POSITIVE).setEnabled(false);
+            df.root.vaultguard.DmcRecovery.refreshForUi(this, () -> {
+                if (isFinishing() || isDestroyed()) return;
+                refreshOdin();
+                if (dialog.isShowing()) {
+                    report.setText(D2Status.read(this).detail);
+                    dialog.getButton(android.content.DialogInterface.BUTTON_POSITIVE).setEnabled(true);
+                }
+            });
+        };
+        dialog.getButton(android.content.DialogInterface.BUTTON_POSITIVE).setOnClickListener(v -> refresh.run());
+        refresh.run();
     }
 
     /**
@@ -1792,7 +1749,7 @@ public class MainActivity extends AppCompatActivity implements IReporter {
         int bg = (rooted || !ok) ? 0xFF1F1F1F : Appearance.accent(this);
         int stroke = (rooted || !ok) ? 0xFF1F1F1F : 0xFFA6A6A6;
         binding.btnRun.setEnabled(ok);
-        binding.btnRun.setText(rooted ? "Rooted" : "Run exploit");
+        binding.btnRun.setText(rooted ? (rootShellVerified ? "Rooted" : "Driver active") : "Run exploit");
         binding.btnRun.setTextColor(fg);
         binding.btnRun.setBackgroundTintList(ColorStateList.valueOf(bg));
         ((com.google.android.material.button.MaterialButton) binding.btnRun)
@@ -1992,6 +1949,140 @@ public class MainActivity extends AppCompatActivity implements IReporter {
     }
 
     /** Saves the current log to Downloads and opens the Downloads screen. */
+    private void refreshLiveStatus() {
+        // Probe off the UI thread; a manager permission prompt may take time.
+        binding.twoStep.setSeg1(new File("/dev/df").exists() ? 1f : 0f, "Checking root…");
+        mExec.execute(() -> {
+            String uid = RecoveryShell.run(mDeCtx, "id -u");
+            boolean root = RecoveryShell.uidZero(uid);
+            boolean manager = false;
+            try {
+                if (suManagerPkg != null) manager = ExploitRunner.hasKsud(
+                        getPackageManager().getApplicationInfo(suManagerPkg, 0));
+            } catch (Exception ignored) { }
+            final boolean installed = manager;
+            if (root) RecoveryState.recordVerifiedRoot(mDeCtx);
+            mMain.post(() -> {
+                if (isFinishing() || isDestroyed() || running) return;
+                rootShellVerified = root;
+                boolean driver = new File("/dev/df").exists();
+                if (driver || root) setRootedState(true);
+                binding.twoStep.setSeg1((root || driver) ? 1f : 0f,
+                        root ? "Root active" : (driver ? "Driver detected" : "Root unchecked"));
+                binding.twoStep.setSeg2(installed ? 1f : 0f,
+                        installed ? "Manager installed" : "Manager unavailable", 0xFFFFFFFF);
+            });
+        });
+    }
+
+    private void showRecovery() {
+        android.widget.LinearLayout panel = new android.widget.LinearLayout(this);
+        panel.setOrientation(android.widget.LinearLayout.VERTICAL);
+        int pad = Math.round(20 * getResources().getDisplayMetrics().density);
+        panel.setPadding(pad, pad / 2, pad, pad);
+        TextView status = new TextView(this);
+        status.setTextIsSelectable(true);
+        status.setText(Diagnostics.snapshot(mDeCtx) + "\n" + RecoveryState.summary(mDeCtx)
+                + "\nLive UID: checking…");
+        panel.addView(status);
+        mExec.execute(() -> {
+            String uid = RecoveryShell.run(mDeCtx, "id -u");
+            if (RecoveryShell.uidZero(uid)) RecoveryState.recordVerifiedRoot(mDeCtx);
+            mMain.post(() -> {
+                if (!isFinishing() && !isDestroyed()) {
+                    rootShellVerified = RecoveryShell.uidZero(uid);
+                    if (!running && (rootShellVerified || new File("/dev/df").exists()))
+                        setRootedState(true);
+                    status.setText(Diagnostics.snapshot(mDeCtx)
+                            + "\n" + RecoveryState.summary(mDeCtx) + "\nLive UID: " + uid);
+                }
+            });
+        });
+        android.widget.CheckBox once = new android.widget.CheckBox(this);
+        once.setText("Next root attempt without modules");
+        once.setChecked(RecoveryState.prefs(mDeCtx).getBoolean("without_modules_once", false));
+        once.setEnabled(!running && !ExploitRunner.active);
+        once.setOnCheckedChangeListener((v, checked) -> RecoveryState.prefs(mDeCtx).edit()
+                .putBoolean("without_modules_once", checked).apply());
+        panel.addView(once);
+        TextView note = new TextView(this);
+        note.setText("Applies once when you next run root. Modules disabled by bootstrap stay disabled in the manager until you re-enable them. Autorun pauses after a failed or unconfirmed attempt.");
+        panel.addView(note);
+        recoveryAction(panel, "Export diagnostics", this::shareLog);
+        recoveryAction(panel, "VaultGuard details", this::showOdinPopup);
+        recoveryAction(panel, "Soft reboot", () -> confirmReboot(true));
+        recoveryAction(panel, "Full reboot", () -> confirmReboot(false));
+        android.widget.ScrollView scroll = new android.widget.ScrollView(this);
+        scroll.addView(panel);
+        GlassDialog.show(new androidx.appcompat.app.AlertDialog.Builder(this)
+                .setTitle("Recovery & diagnostics").setView(scroll)
+                .setNegativeButton("Close", null).create());
+    }
+
+    private void recoveryAction(android.widget.LinearLayout panel, String title, Runnable action) {
+        float density = getResources().getDisplayMetrics().density;
+        int accent = Appearance.accent(this);
+        androidx.appcompat.widget.AppCompatButton button =
+                new androidx.appcompat.widget.AppCompatButton(this);
+        button.setText(title);
+        button.setAllCaps(false);
+        button.setTextSize(15);
+        button.setGravity(android.view.Gravity.CENTER_VERTICAL | android.view.Gravity.START);
+        button.setPadding(Math.round(18 * density), Math.round(12 * density),
+                Math.round(18 * density), Math.round(12 * density));
+        button.setMinHeight(Math.round(52 * density));
+        button.setMinimumHeight(Math.round(52 * density));
+        button.setSupportBackgroundTintList(null);
+        android.graphics.drawable.GradientDrawable surface =
+                new android.graphics.drawable.GradientDrawable();
+        surface.setColor((accent & 0x00FFFFFF) | 0x18000000);
+        surface.setCornerRadius(16 * density);
+        surface.setStroke(Math.max(1, Math.round(density)),
+                (accent & 0x00FFFFFF) | 0x66000000);
+        button.setBackground(new android.graphics.drawable.RippleDrawable(
+                android.content.res.ColorStateList.valueOf((accent & 0x00FFFFFF) | 0x33000000),
+                surface, null));
+        button.setStateListAnimator(null);
+        button.setOnClickListener(v -> action.run());
+        android.widget.LinearLayout.LayoutParams layout =
+                new android.widget.LinearLayout.LayoutParams(-1, -2);
+        layout.topMargin = Math.round(10 * density);
+        panel.addView(button, layout);
+    }
+
+    private void confirmReboot(boolean soft) {
+        if (running || ExploitRunner.active) {
+            android.widget.Toast.makeText(this, "Wait for the current attempt to finish", android.widget.Toast.LENGTH_LONG).show();
+            return;
+        }
+        GlassDialog.show(new androidx.appcompat.app.AlertDialog.Builder(this)
+                .setTitle(soft ? "Soft reboot Android?" : "Fully reboot device?")
+                .setMessage(soft ? "Restarts Android using the active manager daemon. Save your work first."
+                        : "Restarts the whole device. Ephemeral root will be lost; Autorun may run if enabled.")
+                .setPositiveButton("Reboot", (d, which) ->
+                    df.root.vaultguard.DmcRecovery.INSTANCE.verifyForAction(this, vault -> {
+                    if (!vault.getTargetsMet()) {
+                        android.widget.Toast.makeText(this, "Reboot cancelled: VaultGuard could not verify recovery status", android.widget.Toast.LENGTH_LONG).show();
+                        return kotlin.Unit.INSTANCE;
+                    }
+                    mExec.execute(() -> {
+                    if (!RecoveryShell.uidZero(RecoveryShell.run(mDeCtx, "id -u"))) {
+                        mMain.post(() -> android.widget.Toast.makeText(this, "Root shell unavailable", android.widget.Toast.LENGTH_LONG).show());
+                        return;
+                    }
+                    RecoveryState.prefs(mDeCtx).edit().putLong("reboot_at", System.currentTimeMillis())
+                            .putString("reboot_kind", soft ? "Soft reboot" : "Full reboot").commit();
+                    String result = RecoveryShell.reboot(mDeCtx, soft);
+                    mMain.post(() -> {
+                        if (!isFinishing() && !isDestroyed()) android.widget.Toast.makeText(this,
+                                result.startsWith("Unavailable") ? result : "Reboot request sent; completion unconfirmed",
+                                android.widget.Toast.LENGTH_LONG).show();
+                    });
+                    });
+                    return kotlin.Unit.INSTANCE;
+                })).setNegativeButton("Cancel", null).create());
+    }
+
     private void showDiagnostics() {
         String log = logBuffer.length() > 0 ? logBuffer.toString() : readLastLog();
         android.widget.TextView text = new android.widget.TextView(this);
@@ -2010,8 +2101,9 @@ public class MainActivity extends AppCompatActivity implements IReporter {
 
     private void shareLog() {
         String log = logBuffer.length() > 0 ? logBuffer.toString() : readLastLog();
-        log = Diagnostics.snapshot(mDeCtx) + "\n" + Diagnostics.recentOutput(log)
-                + "\nCOMPLETE RUN LOG\n" + log;
+        log = ReportRedactor.redact(Diagnostics.snapshot(mDeCtx) + "\n" + RecoveryState.summary(mDeCtx)
+                + "\n" + D2Status.read(this).detail + "\n" + Diagnostics.recentOutput(log)
+                + "\nCOMPLETE RUN LOG\n" + log);
         try {
             ContentValues values = new ContentValues();
             values.put(MediaStore.Downloads.DISPLAY_NAME, "FragX_diagnostics.txt");
@@ -2065,7 +2157,7 @@ public class MainActivity extends AppCompatActivity implements IReporter {
                 boolean rooted = new File("/dev/df").exists();
                 if (rooted) {
                     setRootedState(true);
-                    binding.twoStep.setSeg2(1f, "Verified", 0xFFFFFFFF);
+                    refreshLiveStatus();
                 } else {
                     setFailedState();
                     setRootedState(false);

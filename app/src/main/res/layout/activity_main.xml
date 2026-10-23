@@ -120,7 +120,7 @@
                 android:layout_marginEnd="6dp"
                 android:background="@drawable/bg_odin_pill"
                 android:clickable="true"
-                android:contentDescription="Odin download mode availability"
+                android:contentDescription="VaultGuard Samsung recovery checks"
                 android:focusable="true"
                 android:gravity="center_vertical"
                 android:minWidth="44dp"
@@ -140,7 +140,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
-                    android:text="Odin"
+                    android:text="VaultGuard"
                     android:textColor="#FFD9D9D9"
                     android:textSize="12sp"
                     android:textStyle="bold" />
@@ -458,6 +458,21 @@
 
     </df.root.DraggableCardView>
 
+    <df.root.DraggableCardView
+        android:id="@+id/cardRecovery"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        app:cardCornerRadius="26dp" app:cardElevation="0dp" app:cardUseCompatPadding="false">
+        <LinearLayout android:id="@+id/rowRecovery"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:padding="16dp"
+            android:background="@drawable/menu_row_highlight">
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="Recovery &amp; diagnostics  ›" android:textColor="#FFFFFFFF" android:textSize="17sp" />
+            <TextView android:id="@+id/recoverySubtitle" android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:layout_marginTop="4dp"
+                android:text="Boot result, reports and reboot controls" android:textColor="#FF9E9E9E" android:textSize="13sp" />
+        </LinearLayout>
+    </df.root.DraggableCardView>
     </df.root.CardStackLayout>
 
     <!-- The advanced log. CardStackLayout owns this box (VIS4): it keeps a window

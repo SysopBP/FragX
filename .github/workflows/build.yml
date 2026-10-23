@@ -2,7 +2,7 @@ name: Build
 
 on:
   push:
-    branches: [master, main]
+    branches: [master, main, 'test/upstream-139-samsung']
     tags: ['v*']
   pull_request:
     branches: [master, main]
@@ -117,6 +117,9 @@ jobs:
         run: python3 tools/verify_release.py --prepare
 
       - uses: gradle/actions/setup-gradle@v6
+
+      - name: Test VaultGuard policy and power deadlines
+        run: ./gradlew :app:testDebugUnitTest
 
       - name: Build DFRoot APK
         run: |

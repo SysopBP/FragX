@@ -9,9 +9,9 @@
 #include <unistd.h>
 
 #define BLKROSET   0x125d
-#define KSUD_STAGE "/data/user_de/0/df.root/ksud"
+#define KSUD_STAGE "/data/user_de/0/com.sysopbp.fragx/ksud"
 #define KSUD       "/data/adb/ksud"
-#define PREFS_PATH "/data/user_de/0/df.root/shared_prefs/dfroot.xml"
+#define PREFS_PATH "/data/user_de/0/com.sysopbp.fragx/shared_prefs/dfroot.xml"
 #define MODULES_DIR "/data/adb/modules"
 
 static int pref_true(const char *buf, const char *key)
@@ -80,7 +80,8 @@ static int should_ro(const char *name)
 {
     size_t len = strlen(name);
     if (!strcmp(name, "super"))  return 1;
-    if (!strcmp(name, "misc"))   return 1;
+    /* Boot-control HAL must write misc when committing boot checkpoints. */
+    if (!strcmp(name, "misc"))   return 0;
     if (!strcmp(name, "steady")) return 1;
     if (len >= 2 && name[len - 2] == '_' &&
         (name[len - 1] == 'a' || name[len - 1] == 'b'))
@@ -220,32 +221,17 @@ int main(void)
     }
 
     touch("/dev/dfm5");
-    // ksu only allows init to switch to ksud context and we are in kernel context now
-    // once ksu starts, selinux is enforcing, but here its still permissive
-    // switch our context while we still can
-    pid_t pid = fork();
-    if (pid < 0)
-        return 1;
-    if (pid == 0) {
-        int fd = open("/proc/self/attr/current", O_WRONLY);
-        if (fd >= 0) {
-            const char *ctx = "u:r:init:s0";
-            write(fd, ctx, strlen(ctx));
-            close(fd);
+    if (run_ctx(NULL, (char *[]){ KSUD_STAGE, "late-load", "--package-name", su_manager, NULL }) == 0) {
+        touch("/dev/dfm6");
+        if (soft_reboot) {
+            while (late_load_running()) sleep(1);
+            int reboot_rc = run_ctx("u:r:ksu:s0", (char *[]){ KSUD, "soft-reboot", NULL });
+            if (reboot_rc != 0)
+                touch("/dev/dfme3");
         }
-        if (run_ctx(NULL, (char *[]){ KSUD_STAGE, "late-load", "--package-name", su_manager, NULL }) == 0) {
-            touch("/dev/dfm6");
-            if (soft_reboot) {
-                while (late_load_running()) sleep(1);
-                run_ctx("u:r:ksu:s0", (char *[]){ KSUD, "soft-reboot", NULL });
-            }
-        } else {
-            touch("/dev/dfme2");
-        }
-        _exit(0);
+    } else {
+        touch("/dev/dfme2");
     }
-    int status;
-    waitpid(pid, &status, 0);
 
     return 0;
 }
