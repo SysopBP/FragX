@@ -489,16 +489,13 @@ public class MainActivity extends AppCompatActivity implements IReporter {
         });
         mExec.execute(this::checkForAppUpdate);
 
-        // Odin / download-mode availability: the pill left of the menu button,
-        // built from the same inputs Samsung writes into its DMC vault, so it
-        // needs no root - see D2Status for why reading the vault itself cannot
-        // work from here. Tapping it opens a submenu of the three facts behind the
-        // dot, which is what makes a wrong dot arguable without a cable.
+        // Actual VaultGuard status; unavailable hooks remain gray.
+        binding.odinLabel.setText("VaultGuard");
         binding.odinPill.setOnClickListener(v -> {
             v.performHapticFeedback(HapticFeedbackConstants.KEYBOARD_TAP);
             showOdinPopup();
         });
-        mExec.execute(this::refreshOdin);
+        requestVaultGuard();
 
         // SU Manager card: upstream 3.2 deleted the bundled assets/ksud, so the
         // exploit stages libksud.so out of the chosen manager's
@@ -1228,6 +1225,8 @@ public class MainActivity extends AppCompatActivity implements IReporter {
     @Override
     protected void onResume() {
         super.onResume();
+        refreshOdin();
+        requestVaultGuard();
         loadSuManagerPref();
         // updateRunButton() re-reads /dev/df, so a root gained outside this
         // activity - the tile, the boot receiver - shows up on the way back in.
@@ -1608,18 +1607,7 @@ public class MainActivity extends AppCompatActivity implements IReporter {
         }
     }
 
-    /**
-     * Reads the Odin / download-mode state and paints the toolbar dot: green when
-     * download mode is not gated, red when the firmware will answer with the D2
-     * error, grey when this device does not gate download mode at all - which is
-     * also what a non-Samsung device gets, so the control never vanishes on a
-     * Galaxy for no visible reason. Runs on the background executor because
-     * D2Status reads the Settings provider; the dot itself is touched on the UI
-     * thread. The inputs go to logcat under this tag as well as into the submenu,
-     * so a dot the owner disagrees with is traceable to the facts that produced it
-     * rather than being a mystery, which is how the vault-reading attempt at this
-     * feature stayed undiagnosable.
-     */
+    /** Paint only verified VaultGuard results. */
     private void refreshOdin() {
         D2Status.Result r = D2Status.read(this);
         mMain.post(() -> {
@@ -1636,79 +1624,41 @@ public class MainActivity extends AppCompatActivity implements IReporter {
             binding.odinDot.setBackgroundTintList(ColorStateList.valueOf(dot));
         });
     }
-    /**
-     * The submenu that hangs off the Odin pill: the three facts the dot is
-     * computed from, as three lines. Same rounded card, 46dp rows, hairline
-     * separators, scale-in and dimmed backdrop as the overflow menu, because two
-     * popups that do different jobs should look like the same control. Read-only,
-     * so the rows carry no press highlight and an outside tap closes it.
-     */
-    private void showOdinPopup() {
-        D2Status.Result r = mOdin;
-        if (r == null) {
-            // The first tap beat the background read. Reading here costs three
-            // binder round trips on a tap, which is the one moment that is free.
-            r = D2Status.read(this);
-            mOdin = r;
-        }
-        float md = getResources().getDisplayMetrics().density;
-        final D2Status.Result shown = r;
-
-        android.widget.LinearLayout box = new android.widget.LinearLayout(this);
-        box.setOrientation(android.widget.LinearLayout.VERTICAL);
-        box.setBackgroundResource(R.drawable.popup_bg);
-        box.setPadding(0, (int) (6 * md), 0, (int) (6 * md));
-
-        box.addView(odinRow("Lockscreen", shown.lockscreenLabel()), odinRowLp(md));
-        box.addView(odinSep(md), odinSepLp(md));
-        box.addView(odinRow("Maintenance Mode", shown.maintenanceLabel()), odinRowLp(md));
-        box.addView(odinSep(md), odinSepLp(md));
-        box.addView(odinRow("Device", shown.deviceLabel()), odinRowLp(md));
-
-        box.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED);
-        int pw_w = Math.max(box.getMeasuredWidth(), (int) (230 * md));
-
-        final android.widget.PopupWindow pw = new android.widget.PopupWindow(box,
-                pw_w, android.view.ViewGroup.LayoutParams.WRAP_CONTENT, true);
-        pw.setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(
-                android.graphics.Color.TRANSPARENT));
-        pw.setOutsideTouchable(true);
-        pw.setOnDismissListener(() ->
-                binding.dimOverlay.animate().alpha(0f).setDuration(150)
-                        .withEndAction(() -> binding.dimOverlay
-                                .setVisibility(View.GONE)).start());
-
-        box.setOutlineProvider(new android.view.ViewOutlineProvider() {
-            @Override
-            public void getOutline(View view, android.graphics.Outline outline) {
-                outline.setRoundRect(0, 0, view.getWidth(), view.getHeight(), 26 * md);
-            }
+    private void requestVaultGuard() {
+        df.root.vaultguard.DmcRecovery.refreshForUi(this, () -> {
+            if (!isFinishing() && !isDestroyed()) refreshOdin();
         });
-        box.setClipToOutline(true);
-        box.setElevation(48 * md);
+    }
 
-        // Right-aligned under the pill, which is how the overflow menu hangs off
-        // its own button. Clamped to an 8dp margin so a popup wider than the
-        // screen cannot walk off the left edge.
-        int[] loc = new int[2];
-        binding.odinPill.getLocationOnScreen(loc);
-        int x = Math.max((int) (8 * md),
-                loc[0] + binding.odinPill.getWidth() - pw_w);
-        int y = loc[1] + binding.odinPill.getHeight() + (int) (4 * md);
-
-        binding.dimOverlay.setVisibility(View.VISIBLE);
-        binding.dimOverlay.setAlpha(0f);
-        binding.dimOverlay.animate().alpha(0.5f).setDuration(150).start();
-        box.setPivotX(pw_w);
-        box.setPivotY(0f);
-        box.setScaleX(0.85f);
-        box.setScaleY(0.9f);
-        box.setAlpha(0f);
-        pw.showAtLocation(binding.odinPill,
-                android.view.Gravity.TOP | android.view.Gravity.START, x, y);
-        box.animate().scaleX(1f).scaleY(1f).alpha(1f).setDuration(150)
-                .setInterpolator(new android.view.animation.DecelerateInterpolator())
-                .start();
+    private void showOdinPopup() {
+        android.widget.TextView report = new android.widget.TextView(this);
+        int padding = Math.round(20 * getResources().getDisplayMetrics().density);
+        report.setPadding(padding, padding, padding, padding);
+        report.setTextIsSelectable(true);
+        report.setText(D2Status.read(this).detail);
+        android.widget.ScrollView scroll = new android.widget.ScrollView(this);
+        scroll.addView(report);
+        androidx.appcompat.app.AlertDialog dialog = new androidx.appcompat.app.AlertDialog.Builder(this)
+                .setTitle("VaultGuard status")
+                .setView(scroll)
+                .setPositiveButton("Refresh", null)
+                .setNegativeButton("Close", null)
+                .create();
+        GlassDialog.show(dialog);
+        Runnable refresh = () -> {
+            report.setText("Samsung recovery checks…");
+            dialog.getButton(android.content.DialogInterface.BUTTON_POSITIVE).setEnabled(false);
+            df.root.vaultguard.DmcRecovery.refreshForUi(this, () -> {
+                if (isFinishing() || isDestroyed()) return;
+                refreshOdin();
+                if (dialog.isShowing()) {
+                    report.setText(D2Status.read(this).detail);
+                    dialog.getButton(android.content.DialogInterface.BUTTON_POSITIVE).setEnabled(true);
+                }
+            });
+        };
+        dialog.getButton(android.content.DialogInterface.BUTTON_POSITIVE).setOnClickListener(v -> refresh.run());
+        refresh.run();
     }
 
     /**

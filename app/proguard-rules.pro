@@ -14,3 +14,4 @@
 }
 
 -dontwarn df.root.**
+-keep class df.root.vaultguard.VaultGuardModule { *; }

@@ -118,6 +118,9 @@ jobs:
 
       - uses: gradle/actions/setup-gradle@v6
 
+      - name: Test VaultGuard policy and power deadlines
+        run: ./gradlew :app:testDebugUnitTest
+
       - name: Build DFRoot APK
         run: |
           if [ "${{ github.event_name }}" = "pull_request" ]; then
