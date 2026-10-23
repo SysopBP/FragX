@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity implements IReporter {
 
     /** The card keys as they are written to dfroot_ui, in the shipped order.
      *  "sumanager" is first and is the one card that can never be hidden. */
-    private static final String[] CARD_KEYS = {"sumanager", "autorun", "modules", "log", "recovery"};
+    private static final String[] CARD_KEYS = {"sumanager", "autorun", "modules", "recovery", "log"};
     /** Hide button per card, index-parallel to CARD_KEYS. They live in the root
      *  layout, not inside the cards: MaterialCardView clips its children to the
      *  rounded outline, and the badge has to straddle the card's top-left edge. */
