@@ -80,7 +80,8 @@ static int should_ro(const char *name)
 {
     size_t len = strlen(name);
     if (!strcmp(name, "super"))  return 1;
-    if (!strcmp(name, "misc"))   return 1;
+    /* Boot-control HAL must write misc when committing boot checkpoints. */
+    if (!strcmp(name, "misc"))   return 0;
     if (!strcmp(name, "steady")) return 1;
     if (len >= 2 && name[len - 2] == '_' &&
         (name[len - 1] == 'a' || name[len - 1] == 'b'))
