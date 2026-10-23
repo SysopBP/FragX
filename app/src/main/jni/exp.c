@@ -580,6 +580,7 @@ static int exploit(void) {
         { "/dev/dfm5",  "bootstrap: starting SU daemon",                    -1 },
         { "/dev/dfm6",  "ksud start: SUCCESS",                               0 },
         { "/dev/dfme2", "ksud start: ERROR - ksud nonzero exit",             1 },
+        { "/dev/dfme3", "soft reboot: ERROR - ksud command failed",          -1 },
     };
     int seen[sizeof(markers)/sizeof(markers[0])] = {0};
 
