@@ -1953,7 +1953,7 @@ public class MainActivity extends AppCompatActivity implements IReporter {
         // Probe off the UI thread; a manager permission prompt may take time.
         binding.twoStep.setSeg1(new File("/dev/df").exists() ? 1f : 0f, "Checking root…");
         mExec.execute(() -> {
-            String uid = RecoveryShell.run("id -u");
+            String uid = RecoveryShell.run(mDeCtx, "id -u");
             boolean root = RecoveryShell.uidZero(uid);
             boolean manager = false;
             try {
@@ -1986,7 +1986,7 @@ public class MainActivity extends AppCompatActivity implements IReporter {
                 + "\nLive UID: checking…");
         panel.addView(status);
         mExec.execute(() -> {
-            String uid = RecoveryShell.run("id -u");
+            String uid = RecoveryShell.run(mDeCtx, "id -u");
             if (RecoveryShell.uidZero(uid)) RecoveryState.recordVerifiedRoot(mDeCtx);
             mMain.post(() -> {
                 if (!isFinishing() && !isDestroyed()) {
@@ -2066,13 +2066,13 @@ public class MainActivity extends AppCompatActivity implements IReporter {
                         return kotlin.Unit.INSTANCE;
                     }
                     mExec.execute(() -> {
-                    if (!RecoveryShell.uidZero(RecoveryShell.run("id -u"))) {
+                    if (!RecoveryShell.uidZero(RecoveryShell.run(mDeCtx, "id -u"))) {
                         mMain.post(() -> android.widget.Toast.makeText(this, "Root shell unavailable", android.widget.Toast.LENGTH_LONG).show());
                         return;
                     }
                     RecoveryState.prefs(mDeCtx).edit().putLong("reboot_at", System.currentTimeMillis())
                             .putString("reboot_kind", soft ? "Soft reboot" : "Full reboot").commit();
-                    String result = RecoveryShell.run(soft ? "/data/adb/ksud soft-reboot" : "reboot");
+                    String result = RecoveryShell.reboot(mDeCtx, soft);
                     mMain.post(() -> {
                         if (!isFinishing() && !isDestroyed()) android.widget.Toast.makeText(this,
                                 result.startsWith("Unavailable") ? result : "Reboot request sent; completion unconfirmed",
