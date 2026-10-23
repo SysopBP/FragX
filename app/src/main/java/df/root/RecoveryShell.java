@@ -29,7 +29,8 @@ final class RecoveryShell {
             String output = read.get(1, TimeUnit.SECONDS).trim();
             return process.exitValue() == 0 ? output : "Unavailable (exit " + process.exitValue() + "): " + output;
         } catch (Exception e) {
-            return "Unavailable: " + e.getClass().getSimpleName();
+            return "Unavailable: " + e.getClass().getSimpleName()
+                    + (e.getMessage() == null ? "" : ": " + e.getMessage());
         } finally {
             if (process != null) {
                 process.destroy();
@@ -38,18 +39,19 @@ final class RecoveryShell {
         }
     }
     private static Process startSu(String command) throws java.io.IOException {
-        // Use an absolute path first: KernelSU can handle su at exec time even
-        // when Java's PATH search cannot find an on-disk su executable.
-        java.io.IOException last = null;
+        // Java may reject a missing executable before KernelSU's exec hook
+        // sees it. Let Android's shell issue exec instead. Retry only missing
+        // or non-executable entry points, never permission denial or timeout.
+        String script = "";
         for (String su : new String[]{"/system/bin/su", "/system/xbin/su",
                 "/sbin/su", "/debug_ramdisk/su", "su"}) {
-            try {
-                return new ProcessBuilder(su, "-c", command).redirectErrorStream(true).start();
-            } catch (java.io.IOException e) {
-                last = e;
-            }
+            script += "out=$(" + su + " -c \"$1\" 2>&1); rc=$?; "
+                    + "if [ \"$rc\" -ne 126 ] && [ \"$rc\" -ne 127 ]; then "
+                    + "printf '%s\\n' \"$out\"; exit \"$rc\"; fi; ";
         }
-        throw new java.io.IOException("No root shell could be started", last);
+        script += "printf '%s\\n' \"$out\"; exit \"$rc\"";
+        return new ProcessBuilder("/system/bin/sh", "-c", script, "fragx-su", command)
+                .redirectErrorStream(true).start();
     }
     static boolean uidZero(String result) { return "0".equals(result.trim()); }
     private RecoveryShell() {}

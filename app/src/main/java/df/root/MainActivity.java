@@ -1959,8 +1959,7 @@ public class MainActivity extends AppCompatActivity implements IReporter {
                         getPackageManager().getApplicationInfo(suManagerPkg, 0));
             } catch (Exception ignored) { }
             final boolean installed = manager;
-            if (root) RecoveryState.prefs(mDeCtx).edit()
-                    .putLong("root_verified_at", System.currentTimeMillis()).apply();
+            if (root) RecoveryState.recordVerifiedRoot(mDeCtx);
             mMain.post(() -> {
                 if (isFinishing() || isDestroyed() || running) return;
                 boolean driver = new File("/dev/df").exists();
@@ -1984,8 +1983,7 @@ public class MainActivity extends AppCompatActivity implements IReporter {
         panel.addView(status);
         mExec.execute(() -> {
             String uid = RecoveryShell.run("id -u");
-            if (RecoveryShell.uidZero(uid)) RecoveryState.prefs(mDeCtx).edit()
-                    .putLong("root_verified_at", System.currentTimeMillis()).apply();
+            if (RecoveryShell.uidZero(uid)) RecoveryState.recordVerifiedRoot(mDeCtx);
             mMain.post(() -> {
                 if (!isFinishing() && !isDestroyed()) status.setText(Diagnostics.snapshot(mDeCtx)
                         + "\n" + RecoveryState.summary(mDeCtx) + "\nLive UID: " + uid);

@@ -57,6 +57,21 @@ final class RecoveryState {
         prefs(c).edit().putBoolean("pending", false).putBoolean("failed", !ok)
                 .putString("result", result).putLong("finished_at", System.currentTimeMillis()).commit();
     }
+    static synchronized void recordVerifiedRoot(Context c) {
+        SharedPreferences p = prefs(c);
+        SharedPreferences.Editor edit = p.edit()
+                .putLong("root_verified_at", System.currentTimeMillis())
+                .putInt("root_verified_boot", boot(c));
+        // A later live check can resolve an interrupted attempt in this boot.
+        // Never clear a recorded native failure or an attempt still running.
+        if (!ExploitRunner.active && p.getBoolean("pending", false)
+                && !p.getBoolean("failed", false)
+                && boot(c) >= 0 && p.getInt("attempt_boot", -1) == boot(c)) {
+            edit.putBoolean("pending", false)
+                    .putString("result", "Live UID 0 verified after interrupted attempt");
+        }
+        edit.apply();
+    }
     static String summary(Context c) {
         SharedPreferences p = prefs(c);
         long at = p.getLong("attempt_at", 0);
