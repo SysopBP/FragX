@@ -2,7 +2,7 @@ name: Build
 
 on:
   push:
-    branches: [master, main, 'test/upstream-139-samsung']
+    branches: [master, main, 'test/upstream-139-samsung', 'fix/recovery-root-verification-su-20261023']
     tags: ['v*']
   pull_request:
     branches: [master, main]
@@ -88,7 +88,7 @@ jobs:
           KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
         run: |
           mkdir -p app
-          if [ "${{ github.event_name }}" = "pull_request" ]; then
+          if [ "${{ github.event_name }}" = "pull_request" ] || [ "${{ github.ref_name }}" = "fix/recovery-root-verification-su-20261023" ]; then
             keytool -genkeypair -keystore app/keystore.jks -alias dirtyfrag \
               -keyalg RSA -keysize 2048 -validity 30 \
               -storepass dirtyfrag -keypass dirtyfrag -dname "CN=FragX development"
@@ -123,7 +123,7 @@ jobs:
 
       - name: Build DFRoot APK
         run: |
-          if [ "${{ github.event_name }}" = "pull_request" ]; then
+          if [ "${{ github.event_name }}" = "pull_request" ] || [ "${{ github.ref_name }}" = "fix/recovery-root-verification-su-20261023" ]; then
             ./gradlew :app:assembleDebug
           else
             ./gradlew :app:assembleRelease
@@ -134,7 +134,7 @@ jobs:
 
       - name: Verify packaged licenses and embedded modules
         run: |
-          if [ "${{ github.event_name }}" = "pull_request" ]; then
+          if [ "${{ github.event_name }}" = "pull_request" ] || [ "${{ github.ref_name }}" = "fix/recovery-root-verification-su-20261023" ]; then
             python3 tools/verify_release.py --apk app/build/outputs/apk/debug/fragx.apk
           else
             python3 tools/verify_release.py --apk app/build/outputs/apk/release/fragx.apk
@@ -156,6 +156,7 @@ jobs:
           if-no-files-found: ignore
           path: |
             app/build/outputs/apk/release/fragx.apk
+            app/build/outputs/apk/debug/fragx.apk
             app/build/outputs/apk/debug/fragx.apk
             DEPENDENCIES.txt
             MODULE_BUILD.json
