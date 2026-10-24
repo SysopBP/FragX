@@ -13,7 +13,7 @@ final class RecoveryShell {
     private static String run(android.content.Context context, String command, boolean globalMnt) {
         Process process = null;
         try {
-            process = startSu(command);
+            process = startSu(context, command, globalMnt);
             final Process child = process;
             FutureTask<String> read = new FutureTask<>(() -> {
                 // Bound captured output while continuing to drain the pipe.
@@ -54,32 +54,29 @@ final class RecoveryShell {
         return new java.io.File(app.nativeLibraryDir, "libksud.so").getAbsolutePath();
     }
 
-    private static Process startSu(String command) throws java.io.IOException {
-        // Java may reject a missing executable before KernelSU's exec hook
-        // sees it. Let Android's shell issue exec instead. Retry only missing
-        // or non-executable entry points, never permission denial or timeout.
-        // Try exec directly first: some KernelSU configurations expose su
-        // through the exec hook without placing it on disk. Keep the shell
-        // fallback for runtimes which reject missing executables in Java.
-        for (String su : new String[]{"/system/bin/su", "/system/xbin/su",
-                "/sbin/su", "/debug_ramdisk/su", "su"}) {
-            try {
-                return new ProcessBuilder(su, "-c", command).redirectErrorStream(true).start();
-            } catch (java.io.IOException missingExecutable) {
-                // No child started; trying another entry point cannot repeat the command.
+    private static Process startSu(android.content.Context context, String command,
+                                   boolean globalMnt) throws Exception {
+        // Match KitsuSU's CLI shell transport. debug su takes no -c argument:
+        // it grants the caller's existing KernelSU authorization and execs sh.
+        // Keep denial/timeouts visible; do not retry a reboot through another shell.
+        String daemon = daemonPath(context);
+        ProcessBuilder builder = globalMnt
+                ? new ProcessBuilder(daemon, "debug", "su", "-g")
+                : new ProcessBuilder(daemon, "debug", "su");
+        Process process = builder.redirectErrorStream(true).start();
+        try {
+            try (java.io.OutputStream input = process.getOutputStream()) {
+                input.write(("if [ \"$(id -u)\" != 0 ]; then "
+                        + "echo 'Root authorization unavailable'; exit 1; fi\n"
+                        + command + "\nexit $?\n").getBytes(StandardCharsets.UTF_8));
             }
+            return process;
+        } catch (Exception error) {
+            process.destroyForcibly();
+            throw error;
         }
-        String script = "";
-        for (String su : new String[]{"/system/bin/su", "/system/xbin/su",
-                "/sbin/su", "/debug_ramdisk/su", "su"}) {
-            script += "out=$(" + su + " -c \"$1\" 2>&1); rc=$?; "
-                    + "if [ \"$rc\" -ne 126 ] && [ \"$rc\" -ne 127 ]; then "
-                    + "printf '%s\\n' \"$out\"; exit \"$rc\"; fi; ";
-        }
-        script += "printf '%s\\n' \"$out\"; exit \"$rc\"";
-        return new ProcessBuilder("/system/bin/sh", "-c", script, "fragx-su", command)
-                .redirectErrorStream(true).start();
     }
+
     static String reboot(android.content.Context context, boolean soft) {
         try {
             String command = soft
